@@ -1,12 +1,16 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const aboutCoverImage =
   'https://cdn.prod.website-files.com/63dda5ccc90398185fca7bcc/64563518ad6d32347cead071_image%209.1.png'
 
+const nameParticles = new Set(['de', 'del', 'la', 'las', 'los', 'y'])
+
 const teamMembers = [
   {
     name: 'Aeelen Miranda',
     role: 'Python, inteligencia artificial y Big Data',
+    photo: '/images/team/aeelen-miranda.png',
     bio: [
       'Es experta en programación en Python e inteligencia artificial, con especialidad en manejo de Big Data. Ha trabajado en proyectos para diferentes instituciones y centros de estudios como INEGI, IDC MX y CESOP, en los cuales se ha enfocado en la innovación tecnológica.',
       'Es licenciada en Estudios Socioterritoriales por la Universidad Autónoma Metropolitana (UAM).',
@@ -18,6 +22,15 @@ const teamMembers = [
     bio: [
       'Creadora de contenido multimedia, difusión y community manager. Ha trabajado en diferentes oficinas de gobierno y medios de comunicación.',
       'Tiene una Maestría en Política y Gestión Energética y Medioambiental por la FLACSO México. Es licenciada en Periodismo por la Escuela de Periodismo Carlos Septién García.',
+    ],
+  },
+  {
+    name: 'Diana Varela',
+    role: 'Innovación empresarial, intraemprendimiento y dirección estratégica',
+    photo: '/images/team/diana-varela-londono.png',
+    bio: [
+      'Diana Janneth Varela Londoño es una profesional e investigadora colombiana especializada en innovación empresarial, intraemprendimiento y dirección estratégica. Su trayectoria se ha enfocado en fortalecer capacidades organizacionales orientadas al emprendimiento corporativo y la transformación empresarial.',
+      'Cuenta con formación doctoral en Dirección de Empresas por Mondragon Unibertsitatea y ha desarrollado investigación, consultoría y proyectos de innovación abierta, gestión del conocimiento y fortalecimiento de ecosistemas de emprendimiento en España y Colombia.',
     ],
   },
   {
@@ -39,6 +52,7 @@ const teamMembers = [
   {
     name: 'Winik Ivanovich Morales',
     role: 'Python, ciencia de datos e inteligencia artificial',
+    photo: '/images/team/winik-ivanovich-morales.png',
     bio: [
       'Es experto programador en Python, científico de datos e inteligencia artificial. Ha sido consultor ambiental para distintas consultoras y le apasiona la minería de datos.',
       'Es ingeniero ambiental por el Instituto Tecnológico de Misantla, Veracruz. Ha trabajado como consultor externo en diferentes investigaciones y publicaciones del CESOP.',
@@ -88,6 +102,7 @@ const teamMembers = [
   {
     name: 'Raymundo Rodríguez Rosas',
     role: 'Back-end, software a la medida y bases de datos',
+    photo: '/images/team/raymundo-rodriguez-rosas.png',
     bio: [
       'Es ingeniero en Sistemas Computacionales por el Instituto de Estudios Superiores de Puebla (IESE). Ha colaborado en proyectos de desarrollo de software para diferentes empresas, como experto en puntos de venta, sistemas a la medida, desarrollo web y facturación electrónica CFDI 4.0.',
       'Además, es CEO y fundador de Taxi Ejad, una plataforma móvil para el transporte público de taxis. Ha desarrollado aplicativos de escritorio para Windows y apps en Android nativo, especializándose como desarrollador back-end.',
@@ -98,6 +113,7 @@ const teamMembers = [
   {
     name: 'Felipe de Alba',
     role: 'Ciencia de datos, IA y social listening',
+    photo: '/images/team/felipe-de-alba.png',
     bio: [
       'Especialista en ciencia de datos, inteligencia artificial y social listening. Es experto reconocido en temas hídricos, metrópolis e incidencia delictiva, con una gran variedad de publicaciones nacionales e internacionales.',
       'Tiene amplia experiencia en la función pública, como director general del Centro de Estudios Sociales y de Opinión Pública de la Cámara de Diputados federal. También fue director general en el Gobierno de la Ciudad de México.',
@@ -107,12 +123,46 @@ const teamMembers = [
   {
     name: 'Bryan Guzmán Álvarez',
     role: 'Full-Stack Developer System',
+    photo: '/images/team/bryan-guzman-alvarez.png',
     bio: [
       'Desarrollador full-stack especializado en la construcción de soluciones web y sistemas digitales escalables. Cuenta con experiencia en front-end utilizando Angular, React e Ionic, integrando interfaces modernas, funcionales y orientadas a una experiencia de usuario eficiente.',
       'En back-end trabaja con Node.js, PHP, MySQL y PostgreSQL, desarrollando APIs, modelos de datos y servicios robustos para aplicaciones empresariales. Su perfil combina criterio técnico, capacidad de integración y enfoque en soluciones estables para entornos productivos.',
     ],
   },
 ]
+
+function getMemberInitials(name) {
+  return name
+    .split(' ')
+    .filter(Boolean)
+    .filter((part) => !nameParticles.has(part.toLowerCase()))
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+}
+
+function TeamPortrait({ member }) {
+  const [hasImageError, setHasImageError] = useState(false)
+  const showPhoto = Boolean(member.photo) && !hasImageError
+
+  return (
+    <div className="team-portrait-frame">
+      {showPhoto ? (
+        <img
+          className="team-portrait"
+          src={member.photo}
+          alt={`Retrato de ${member.name}`}
+          loading="lazy"
+          onError={() => setHasImageError(true)}
+        />
+      ) : (
+        <div className="team-avatar" aria-hidden="true">
+          {getMemberInitials(member.name)}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function About() {
   return (
@@ -150,16 +200,11 @@ export default function About() {
         {teamMembers.map((member) => (
           <article className="team-card" key={member.name}>
             <div className="team-card-header">
-              <div className="team-avatar" aria-hidden="true">
-                {member.name
-                  .split(' ')
-                  .slice(0, 2)
-                  .map((part) => part[0])
-                  .join('')}
-              </div>
-              <div>
+              <TeamPortrait member={member} />
+              <div className="team-card-copy">
+                <span className="team-card-label">Equipo NNI</span>
                 <h2>{member.name}</h2>
-                <p>{member.role}</p>
+                <p className="team-card-role">{member.role}</p>
               </div>
             </div>
             <div className="team-bio">
