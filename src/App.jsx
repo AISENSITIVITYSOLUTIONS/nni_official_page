@@ -1,0 +1,31 @@
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import Layout from './components/layout/Layout'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Courses from './pages/Courses'
+import Dashboard from './pages/Dashboard'
+import Home from './pages/Home'
+import Products from './pages/Products'
+import Publications from './pages/Publications'
+import Services from './pages/Services'
+import './App.css'
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/servicios" element={<Services />} />
+          <Route path="/cursos" element={<Courses />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/publicaciones" element={<Publications />} />
+          <Route path="/nosotros" element={<About />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/contacto" element={<Contact />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
+  )
+}
