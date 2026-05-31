@@ -241,17 +241,17 @@
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .team-card {
   position: relative;
   overflow: hidden;
   display: grid;
-  gap: 20px;
+  gap: 10px;
   min-height: 100%;
-  padding: 24px;
+  padding: 20px;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: linear-gradient(145deg, rgba(24, 37, 58, 0.86), rgba(9, 19, 34, 0.72));
@@ -269,13 +269,13 @@
 
 .team-card-header {
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
-  gap: 18px;
+  gap: 10px;
   align-items: start;
 }
 
 .team-portrait-frame {
-  width: 112px;
+  width: min(100%, 118px);
+  justify-self: center;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   border: 1px solid rgba(148, 242, 255, 0.22);
@@ -311,45 +311,29 @@
 
 .team-card-copy {
   display: grid;
-  gap: 10px;
-  align-self: center;
-}
-
-.team-card-label {
-  width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 10px;
-  border: 1px solid rgba(148, 242, 255, 0.2);
-  border-radius: 999px;
-  color: var(--cyan);
-  background: rgba(148, 242, 255, 0.08);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  gap: 4px;
 }
 
 .team-card h2 {
   color: #ffffff;
-  font-size: 1.28rem;
-  line-height: 1.2;
+  font-size: 1.14rem;
+  line-height: 1.24;
   margin: 0;
 }
 
 .team-card-role {
   color: var(--cyan);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 800;
-  line-height: 1.45;
+  line-height: 1.5;
   margin: 0;
 }
 
 .team-bio {
   display: grid;
-  gap: 14px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(148, 242, 255, 0.12);
+  gap: 10px;
+  padding-top: 0;
+  border-top: none;
 }
 
 .team-bio p + p {
@@ -358,8 +342,8 @@
 
 .team-bio p {
   color: #d4dfed;
-  font-size: 0.97rem;
-  line-height: 1.68;
+  font-size: 0.92rem;
+  line-height: 1.58;
   margin: 0;
 }
 
@@ -387,11 +371,6 @@
     border-color 240ms ease,
     box-shadow 240ms ease,
     filter 240ms ease;
-}
-
-.team-bio {
-  display: grid;
-  gap: 12px;
 }
 
 .about-contact {
@@ -1631,7 +1610,6 @@
   }
 
   .about-feature,
-  .team-grid,
   .about-contact,
   .dashboard-hero,
   .contact-hero,
@@ -1641,6 +1619,10 @@
   .service-feature,
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .publications-grid,
@@ -1806,12 +1788,11 @@
   }
 
   .team-card-header {
-    grid-template-columns: 88px minmax(0, 1fr);
-    gap: 14px;
+    gap: 10px;
   }
 
   .team-portrait-frame {
-    width: 88px;
+    width: 96px;
     border-radius: 16px;
   }
 
@@ -1823,9 +1804,8 @@
     font-size: 1.12rem;
   }
 
-  .team-card-label {
-    font-size: 0.66rem;
-    letter-spacing: 0.12em;
+  .team-grid {
+    grid-template-columns: 1fr;
   }
 
   .team-bio {

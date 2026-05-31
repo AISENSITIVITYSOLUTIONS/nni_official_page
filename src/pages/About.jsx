@@ -8,6 +8,16 @@ const nameParticles = new Set(['de', 'del', 'la', 'las', 'los', 'y'])
 
 const teamMembers = [
   {
+    name: 'Felipe de Alba',
+    role: 'Ciencia de datos, IA y social listening',
+    photo: '/images/team/felipe-de-alba.jpeg',
+    bio: [
+      'Especialista en ciencia de datos, inteligencia artificial y social listening. Es experto reconocido en temas hídricos, metrópolis e incidencia delictiva, con una gran variedad de publicaciones nacionales e internacionales.',
+      'Tiene amplia experiencia en la función pública, como director general del Centro de Estudios Sociales y de Opinión Pública de la Cámara de Diputados federal. También fue director general en el Gobierno de la Ciudad de México.',
+      'Cuenta con dos posdoctorados, uno en el MIT y otro en la École normale supérieure (ENS-Lyon), Francia. Es doctor en Planeación Territorial por la Universidad de Montreal, además de maestro y licenciado en Ciencia Política. Ha publicado 20 libros y más de 40 artículos científicos en revistas internacionales.',
+    ],
+  },
+   {
     name: 'Aeelen Miranda',
     role: 'Python, inteligencia artificial y Big Data',
     photo: '/images/team/aeelen-miranda.png',
@@ -17,14 +27,16 @@ const teamMembers = [
     ],
   },
   {
-    name: 'Itzel de Alba',
-    role: 'Contenido multimedia, difusión y comunidad',
+    name: 'Bryan Guzmán Álvarez',
+    role: 'Full-Stack Developer System',
+    photo: '/images/team/bryan-guzman-alvarez.png',
     bio: [
-      'Creadora de contenido multimedia, difusión y community manager. Ha trabajado en diferentes oficinas de gobierno y medios de comunicación.',
-      'Tiene una Maestría en Política y Gestión Energética y Medioambiental por la FLACSO México. Es licenciada en Periodismo por la Escuela de Periodismo Carlos Septién García.',
+      'Desarrollador full-stack especializado en la construcción de soluciones web y sistemas digitales escalables. Cuenta con experiencia en front-end utilizando Angular, React e Ionic, integrando interfaces modernas, funcionales y orientadas a una experiencia de usuario eficiente.',
+      'En back-end trabaja con Node.js, PHP, MySQL y PostgreSQL, desarrollando APIs, modelos de datos y servicios robustos para aplicaciones empresariales. Su perfil combina criterio técnico, capacidad de integración y enfoque en soluciones estables para entornos productivos.',
     ],
   },
-  {
+  
+   {
     name: 'Diana Varela',
     role: 'Innovación empresarial, intraemprendimiento y dirección estratégica',
     photo: '/images/team/diana-varela-londono.png',
@@ -33,20 +45,24 @@ const teamMembers = [
       'Cuenta con formación doctoral en Dirección de Empresas por Mondragon Unibertsitatea y ha desarrollado investigación, consultoría y proyectos de innovación abierta, gestión del conocimiento y fortalecimiento de ecosistemas de emprendimiento en España y Colombia.',
     ],
   },
+ 
   {
-    name: 'Josefina Pérez',
-    role: 'Movilidades, cooperación internacional y seguridad',
+    name: 'Raymundo Rodríguez Rosas',
+    role: 'Back-end, software a la medida y bases de datos',
+    photo: '/images/team/raymundo-rodriguez-rosas.png',
     bio: [
-      'Es experta en análisis de temas fronterizos y en procesos de cooperación internacional sobre movilidades y seguridad. Cuenta con amplia experiencia en desarrollo económico y normatividad ambiental dentro del Gobierno de la Ciudad de México, así como en temas de migración dentro del gobierno federal.',
-      'Es doctora por la Universidad de Sussex y maestra por la Universidad de las Américas. Fue investigadora visitante en la Universidad de Turín, en la especialización de migraciones internacionales y seguridad fronteriza en Norteamérica y el Mediterráneo.',
+      'Es ingeniero en Sistemas Computacionales por el Instituto de Estudios Superiores de Puebla (IESE). Alto potencial en puntos de venta, sistemas a la medida, desarrollo web y facturación electrónica CFDI 4.0.',
+      'CEO y fundador de Taxi Ejad. Ha desarrollado aplicativos de escritorio para Windows y apps en Android nativo, especializándose en el back-end.',
+      'Master en SQL, diseño y arquitectura de bases de datos. También es experto en VB.NET, C#.NET, Node.js, PHP y JavaScript. Tiene experiencia en Firebase y Google Maps para desarrollar apps y servicios basados en la nube.',
     ],
   },
   {
-    name: 'Senet Ferriz',
-    role: 'Diseño y gestión de redes',
+    name: 'Itzel de Alba',
+    role: 'Contenido multimedia, difusión y comunidad',
+    photo: '/images/team/itzel-de-alba.jpeg',
     bio: [
-      'Es experta en diseño y gestión de redes. Tiene una Maestría en Administración y Dirección de Empresas por la Escuela Europea de Dirección y Empresa (EUDE), en España. Es ingeniera en Telecomunicaciones por la Universidad Nacional Autónoma de México (UNAM).',
-      'También es directora ejecutiva de la Escuela Nacional de Ajedrez Liga C, instructora de ajedrez con gran experiencia a nivel educativo y empresarial, y creadora de contenido para redes sociales sobre temas de ajedrez e ingeniería.',
+      'Creadora de contenido multimedia, difusión y community manager. Ha trabajado en diferentes oficinas de gobierno y medios de comunicación.',
+      'Tiene una Maestría en Política y Gestión Energética y Medioambiental por la FLACSO México. Es licenciada en Periodismo por la Escuela de Periodismo Carlos Septién García.',
     ],
   },
   {
@@ -56,8 +72,28 @@ const teamMembers = [
     bio: [
       'Es experto programador en Python, científico de datos e inteligencia artificial. Ha sido consultor ambiental para distintas consultoras y le apasiona la minería de datos.',
       'Es ingeniero ambiental por el Instituto Tecnológico de Misantla, Veracruz. Ha trabajado como consultor externo en diferentes investigaciones y publicaciones del CESOP.',
+      'Participa en propuestas y soluciones puntuales segun su entorno, con preponderancia en el desarrollo habilidades basicas de IApara el uso publico.',
     ],
   },
+  
+  {
+    name: 'Josefina Pérez',
+    role: 'Movilidades, cooperación internacional y seguridad',
+    bio: [
+      'Es experta en análisis de temas fronterizos y en procesos de cooperación internacional sobre movilidades y seguridad. Cuenta con amplia experiencia en desarrollo económico y normatividad ambiental dentro del Gobierno de la Ciudad de México, así como en temas de migración dentro del gobierno federal.',
+      'Es doctora por la Universidad de Sussex y maestra por la Universidad de las Américas. Fue investigadora visitante en la Universidad de Turín, en la especialización de migraciones internacionales y seguridad fronteriza en Norteamérica y el Mediterráneo.',
+    ],
+  },
+  
+  {
+    name: 'Senet Ferriz',
+    role: 'Diseño y gestión de redes',
+    bio: [
+      'Es experta en diseño y gestión de redes. Tiene una Maestría en Administración y Dirección de Empresas por la Escuela Europea de Dirección y Empresa (EUDE), en España. Es ingeniera en Telecomunicaciones por la Universidad Nacional Autónoma de México (UNAM).',
+      'También es directora ejecutiva de la Escuela Nacional de Ajedrez Liga C, instructora de ajedrez con gran experiencia a nivel educativo y empresarial, y creadora de contenido para redes sociales sobre temas de ajedrez e ingeniería.',
+    ],
+  },
+  
   {
     name: 'Emilio Noriega',
     role: 'Robótica, STEAM e innovación tecnológica',
@@ -93,42 +129,14 @@ const teamMembers = [
     name: 'Luis Felipe Marín',
     role: 'IA, robótica e interacción humano-robot',
     bio: [
-      'Cuenta con alta especialización en inteligencia artificial, robótica inteligente, interacción humano-robot e interfaces cerebro-ordenador, entre otros campos. Colabora con la industria y ha obtenido patentes relacionadas con IA en la industria de extracción de petróleo.',
-      'Ha sido miembro de proyectos de investigación en México y Europa relacionados con robótica. Es cofundador del laboratorio de Robótica de la facultad, donde obtuvo apoyo financiero para equipamiento. Además, participó en la actualización del programa de Ingeniería Informática (CS) en la Universidad Veracruzana (UV).',
-      'Es coordinador de diferentes grupos académicos y pionero en el programa de internacionalización de la UV junto con SUNY-COIL y varias universidades de Latinoamérica. Ha sido asesor de proyectos de estudiantes relacionados con HRI, AR, BCI, entre otros.',
-      'Tiene Doctorado en Ciencia Computacional y Maestría en Sistemas Informáticos, ambas por la Universidad Paul Sabatier Toulouse III, en Francia.',
+      'Especialista en inteligencia artificial, robótica inteligente, interacción humano-robot e interfaces cerebro-ordenador. Ha obtenido patentes relacionadas con IA en la industria de extracción de petróleo.',
+      'Cofundador del laboratorio de Robótica de la facultad,  y participó en la actualización del programa de Ingeniería Informática (CS) en la Universidad Veracruzana (UV).',
+      'Tiene Doctorado en Ciencia Computacional y Maestría en Sistemas Informáticos, ambas por la Universidad Paul Sabatier Toulouse III, en Francia. Es coordinador de diferentes grupos académicos y pionero en el programa de internacionalización de la UV',
     ],
   },
-  {
-    name: 'Raymundo Rodríguez Rosas',
-    role: 'Back-end, software a la medida y bases de datos',
-    photo: '/images/team/raymundo-rodriguez-rosas.png',
-    bio: [
-      'Es ingeniero en Sistemas Computacionales por el Instituto de Estudios Superiores de Puebla (IESE). Ha colaborado en proyectos de desarrollo de software para diferentes empresas, como experto en puntos de venta, sistemas a la medida, desarrollo web y facturación electrónica CFDI 4.0.',
-      'Además, es CEO y fundador de Taxi Ejad, una plataforma móvil para el transporte público de taxis. Ha desarrollado aplicativos de escritorio para Windows y apps en Android nativo, especializándose como desarrollador back-end.',
-      'Posee amplio conocimiento en SQL, diseño y arquitectura de bases de datos. También es experto en VB.NET, C#.NET, Node.js, PHP y JavaScript. Tiene experiencia en Firebase y Google Maps para desarrollar apps y servicios basados en la nube.',
-      'Ha sido administrador de servidores VPS en entornos Linux, lo que le permite implementar y mantener infraestructuras de servidor de manera eficiente.',
-    ],
-  },
-  {
-    name: 'Felipe de Alba',
-    role: 'Ciencia de datos, IA y social listening',
-    photo: '/images/team/felipe-de-alba.png',
-    bio: [
-      'Especialista en ciencia de datos, inteligencia artificial y social listening. Es experto reconocido en temas hídricos, metrópolis e incidencia delictiva, con una gran variedad de publicaciones nacionales e internacionales.',
-      'Tiene amplia experiencia en la función pública, como director general del Centro de Estudios Sociales y de Opinión Pública de la Cámara de Diputados federal. También fue director general en el Gobierno de la Ciudad de México.',
-      'Cuenta con dos posdoctorados, uno en el MIT y otro en la École normale supérieure (ENS-Lyon), Francia. Es doctor en Planeación Territorial por la Universidad de Montreal, además de maestro y licenciado en Ciencia Política. Ha publicado 20 libros y más de 40 artículos científicos en revistas internacionales.',
-    ],
-  },
-  {
-    name: 'Bryan Guzmán Álvarez',
-    role: 'Full-Stack Developer System',
-    photo: '/images/team/bryan-guzman-alvarez.png',
-    bio: [
-      'Desarrollador full-stack especializado en la construcción de soluciones web y sistemas digitales escalables. Cuenta con experiencia en front-end utilizando Angular, React e Ionic, integrando interfaces modernas, funcionales y orientadas a una experiencia de usuario eficiente.',
-      'En back-end trabaja con Node.js, PHP, MySQL y PostgreSQL, desarrollando APIs, modelos de datos y servicios robustos para aplicaciones empresariales. Su perfil combina criterio técnico, capacidad de integración y enfoque en soluciones estables para entornos productivos.',
-    ],
-  },
+  
+  
+  
 ]
 
 function getMemberInitials(name) {
@@ -202,7 +210,6 @@ export default function About() {
             <div className="team-card-header">
               <TeamPortrait member={member} />
               <div className="team-card-copy">
-                <span className="team-card-label">Equipo NNI</span>
                 <h2>{member.name}</h2>
                 <p className="team-card-role">{member.role}</p>
               </div>
@@ -226,7 +233,7 @@ export default function About() {
           </p>
         </div>
         <div className="contact-actions">
-          <a href="tel:+525537141345">+52 (55) 3714 1345</a>
+          <a href="tel:+525537141345">+52 (55) 27088372</a>
           <a href="mailto:fdealbam@nni.ai">fdealbam@nni.ai</a>
           <Link className="primary-button" to="/contacto">
             Contacto
