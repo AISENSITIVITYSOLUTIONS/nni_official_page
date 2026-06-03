@@ -139,6 +139,29 @@ const teamMembers = [
   
 ]
 
+const socialLinks = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/neural-network-initiative-8a1b61263/',
+    icon: LinkedInIcon,
+  },
+  {
+    name: 'WhatsApp',
+    url: '',
+    icon: WhatsAppIcon,
+  },
+  {
+    name: 'Instagram',
+    url: '',
+    icon: InstagramIcon,
+  },
+  {
+    name: 'Telegram',
+    url: '',
+    icon: TelegramIcon,
+  },
+]
+
 function getMemberInitials(name) {
   return name
     .split(' ')
@@ -169,6 +192,105 @@ function TeamPortrait({ member }) {
         </div>
       )}
     </div>
+  )
+}
+
+function SocialGlyph({ children }) {
+  return (
+    <svg
+      className="social-icon-mark"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.85"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
+  )
+}
+
+function LinkedInIcon() {
+  return (
+    <SocialGlyph>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
+      <circle cx="8.15" cy="8.1" r="0.95" fill="currentColor" stroke="none" />
+      <path d="M8.15 11v5" />
+      <path d="M12 11v5" />
+      <path d="M12 13.35a2.2 2.2 0 0 1 4.4 0V16" />
+    </SocialGlyph>
+  )
+}
+
+function WhatsAppIcon() {
+  return (
+    <SocialGlyph>
+      <path d="M12 4.5a7.2 7.2 0 0 0-6.3 10.7L5 19l4-.9A7.2 7.2 0 1 0 12 4.5Z" />
+      <path d="m10 9.55.7 1.7-.8.8a6.35 6.35 0 0 0 2.1 2.1l.8-.8 1.7.7c.3.12.5.5.3.82-.4.67-1.2 1.08-1.9.96-2.8-.48-5-2.68-5.48-5.48-.12-.7.29-1.5.96-1.9.32-.2.7 0 .82.3Z" />
+    </SocialGlyph>
+  )
+}
+
+function InstagramIcon() {
+  return (
+    <SocialGlyph>
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5.25" />
+      <circle cx="12" cy="12" r="3.6" />
+      <circle cx="17.05" cy="6.95" r="0.95" fill="currentColor" stroke="none" />
+    </SocialGlyph>
+  )
+}
+
+function TelegramIcon() {
+  return (
+    <SocialGlyph>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="m8 12 8-4-2.5 8-2.4-2.2-1.7 1.7v-3.1l4.6-3.5L8 12Z" />
+    </SocialGlyph>
+  )
+}
+
+function SocialLinkCard({ social }) {
+  const Icon = social.icon
+  const isAvailable = Boolean(social.url)
+
+  const content = (
+    <>
+      <span className="social-icon-shell">
+        <Icon />
+      </span>
+      <span className="social-link-copy">
+        <span className="social-link-name">{social.name}</span>
+        <span className={`social-link-url${isAvailable ? '' : ' is-placeholder'}`}>
+          {social.url || 'https://...'}
+        </span>
+      </span>
+    </>
+  )
+
+  if (!isAvailable) {
+    return (
+      <div
+        className="social-link-card social-link-card-placeholder"
+        aria-label={`${social.name} pendiente de URL`}
+      >
+        {content}
+      </div>
+    )
+  }
+
+  return (
+    <a
+      className="social-link-card"
+      href={social.url}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={`Abrir ${social.name}`}
+    >
+      {content}
+    </a>
   )
 }
 
@@ -233,11 +355,30 @@ export default function About() {
           </p>
         </div>
         <div className="contact-actions">
-          <a href="tel:+525537141345">+52 (55) 27088372</a>
+          <a href="tel:+525527088372">+52 (55) 27088372</a>
+          <a href="tel:+525527491298">+52 (55) 27491298</a>
+          <a href="tel:+573104866828">+57 (31) 04866828</a>
           <a href="mailto:fdealbam@nni.ai">fdealbam@nni.ai</a>
           <Link className="primary-button" to="/contacto">
             Contacto
           </Link>
+        </div>
+      </div>
+
+      <div className="about-social">
+        <div className="about-social-copy">
+          <p className="eyebrow">Redes</p>
+          <h2>Siguenos en nuestras redes sociales</h2>
+          <p>
+            LinkedIn ya esta disponible. Los espacios de WhatsApp, Instagram y
+            Telegram quedan listos para agregar su URL despues.
+          </p>
+        </div>
+
+        <div className="social-links-grid" aria-label="Redes sociales de Neural Network Initiative">
+          {socialLinks.map((social) => (
+            <SocialLinkCard key={social.name} social={social} />
+          ))}
         </div>
       </div>
     </section>
