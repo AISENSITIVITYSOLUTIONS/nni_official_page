@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react'
-import { ExternalLink } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { ExternalLink, Volume2, VolumeX } from 'lucide-react'
 import { drawFaceMesh, initFp3d } from '../utils/fp3d'
 
 const products = [
@@ -110,6 +110,8 @@ const productCards = products.filter((product) => product.name !== 'FaceR')
 export default function Products() {
   const featuredPanelRef = useRef(null)
   const faceMeshRef = useRef(null)
+  const videoRef = useRef(null)
+  const [soundEnabled, setSoundEnabled] = useState(false)
 
   useEffect(() => {
     const panel = initFp3d(featuredPanelRef.current, { maxTilt: 7, glareMax: 0.42 })
@@ -120,6 +122,23 @@ export default function Products() {
       mesh.destroy()
     }
   }, [])
+
+  const toggleSound = () => {
+    const video = videoRef.current
+    if (!video) return
+
+    const nextSoundState = !soundEnabled
+    video.muted = !nextSoundState
+    video.volume = nextSoundState ? 0.85 : 0
+    setSoundEnabled(nextSoundState)
+
+    if (nextSoundState) {
+      video.play().catch(() => {
+        video.muted = true
+        setSoundEnabled(false)
+      })
+    }
+  }
 
   return (
     <section className="page products-page">
@@ -161,22 +180,26 @@ export default function Products() {
             <div className="facer-panel-inner">
               <div className="facer-video-shell">
                 <video
+                  ref={videoRef}
                   src="/videos/facer-product-demo.mp4"
                   poster="/favicon.svg"
-                muted
-                loop
-                playsInline
-                autoPlay
-                controls
-                preload="metadata"
-              />
+                  muted={!soundEnabled}
+                  loop
+                  playsInline
+                  autoPlay
+                  preload="metadata"
+                />
                 <canvas ref={faceMeshRef} aria-hidden="true" />
                 <div className="facer-video-shade" />
               </div>
               <div className="facer-panel-copy">
                 <span>FaceR</span>
                 <strong>Acceso seguro con identidad verificable</strong>
-                <small>Video demostrativo integrado. Activa el sonido desde los controles.</small>
+                <small>Video demostrativo integrado en la ficha de producto.</small>
+                <button className="sound-toggle" type="button" onClick={toggleSound}>
+                  {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
+                  {soundEnabled ? 'Sonido activado' : 'Activar sonido'}
+                </button>
               </div>
             </div>
           </div>
