@@ -102,6 +102,9 @@ const products = [
   },
 ]
 
+const featuredProduct = products.find((product) => product.name === 'FaceR')
+const productCards = products.filter((product) => product.name !== 'FaceR')
+
 export default function Products() {
   return (
     <section className="page products-page">
@@ -115,8 +118,43 @@ export default function Products() {
         </p>
       </div>
 
+      {featuredProduct && (
+        <article className="featured-product-card">
+          <div className="featured-product-copy">
+            <div className="product-card-top">
+              <span>Producto estrella</span>
+              <strong>{featuredProduct.status}</strong>
+            </div>
+            <h2>{featuredProduct.name}</h2>
+            <p>
+              FaceR es la experiencia insignia de NNI para seguridad institucional:
+              identidad documental, reconocimiento facial, QR seguro y trazabilidad de
+              accesos en una narrativa visual clara, confiable y lista para demostración.
+            </p>
+            <div className="featured-product-metrics">
+              <span>Identidad documental</span>
+              <span>Biometría facial</span>
+              <span>QR seguro</span>
+              <span>Trazabilidad</span>
+            </div>
+            <a className="primary-button" href={featuredProduct.href} rel="noreferrer" target="_blank">
+              Ver producto estrella <ExternalLink size={17} />
+            </a>
+          </div>
+          <div className="featured-product-panel" aria-hidden="true">
+            <div className="orbital-card main">
+              <span>FaceR</span>
+              <strong>Acceso inteligente</strong>
+            </div>
+            <div className="orbital-card one">Documento</div>
+            <div className="orbital-card two">Rostro</div>
+            <div className="orbital-card three">QR</div>
+          </div>
+        </article>
+      )}
+
       <div className="products-grid">
-        {products.map((product) => (
+        {productCards.map((product) => (
           <article className="product-card" key={product.name}>
             <div className="product-card-top">
               <span>{product.category}</span>
