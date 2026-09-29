@@ -1,39 +1,61 @@
+import { useLanguage } from '../i18n/language'
+
 const courses = [
   {
-    title: 'IA para ciencias sociales',
-    description:
-      'Formación práctica para usar inteligencia artificial en investigación, análisis cualitativo, organización documental y escritura académica.',
+    title: { es: 'IA para ciencias sociales', en: 'AI for social sciences' },
+    description: {
+      es: 'Formación práctica para usar inteligencia artificial en investigación, análisis cualitativo, organización documental y escritura académica.',
+      en: 'Practical training to use artificial intelligence in research, qualitative analysis, document organization and academic writing.',
+    },
   },
   {
-    title: 'IA, comunicación política y ciudadanía',
-    description:
-      'Curso para analizar conversación pública, narrativas, reputación, campañas y vínculos entre ciudadanía e instituciones.',
+    title: { es: 'IA, comunicación política y ciudadanía', en: 'AI, political communication and citizenship' },
+    description: {
+      es: 'Curso para analizar conversación pública, narrativas, reputación, campañas y vínculos entre ciudadanía e instituciones.',
+      en: 'A course to analyze public conversation, narratives, reputation, campaigns and links between citizens and institutions.',
+    },
   },
   {
-    title: 'IA aplicada para equipos profesionales',
-    description:
-      'Programa modular para adoptar herramientas de IA con método, ética, productividad y evaluación de resultados.',
+    title: { es: 'IA aplicada para equipos profesionales', en: 'Applied AI for professional teams' },
+    description: {
+      es: 'Programa modular para adoptar herramientas de IA con método, ética, productividad y evaluación de resultados.',
+      en: 'A modular program to adopt AI tools with method, ethics, productivity and outcome evaluation.',
+    },
   },
 ]
 
+const courseCopy = {
+  es: {
+    eyebrow: 'Formación',
+    title: 'Capacitación para usar IA con método, criterio y resultados.',
+    lead:
+      'Diseñamos cursos y talleres para investigadores, docentes, equipos públicos, empresas y organizaciones que necesitan incorporar inteligencia artificial sin improvisación.',
+  },
+  en: {
+    eyebrow: 'Training',
+    title: 'Training to use AI with method, judgment and results.',
+    lead:
+      'We design courses and workshops for researchers, educators, public teams, companies and organizations that need to incorporate artificial intelligence without improvisation.',
+  },
+}
+
 export default function Courses() {
+  const { language } = useLanguage()
+  const copy = courseCopy[language]
+
   return (
     <section className="page courses-page">
       <div className="page-hero">
-        <p className="eyebrow">Formación</p>
-        <h1>Capacitación para usar IA con método, criterio y resultados.</h1>
-        <p>
-          Diseñamos cursos y talleres para investigadores, docentes, equipos públicos,
-          empresas y organizaciones que necesitan incorporar inteligencia artificial sin
-          improvisación.
-        </p>
+        <p className="eyebrow">{copy.eyebrow}</p>
+        <h1>{copy.title}</h1>
+        <p>{copy.lead}</p>
       </div>
 
       <div className="cards-grid three">
         {courses.map((course) => (
-          <article className="glass-card" key={course.title}>
-            <h2>{course.title}</h2>
-            <p>{course.description}</p>
+          <article className="glass-card" key={course.title.es}>
+            <h2>{course.title[language]}</h2>
+            <p>{course.description[language]}</p>
           </article>
         ))}
       </div>
