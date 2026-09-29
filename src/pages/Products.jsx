@@ -163,19 +163,20 @@ export default function Products() {
                 <video
                   src="/videos/facer-product-demo.mp4"
                   poster="/favicon.svg"
-                  muted
-                  loop
-                  playsInline
-                  autoPlay
-                  preload="metadata"
-                />
+                muted
+                loop
+                playsInline
+                autoPlay
+                controls
+                preload="metadata"
+              />
                 <canvas ref={faceMeshRef} aria-hidden="true" />
                 <div className="facer-video-shade" />
               </div>
               <div className="facer-panel-copy">
                 <span>FaceR</span>
                 <strong>Acceso seguro con identidad verificable</strong>
-                <small>Video demostrativo integrado</small>
+                <small>Video demostrativo integrado. Activa el sonido desde los controles.</small>
               </div>
             </div>
           </div>
