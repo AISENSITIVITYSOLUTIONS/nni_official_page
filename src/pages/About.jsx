@@ -23,7 +23,7 @@ const teamMembers = [
   ['Felipe de Alba', { es: 'Ciencia de datos, IA, social listening y análisis institucional', en: 'Data science, AI, social listening and institutional analysis' }, '/images/team/felipe-de-alba.jpeg'],
   ['Aeelen Miranda', { es: 'Python, inteligencia artificial y Big Data', en: 'Python, artificial intelligence and Big Data' }, '/images/team/aeelen-miranda.png'],
   ['Winik Ivanovich Morales', { es: 'Python, ciencia de datos e inteligencia artificial', en: 'Python, data science and artificial intelligence' }, '/images/team/winik-ivanovich-morales.png'],
-  ['Josefina Pérez', { es: 'Movilidades, cooperación internacional y seguridad', en: 'Mobilities, international cooperation and security' }],
+  ['Josefina Pérez Espino', { es: 'Movilidades, cooperación internacional y seguridad', en: 'Mobilities, international cooperation and security' }, '/images/team/josefina-perez-espino.png'],
   ['Diana Varela', { es: 'Innovación empresarial e intraemprendimiento', en: 'Business innovation and intrapreneurship' }, '/images/team/diana-varela-londono.png'],
   ['Bryan Guzmán Álvarez', { es: 'Desarrollo full-stack y sistemas escalables', en: 'Full-stack development and scalable systems' }, '/images/team/bryan-guzman-alvarez.png'],
   ['Raymundo Rodríguez Rosas', { es: 'Back-end, software a la medida y bases de datos', en: 'Back-end, custom software and databases' }, '/images/team/raymundo-rodriguez-rosas.png'],
