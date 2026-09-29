@@ -1,103 +1,136 @@
+import {
+  Activity,
+  BarChart3,
+  Bot,
+  BrainCircuit,
+  GraduationCap,
+  MessageSquareText,
+  ShieldCheck,
+  Workflow,
+} from 'lucide-react'
 import { Link } from 'react-router-dom'
-
-const servicesHeroImage =
-  'https://cdn.prod.website-files.com/63dda5ccc90398185fca7bcc/645635172beb500eeaa7c7b2_Frame%201744.png'
 
 const services = [
   {
-    number: '01',
-    title: 'AI para Empresas y Organizaciones',
-    description:
-      'Identificamos tendencias políticas emergentes y adaptamos estrategias para ayudar a los candidatos a mantenerse al frente de la competencia.',
-    points: [
-      'Inteligencia Artificial en los Flujos',
-      'Innovación, Originalidad y Reingeniería',
-      'Ciencia de Datos para la Automatización',
-    ],
-    images: [
-      'https://cdn.prod.website-files.com/63dda5ccc90398185fca7bcc/63e3eec5b7a9811e2fc0135e_image%207.1.png',
-      'https://cdn.prod.website-files.com/63dda5ccc90398185fca7bcc/63e3eec50ffe088296aba099_image%209.1.png',
-    ],
+    icon: Activity,
+    title: 'Diagnóstico estratégico con IA',
+    problem: 'Procesos con mucha información, poca lectura ejecutiva y decisiones tomadas sin evidencia suficiente.',
+    deliverable: 'Mapa de problemas, fuentes, riesgos, oportunidades y ruta de automatización priorizada.',
+    audience: 'Direcciones generales, equipos de innovación, áreas públicas y proyectos institucionales.',
+    value: 'Permite decidir dónde invertir primero y qué solución digital tiene sentido construir.',
+    cta: 'Solicitar diagnóstico',
   },
   {
-    number: '02',
-    title: 'AI en Innovación para Flujos y Procesos',
-    description:
-      'Comprometidos con la Agenda 2030, en pro de una visión hacia la sostenibilidad económica, social y ambiental, la seguimos como guía de referencia. Con IA creamos soluciones para ONGs, gobiernos, universidades e iniciativa privada, trabajando por la armonía ambiental.',
-    points: ['Reingeniería', 'Innovación', 'Venture Innovation'],
-    images: [
-      'https://cdn.prod.website-files.com/63dda5ccc90398185fca7bcc/63e3eec6a4b22717c15f198d_image%209.1-1.png',
-      'https://cdn.prod.website-files.com/63dda5ccc90398185fca7bcc/63e3eec667257e5fbda808ae_image%209.1-2.png',
-    ],
-    reverse: true,
+    icon: Workflow,
+    title: 'Automatización de procesos',
+    problem: 'Flujos manuales, registros duplicados, pérdida de tiempo y baja trazabilidad operativa.',
+    deliverable: 'Aplicaciones web, formularios, paneles administrativos e integraciones ligeras.',
+    audience: 'Empresas, comercios, organizaciones, escuelas y equipos administrativos.',
+    value: 'Reduce fricción, ordena responsabilidades y vuelve visible la operación diaria.',
+    cta: 'Explorar solución',
   },
   {
-    number: '03',
-    title: 'Mercados & Consumidores',
-    description:
-      'Utilizamos técnicas de IA para analizar grandes cantidades de datos de consumidores y obtener insights valiosos sobre nuevas tendencias y ayudamos a las empresas a desarrollar estrategias competitivas.',
-    points: ['Consumidores', 'Perfiles', 'Competidores'],
-    images: [
-      'https://cdn.prod.website-files.com/63dda5ccc90398185fca7bcc/63e3eec6f97c360280735dfa_image%207.1-1.png',
-      'https://cdn.prod.website-files.com/63dda5ccc90398185fca7bcc/63e3eec65914d51d76193ac8_image%209.1-3.png',
-    ],
+    icon: BarChart3,
+    title: 'Dashboards y visualización de datos',
+    problem: 'Datos existentes que no se convierten en lectura estratégica ni seguimiento institucional.',
+    deliverable: 'Tableros, indicadores, módulos comparativos, mapas y narrativas ejecutivas.',
+    audience: 'Gobiernos, consultoras, áreas de seguridad, evaluación, ventas o investigación.',
+    value: 'Convierte bases complejas en evidencia legible para tomar decisiones y comunicar hallazgos.',
+    cta: 'Ver enfoque',
+  },
+  {
+    icon: BrainCircuit,
+    title: 'Modelos de inteligencia artificial',
+    problem: 'Necesidad de clasificar, priorizar, detectar patrones o anticipar comportamientos con datos disponibles.',
+    deliverable: 'Modelos, prototipos, asistentes, clasificadores y sistemas de recomendación.',
+    audience: 'Equipos con datos históricos, bases operativas o necesidades predictivas.',
+    value: 'Produce criterios automatizados, auditables y útiles para decisiones recurrentes.',
+    cta: 'Agendar consulta',
+  },
+  {
+    icon: MessageSquareText,
+    title: 'Social listening y análisis público',
+    problem: 'Conversaciones digitales dispersas que no se traducen en comprensión reputacional o política.',
+    deliverable: 'Monitoreo, clasificación narrativa, análisis temático y reportes estratégicos.',
+    audience: 'Instituciones, campañas, universidades, medios y organizaciones con exposición pública.',
+    value: 'Ayuda a entender opinión, conflicto, reputación y narrativas emergentes.',
+    cta: 'Solicitar análisis',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Seguridad institucional y trazabilidad',
+    problem: 'Accesos, registros o validaciones sin capas suficientes de control, identidad y seguimiento.',
+    deliverable: 'Experiencias con QR, identidad documental, validación facial, registros y trazabilidad.',
+    audience: 'Instituciones, eventos, edificios, escuelas, empresas y espacios con control de acceso.',
+    value: 'Eleva confianza, reduce riesgo y convierte cada operación en información verificable.',
+    cta: 'Conocer FaceR',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Capacitación y formación aplicada',
+    problem: 'Equipos que usan IA de forma improvisada, sin método, ética, evaluación o productividad real.',
+    deliverable: 'Cursos, talleres, guías, ejercicios y acompañamiento para adoptar IA con criterio.',
+    audience: 'Docentes, investigadores, médicos, servidores públicos, empresas y universidades.',
+    value: 'Instala capacidades internas para trabajar mejor con IA sin depender de soluciones opacas.',
+    cta: 'Diseñar curso',
+  },
+  {
+    icon: Bot,
+    title: 'Consultoría para productos digitales',
+    problem: 'Ideas con potencial que aún no tienen arquitectura, narrativa, interfaz ni ruta de publicación.',
+    deliverable: 'Prototipos, landing pages, apps, productos mínimos viables y mejora conceptual.',
+    audience: 'Emprendimientos, artistas, comercios, consultoras y proyectos en fase de crecimiento.',
+    value: 'Convierte una idea en experiencia publicable, vendible y técnicamente sostenible.',
+    cta: 'Iniciar proyecto',
   },
 ]
 
 export default function Services() {
   return (
-    <section className="services-page">
-      <div className="services-hero">
-        <div className="services-copy">
-          <p className="eyebrow">Servicios</p>
-          <h1>Servicios</h1>
-          <p>
-            Soluciones de inteligencia artificial, ciencia de datos e innovación
-            para empresas, organizaciones, gobiernos, universidades y proyectos
-            con impacto social.
-          </p>
-        </div>
-
-        <div className="services-visual">
-          <img
-            src={servicesHeroImage}
-            alt="Imagen principal de servicios de Neural Network Initiative"
-          />
-        </div>
+    <section className="page services-page">
+      <div className="page-hero">
+        <p className="eyebrow">Servicios</p>
+        <h1>Soluciones de inteligencia aplicada para decisiones institucionales.</h1>
+        <p>
+          Diseñamos, construimos y acompañamos sistemas que conectan datos,
+          procesos, análisis y experiencia de usuario. Nuestro trabajo empieza con
+          diagnóstico y termina en productos que pueden operar, medirse y mejorar.
+        </p>
       </div>
 
-      <div className="services-list">
-        {services.map((service) => (
-          <article
-            className={`service-feature ${service.reverse ? 'service-feature-reverse' : ''}`}
-            key={service.title}
-          >
-            <div className="service-content">
-              <span>{service.number}</span>
+      <div className="service-grid">
+        {services.map((service) => {
+          const Icon = service.icon
+          return (
+            <article className="service-card" key={service.title}>
+              <div className="service-icon">
+                <Icon />
+              </div>
               <h2>{service.title}</h2>
-              <p>{service.description}</p>
-              <ul>
-                {service.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-              <Link className="primary-button" to="/contacto">
-                Agendar consulta
+              <dl>
+                <div>
+                  <dt>Problema</dt>
+                  <dd>{service.problem}</dd>
+                </div>
+                <div>
+                  <dt>Entregamos</dt>
+                  <dd>{service.deliverable}</dd>
+                </div>
+                <div>
+                  <dt>Para quién</dt>
+                  <dd>{service.audience}</dd>
+                </div>
+                <div>
+                  <dt>Valor</dt>
+                  <dd>{service.value}</dd>
+                </div>
+              </dl>
+              <Link className="text-link" to="/contacto">
+                {service.cta}
               </Link>
-            </div>
-
-            <div className="service-image-pair">
-              {service.images.map((image, index) => (
-                <img
-                  src={image}
-                  alt=""
-                  className={index === 0 ? 'service-image-small' : 'service-image-large'}
-                  key={image}
-                />
-              ))}
-            </div>
-          </article>
-        ))}
+            </article>
+          )
+        })}
       </div>
     </section>
   )
