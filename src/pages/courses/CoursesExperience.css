@@ -1,7 +1,7 @@
     #nni-courses {
-      --nc-bg:#0d1213; --nc-surface:#151d1e; --nc-paper:#f0f3f1; --nc-text:#f0f3f1;
-      --nc-muted:#b0bfba; --nc-line:#34413d; --nc-mint:#b7f0d1; --nc-coral:#efa79a;
-      color:var(--nc-text); background:var(--nc-bg); font-family:Arial,Helvetica,sans-serif;
+      --nc-bg:var(--navy); --nc-surface:var(--panel); --nc-paper:var(--ink); --nc-text:var(--ink);
+      --nc-muted:var(--muted); --nc-line:var(--line); --nc-mint:var(--cyan); --nc-coral:var(--soft);
+      color:var(--nc-text); background:transparent; font-family:inherit;
       font-size:15px; line-height:1.55; letter-spacing:0; color-scheme:dark; isolation:isolate;
       width:100%; padding-block:var(--nc-header-offset, 148px) 40px;
     }
@@ -32,16 +32,16 @@
     #nni-courses .nc-scene canvas {display:block; width:100%; height:100%; touch-action:pan-y}
     #nni-courses .nc-hero-copy {position:relative; z-index:1; width:57%; padding-block:46px 38px; pointer-events:none}
     #nni-courses .nc-hero-copy a {pointer-events:auto}
-    #nni-courses .nc-eyebrow {font-size:12px; font-weight:500; color:var(--nc-mint); text-transform:uppercase; display:flex; align-items:center; gap:10px; margin-bottom:20px}
+    #nni-courses .nc-eyebrow {font-size:12px; font-weight:900; letter-spacing:.08em; color:var(--nc-mint); text-transform:uppercase; display:flex; align-items:center; gap:10px; margin-bottom:20px}
     #nni-courses .nc-eyebrow::before {content:""; height:2px; width:24px; background:var(--nc-mint)}
-    #nni-courses .nc-hero h1 {font-size:44px; line-height:1.12; max-width:580px}
-    #nni-courses .nc-serif {font-family:Georgia,'Times New Roman',serif; font-style:italic; color:var(--nc-mint)}
+    #nni-courses .nc-hero h1 {font-size:44px; font-weight:650; line-height:1.12; max-width:580px}
+    #nni-courses .nc-serif {font-family:inherit; font-style:normal; color:var(--nc-mint)}
     #nni-courses .nc-promise {font-size:20px; line-height:1.4; margin-top:25px}
     #nni-courses .nc-hero-desc {max-width:43ch; color:var(--nc-muted); margin-top:14px; font-size:15px}
     #nni-courses .nc-actions {display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; margin-top:27px}
-    #nni-courses .nc-action {display:inline-flex; align-items:center; justify-content:center; gap:14px; padding:12px 17px; border-radius:4px; min-height:46px; font-weight:500; font-size:13px}
-    #nni-courses .nc-primary {background:var(--nc-mint); color:#0d2019}
-    #nni-courses .nc-primary:hover {background:#d7ffe7}
+    #nni-courses .nc-action {display:inline-flex; align-items:center; justify-content:center; gap:14px; padding:12px 17px; border-radius:4px; min-height:46px; font-weight:800; font-size:13px}
+    #nni-courses .nc-primary {background:linear-gradient(135deg,var(--cyan),var(--cyan-strong)); color:#03111d}
+    #nni-courses .nc-primary:hover {background:var(--cyan)}
     #nni-courses .nc-link {display:inline-flex; align-items:center; gap:8px; font-size:13px; padding-block:12px; min-height:44px}
     #nni-courses .nc-link:hover {color:var(--nc-mint)}
     #nni-courses .nc-scene-caption {position:absolute; right:0; bottom:31px; width:39%; z-index:1; border-top:1px solid var(--nc-line); padding-top:15px}
@@ -61,7 +61,7 @@
     #nni-courses .nc-segments {display:flex; flex-wrap:wrap; align-items:center; gap:6px}
     #nni-courses .nc-segments button {display:inline-flex; gap:10px; align-items:center; padding:9px 12px; border:1px solid var(--nc-line); border-radius:4px; min-height:44px; font-size:12px}
     #nni-courses .nc-segments button span {font-size:11px; color:var(--nc-muted)}
-    #nni-courses .nc-segments button[aria-pressed="true"] {border-color:var(--nc-mint); color:var(--nc-mint); background:#182e25}
+    #nni-courses .nc-segments button[aria-pressed="true"] {border-color:var(--nc-mint); color:var(--nc-mint); background:rgba(148,242,255,.12)}
     #nni-courses .nc-stage-side {display:flex; align-items:center; gap:13px; flex-wrap:wrap; color:var(--nc-muted); font-size:11px}
     #nni-courses .nc-stage-side button {display:inline-flex; align-items:center; gap:7px; border-bottom:1px solid var(--nc-line); padding:8px 0; min-height:44px; font-size:12px}
     #nni-courses .nc-detail {border-top:1px solid var(--nc-line); border-bottom:1px solid var(--nc-line)}
@@ -85,7 +85,7 @@
     #nni-courses .nc-section-head .nc-eyebrow {margin-bottom:12px; max-width:none}
     #nni-courses .nc-course-grid {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:start}
     #nni-courses .nc-course {border:1px solid var(--nc-line); border-radius:6px; background:var(--nc-surface); padding:25px; display:flex; flex-direction:column; min-width:0; box-shadow:0 1px 0 #ffffff05; transition:border-color .2s, box-shadow .2s}
-    #nni-courses .nc-course:hover {border-color:#698477; box-shadow:0 6px 18px #00000024}
+    #nni-courses .nc-course:hover {border-color:var(--line-strong); box-shadow:0 6px 18px #00000024}
     #nni-courses .nc-course-top {display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:17px}
     #nni-courses .nc-course-type {font-size:11px; text-transform:uppercase; color:var(--nc-mint)}
     #nni-courses .nc-course-index {font-size:12px; color:var(--nc-muted); font-variant-numeric:tabular-nums}
@@ -104,7 +104,7 @@
     #nni-courses .nc-course-detail strong {color:var(--nc-text); font-weight:500}
     #nni-courses .nc-course-detail ul {padding-left:18px; margin:12px 0}
     #nni-courses .nc-course-detail li {margin-block:6px}
-    #nni-courses .nc-team {grid-column:1/-1; display:grid; grid-template-columns:1.2fr 1fr; gap:12px 36px; background:#18251f}
+    #nni-courses .nc-team {grid-column:1/-1; display:grid; grid-template-columns:1.2fr 1fr; gap:12px 36px; background:var(--panel-strong)}
     #nni-courses .nc-team .nc-course-top {grid-column:1/-1; margin-bottom:0}
     #nni-courses .nc-team h3 {font-size:26px}
     #nni-courses .nc-team .nc-course-description {margin-bottom:0}

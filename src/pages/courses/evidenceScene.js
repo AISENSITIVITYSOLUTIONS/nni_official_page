@@ -3,6 +3,7 @@ const engineUrl = '/courses/vendor/three-0.180.0/three.module.min.js'
 export async function createEvidenceScene({ host, canvas, config, initialStageId, onFailure }) {
   const THREE = await import(/* @vite-ignore */ engineUrl)
   if (!host.isConnected) throw new Error('Courses scene was removed before loading')
+  const fontFamily = window.getComputedStyle(host).fontFamily
 
   const materials = []
   const geometries = []
@@ -28,17 +29,17 @@ export async function createEvidenceScene({ host, canvas, config, initialStageId
   try {
     renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'low-power' })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, config.performance.maxDevicePixelRatio))
-    renderer.setClearColor(0x0d1213, 0)
+    renderer.setClearColor(0x06101f, 0)
     renderer.outputColorSpace = THREE.SRGBColorSpace
     const scene = new THREE.Scene()
     const cameraConfig = config.scene.camera
     const camera = new THREE.PerspectiveCamera(cameraConfig.fovDegrees, 1, cameraConfig.near, cameraConfig.far)
     camera.position.set(...cameraConfig.desktopPosition)
-    scene.add(new THREE.HemisphereLight(0xffffff, 0x50635b, 2.5))
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x50637a, 2.5))
     const key = new THREE.DirectionalLight(0xffffff, 3)
     key.position.set(-3, 7, 9)
     scene.add(key)
-    const fill = new THREE.DirectionalLight(0xb7f0d1, 1.2)
+    const fill = new THREE.DirectionalLight(0x94f2ff, 1.2)
     fill.position.set(4, -2, 4)
     scene.add(fill)
     const group = new THREE.Group()
@@ -46,7 +47,7 @@ export async function createEvidenceScene({ host, canvas, config, initialStageId
     const size = config.scene.documentDimensions
     const geometry = new THREE.BoxGeometry(size.width, size.height, size.depth)
     geometries.push(geometry)
-    const edgeMaterial = new THREE.MeshStandardMaterial({ color: 0x788f84, roughness: 0.5, metalness: 0.35 })
+    const edgeMaterial = new THREE.MeshStandardMaterial({ color: 0x7891ae, roughness: 0.5, metalness: 0.35 })
     materials.push(edgeMaterial)
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
 
@@ -56,17 +57,17 @@ export async function createEvidenceScene({ host, canvas, config, initialStageId
       textureCanvas.height = config.scene.textureResolution.height
       const context = textureCanvas.getContext('2d')
       if (!context) throw new Error('Canvas textures are unavailable')
-      const ink = '#172b22'
-      const muted = '#52665c'
-      context.fillStyle = document.color
+      const ink = '#11243a'
+      const muted = '#52667e'
+      context.fillStyle = document.highlight ? '#dbeafe' : '#f1f5f9'
       context.fillRect(0, 0, 720, 960)
       context.fillStyle = ink
-      context.font = '500 25px Arial'
+      context.font = '500 25px ' + fontFamily
       context.fillText('NNI', 54, 68)
       context.fillStyle = muted
-      context.font = '20px Arial'
+      context.font = '20px ' + fontFamily
       context.fillText(document.tag, 280, 68)
-      context.strokeStyle = '#aabbb0'
+      context.strokeStyle = '#aabcd3'
       context.lineWidth = 1
       context.beginPath()
       context.moveTo(54, 98)
@@ -74,27 +75,27 @@ export async function createEvidenceScene({ host, canvas, config, initialStageId
       context.stroke()
       const titleBreak = document.title.indexOf(' ')
       context.fillStyle = ink
-      context.font = '52px Georgia'
+      context.font = '650 52px ' + fontFamily
       context.fillText(document.title.slice(0, titleBreak), 54, 191)
       context.fillText(document.title.slice(titleBreak + 1), 54, 253)
       context.fillStyle = muted
-      context.font = '20px Arial'
+      context.font = '20px ' + fontFamily
       context.fillText(document.subtitle.toUpperCase(), 54, 305)
 
       if (document.highlight) {
-        context.fillStyle = '#214332'
+        context.fillStyle = '#183b5f'
         context.fillRect(54, 368, 610, 131)
-        context.fillStyle = '#edfff1'
-        context.font = '32px Georgia'
+        context.fillStyle = '#f0f9ff'
+        context.font = '600 32px ' + fontFamily
         context.fillText(document.highlight, 80, 424)
-        context.font = '22px Arial'
+        context.font = '22px ' + fontFamily
         context.fillText(document.highlightDescription, 80, 465)
         document.items.forEach((name, index) => {
           const y = 557 + index * 73
           context.fillStyle = ink
-          context.font = '27px Arial'
+          context.font = '27px ' + fontFamily
           context.fillText(`0${index + 1}   ${name}`, 64, y)
-          context.strokeStyle = '#7db393'
+          context.strokeStyle = '#7dabd3'
           context.beginPath()
           context.moveTo(54, y + 24)
           context.lineTo(664, y + 24)
@@ -103,27 +104,27 @@ export async function createEvidenceScene({ host, canvas, config, initialStageId
       } else {
         document.items.forEach((name, index) => {
           const y = 380 + index * 140
-          context.fillStyle = document.itemDetails && index === 1 ? '#efd0c8' : '#d4e3d7'
+          context.fillStyle = document.itemDetails && index === 1 ? '#cbdcf0' : '#dce8f5'
           context.fillRect(54, y, 610, 103)
           context.fillStyle = ink
-          context.font = '27px Arial'
+          context.font = '27px ' + fontFamily
           if (document.itemDetails) {
             context.fillText(name, 77, y + 40)
             context.fillStyle = muted
-            context.font = '19px Arial'
+            context.font = '19px ' + fontFamily
             context.fillText(document.itemDetails[index], 77, y + 75)
           } else {
             context.fillText(`0${index + 1}`, 78, y + 41)
             context.fillText(name, 146, y + 41)
-            context.fillStyle = '#708778'
+            context.fillStyle = '#718ba8'
             context.fillRect(148, y + 66, 375 - index * 52, 6)
           }
         })
       }
       context.fillStyle = muted
-      context.font = '18px Arial'
+      context.font = '18px ' + fontFamily
       context.fillText(document.footer, 54, 876)
-      context.font = '17px Arial'
+      context.font = '17px ' + fontFamily
       context.fillText('ESQUEMA CONCEPTUAL / NO ES UN CASO REAL', 54, 915)
       const texture = new THREE.CanvasTexture(textureCanvas)
       texture.colorSpace = THREE.SRGBColorSpace
@@ -145,7 +146,7 @@ export async function createEvidenceScene({ host, canvas, config, initialStageId
       gridPoints.push(new THREE.Vector3(-1.6, -1.88, i * 0.4), new THREE.Vector3(1.6, -1.88, i * 0.4))
     }
     const gridGeometry = new THREE.BufferGeometry().setFromPoints(gridPoints)
-    const gridMaterial = new THREE.LineBasicMaterial({ color: 0x729280, transparent: true, opacity: 0.18 })
+    const gridMaterial = new THREE.LineBasicMaterial({ color: 0x7295bd, transparent: true, opacity: 0.18 })
     geometries.push(gridGeometry)
     materials.push(gridMaterial)
     group.add(new THREE.LineSegments(gridGeometry, gridMaterial))
