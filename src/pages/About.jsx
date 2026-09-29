@@ -1,79 +1,113 @@
 import { Link } from 'react-router-dom'
+import { useLanguage } from '../i18n/language'
 
-const areas = [
-  'Ciencia de datos e inteligencia artificial',
-  'Desarrollo web, apps y automatización',
-  'Investigación social, política pública y seguridad',
-  'Comunicación, reputación y visualización',
-  'Innovación, sostenibilidad y formación aplicada',
-]
+const areas = {
+  es: [
+    'Ciencia de datos e inteligencia artificial',
+    'Desarrollo web, apps y automatización',
+    'Investigación social, política pública y seguridad',
+    'Comunicación, reputación y visualización',
+    'Innovación, sostenibilidad y formación aplicada',
+  ],
+  en: [
+    'Data science and artificial intelligence',
+    'Web development, apps and automation',
+    'Social research, public policy and security',
+    'Communication, reputation and visualization',
+    'Innovation, sustainability and applied training',
+  ],
+}
 
 const teamMembers = [
-  ['Felipe de Alba', 'Ciencia de datos, IA, social listening y análisis institucional'],
-  ['Aeelen Miranda', 'Python, inteligencia artificial y Big Data'],
-  ['Winik Ivanovich Morales', 'Python, ciencia de datos e inteligencia artificial'],
-  ['Josefina Pérez', 'Movilidades, cooperación internacional y seguridad'],
-  ['Diana Varela', 'Innovación empresarial e intraemprendimiento'],
-  ['Bryan Guzmán Álvarez', 'Desarrollo full-stack y sistemas escalables'],
-  ['Raymundo Rodríguez Rosas', 'Back-end, software a la medida y bases de datos'],
-  ['Itzel de Alba', 'Contenido multimedia, difusión y comunidad'],
-  ['Senet Ferriz', 'Diseño, gestión de redes y educación estratégica'],
-  ['Emilio Noriega', 'Robótica, STEAM e innovación tecnológica'],
-  ['Enrique Durazo', 'Ciencia de datos, Python y visualización creativa'],
-  ['Juan Alberto González', 'Mapeo urbano y visualización gráfica'],
-  ['David Salazar Hernández', 'Front-end, aplicaciones móviles y UX/UI'],
-  ['Luis Felipe Marín', 'IA, robótica e interacción humano-robot'],
+  ['Felipe de Alba', { es: 'Ciencia de datos, IA, social listening y análisis institucional', en: 'Data science, AI, social listening and institutional analysis' }],
+  ['Aeelen Miranda', { es: 'Python, inteligencia artificial y Big Data', en: 'Python, artificial intelligence and Big Data' }],
+  ['Winik Ivanovich Morales', { es: 'Python, ciencia de datos e inteligencia artificial', en: 'Python, data science and artificial intelligence' }],
+  ['Josefina Pérez', { es: 'Movilidades, cooperación internacional y seguridad', en: 'Mobilities, international cooperation and security' }],
+  ['Diana Varela', { es: 'Innovación empresarial e intraemprendimiento', en: 'Business innovation and intrapreneurship' }],
+  ['Bryan Guzmán Álvarez', { es: 'Desarrollo full-stack y sistemas escalables', en: 'Full-stack development and scalable systems' }],
+  ['Raymundo Rodríguez Rosas', { es: 'Back-end, software a la medida y bases de datos', en: 'Back-end, custom software and databases' }],
+  ['Itzel de Alba', { es: 'Contenido multimedia, difusión y comunidad', en: 'Multimedia content, outreach and community' }],
+  ['Senet Ferriz', { es: 'Diseño, gestión de redes y educación estratégica', en: 'Design, social media management and strategic education' }],
+  ['Emilio Noriega', { es: 'Robótica, STEAM e innovación tecnológica', en: 'Robotics, STEAM and technological innovation' }],
+  ['Enrique Durazo', { es: 'Ciencia de datos, Python y visualización creativa', en: 'Data science, Python and creative visualization' }],
+  ['Juan Alberto González', { es: 'Mapeo urbano y visualización gráfica', en: 'Urban mapping and graphic visualization' }],
+  ['David Salazar Hernández', { es: 'Front-end, aplicaciones móviles y UX/UI', en: 'Front-end, mobile applications and UX/UI' }],
+  ['Luis Felipe Marín', { es: 'IA, robótica e interacción humano-robot', en: 'AI, robotics and human-robot interaction' }],
 ]
 
+const aboutCopy = {
+  es: {
+    eyebrow: 'Nosotros',
+    title: 'Un equipo multidisciplinario para proyectos de IA con impacto.',
+    lead:
+      'NNI integra perfiles técnicos, académicos, creativos e institucionales para diseñar soluciones donde la inteligencia artificial se conecta con problemas reales: seguridad, gobierno, educación, comercio, investigación, reputación digital y operación cotidiana.',
+    introEyebrow: 'Capacidad institucional',
+    introTitle: 'Talento técnico con lectura social, pública y estratégica.',
+    intro:
+      'Nuestra diferencia está en combinar desarrollo de software, ciencia de datos, análisis social, visualización, comunicación y experiencia pública. Esto nos permite construir productos que no solo funcionan: explican, ordenan y ayudan a decidir.',
+    teamAria: 'Equipo de Neural Network Initiative',
+    ctaEyebrow: 'Trabajo conjunto',
+    ctaTitle: 'Armamos equipos alrededor del problema, no alrededor de una plantilla.',
+    cta: 'Conversar con NNI',
+  },
+  en: {
+    eyebrow: 'About',
+    title: 'A multidisciplinary team for high-impact AI projects.',
+    lead:
+      'NNI brings together technical, academic, creative and institutional profiles to design solutions where artificial intelligence connects with real problems: security, government, education, commerce, research, digital reputation and daily operations.',
+    introEyebrow: 'Institutional capacity',
+    introTitle: 'Technical talent with social, public and strategic judgment.',
+    intro:
+      'Our difference lies in combining software development, data science, social analysis, visualization, communication and public-sector experience. This allows us to build products that do more than work: they explain, organize and help people decide.',
+    teamAria: 'Neural Network Initiative team',
+    ctaEyebrow: 'Collaborative work',
+    ctaTitle: 'We build teams around the problem, not around a template.',
+    cta: 'Talk to NNI',
+  },
+}
+
 export default function About() {
+  const { language } = useLanguage()
+  const copy = aboutCopy[language]
+
   return (
     <section className="page about-page">
       <div className="page-hero">
-        <p className="eyebrow">Nosotros</p>
-        <h1>Un equipo multidisciplinario para proyectos de IA con impacto.</h1>
-        <p>
-          NNI integra perfiles técnicos, académicos, creativos e institucionales para
-          diseñar soluciones donde la inteligencia artificial se conecta con problemas
-          reales: seguridad, gobierno, educación, comercio, investigación, reputación
-          digital y operación cotidiana.
-        </p>
+        <p className="eyebrow">{copy.eyebrow}</p>
+        <h1>{copy.title}</h1>
+        <p>{copy.lead}</p>
       </div>
 
       <section className="section-grid intro-band">
         <div>
-          <p className="eyebrow">Capacidad institucional</p>
-          <h2>Talento técnico con lectura social, pública y estratégica.</h2>
+          <p className="eyebrow">{copy.introEyebrow}</p>
+          <h2>{copy.introTitle}</h2>
         </div>
-        <p>
-          Nuestra diferencia está en combinar desarrollo de software, ciencia de datos,
-          análisis social, visualización, comunicación y experiencia pública. Esto nos
-          permite construir productos que no solo funcionan: explican, ordenan y ayudan
-          a decidir.
-        </p>
+        <p>{copy.intro}</p>
       </section>
 
       <div className="tag-list areas-list">
-        {areas.map((area) => (
+        {areas[language].map((area) => (
           <span key={area}>{area}</span>
         ))}
       </div>
 
-      <div className="team-grid" aria-label="Equipo de Neural Network Initiative">
+      <div className="team-grid" aria-label={copy.teamAria}>
         {teamMembers.map(([name, role]) => (
           <article className="team-card" key={name}>
             <h2>{name}</h2>
-            <p>{role}</p>
+            <p>{role[language]}</p>
           </article>
         ))}
       </div>
 
       <section className="cta-band">
         <div>
-          <p className="eyebrow">Trabajo conjunto</p>
-          <h2>Armamos equipos alrededor del problema, no alrededor de una plantilla.</h2>
+          <p className="eyebrow">{copy.ctaEyebrow}</p>
+          <h2>{copy.ctaTitle}</h2>
         </div>
         <Link className="primary-button" to="/contacto">
-          Conversar con NNI
+          {copy.cta}
         </Link>
       </section>
     </section>
