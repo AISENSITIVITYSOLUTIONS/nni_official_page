@@ -1,8 +1,65 @@
+.about-page .team-grid {
+  gap: 24px;
+}
+
+.about-page .team-card {
+  display: flex;
+  min-height: 100%;
+  padding: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border-color: rgba(148, 242, 255, 0.2);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(148, 242, 255, 0.12), transparent 32%),
+    linear-gradient(145deg, rgba(20, 35, 56, 0.92), rgba(7, 17, 31, 0.78));
+}
+
 .about-page .team-card .team-portrait {
   display: block;
-  width: min(100%, 118px);
+  width: 100%;
+  aspect-ratio: 4 / 5;
   height: auto;
-  margin-inline: auto;
-  border: 1px solid rgba(148, 242, 255, 0.22);
-  border-radius: 18px;
+  object-fit: cover;
+  object-position: center top;
+  border-bottom: 1px solid rgba(148, 242, 255, 0.18);
+  filter: saturate(1.05) contrast(1.04) brightness(1.02);
+}
+
+.about-page .team-card h2,
+.about-page .team-card p {
+  padding-inline: 24px;
+}
+
+.about-page .team-card h2 {
+  margin: 22px 0 9px;
+  font-size: clamp(1.22rem, 2vw, 1.48rem);
+}
+
+.about-page .team-card p {
+  margin: 0 0 26px;
+}
+
+.about-page .team-card:not(:has(.team-portrait)) {
+  min-height: 190px;
+  justify-content: center;
+  padding-block: 6px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(148, 242, 255, 0.1), transparent 34%),
+    linear-gradient(145deg, rgba(14, 28, 48, 0.82), rgba(5, 13, 25, 0.68));
+}
+
+.about-page .team-card:not(:has(.team-portrait)) h2 {
+  margin-top: 18px;
+}
+
+@media (max-width: 860px) {
+  .about-page .team-grid {
+    gap: 18px;
+  }
+
+  .about-page .team-card h2,
+  .about-page .team-card p {
+    padding-inline: 20px;
+  }
 }
