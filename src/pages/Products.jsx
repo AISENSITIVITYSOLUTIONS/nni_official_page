@@ -43,7 +43,7 @@ const products = [
     users: 'Instituciones, edificios, eventos, escuelas y espacios con acceso controlado.',
     status: 'Landing publicada',
     value: 'Convierte la entrada institucional en una experiencia inteligente y verificable.',
-    href: 'https://facer.nni.ai/',
+    href: 'https://facer-webpage.web.app/',
   },
   {
     name: 'Delitos-SESNSP',
@@ -149,10 +149,10 @@ export default function Products() {
         <p className="eyebrow">Integración recomendada</p>
         <h2>FaceR debe permanecer visible como producto propio de NNI.</h2>
         <p>
-          La landing externa de FaceR funciona como demostración inicial. La ruta
-          recomendada es integrarla después como <strong>www.nni.ai/productos/facer</strong>
-          o publicarla en <strong>facer.nni.ai</strong>, para conservar la fuerza del
-          producto sin sacar al visitante del ecosistema institucional.
+          La landing externa de FaceR funciona como demostración inicial y se mantiene
+          intacta en <strong>facer-webpage.web.app</strong>. La ruta recomendada a futuro
+          es integrarla como <strong>www.nni.ai/productos/facer</strong> o conservar un
+          subdominio dedicado, sin modificar el sitio externo que contiene los videos.
         </p>
       </section>
     </section>
