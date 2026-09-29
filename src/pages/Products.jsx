@@ -1,5 +1,4 @@
 import { ExternalLink } from 'lucide-react'
-import { Link } from 'react-router-dom'
 
 const products = [
   {
@@ -11,6 +10,7 @@ const products = [
     users: 'Equipos directivos, consultorías, coordinación académica y grupos de proyecto.',
     status: 'Prototipo conceptual',
     value: 'Reduce pérdida de acuerdos y convierte reuniones en seguimiento accionable.',
+    href: 'https://easymeet-admin.nni.ai/',
   },
   {
     name: 'Cash-ito',
@@ -21,6 +21,7 @@ const products = [
     users: 'Comercios, talleres, proyectos familiares y microempresas.',
     status: 'Demo funcional',
     value: 'Hace visible el dinero cotidiano y ayuda a decidir con información simple.',
+    href: 'https://cashito2.web.app/home',
   },
   {
     name: 'InQilinos',
@@ -31,6 +32,7 @@ const products = [
     users: 'Propietarios, administradores y pequeños portafolios inmobiliarios.',
     status: 'Prototipo',
     value: 'Profesionaliza una operación que suele depender de mensajes informales.',
+    href: 'https://inqilinos.nni.ai/introduccion',
   },
   {
     name: 'FaceR',
@@ -41,7 +43,7 @@ const products = [
     users: 'Instituciones, edificios, eventos, escuelas y espacios con acceso controlado.',
     status: 'Landing publicada',
     value: 'Convierte la entrada institucional en una experiencia inteligente y verificable.',
-    href: 'https://facer-webpage.web.app/',
+    href: 'https://facer.nni.ai/',
   },
   {
     name: 'Delitos-SESNSP',
@@ -52,6 +54,7 @@ const products = [
     users: 'Analistas, gobiernos, periodistas, investigadores y equipos de seguridad.',
     status: 'Sitio en desarrollo',
     value: 'Transforma datos públicos en inteligencia visual para seguimiento estratégico.',
+    href: 'https://delitos-sesnsp.nni.ai/',
   },
   {
     name: 'Lukas Portfolio',
@@ -62,6 +65,7 @@ const products = [
     users: 'Artistas, galerías, coleccionistas y proyectos culturales.',
     status: 'Sitio publicado',
     value: 'Convierte una trayectoria artística en una experiencia de reputación internacional.',
+    href: 'https://lukas-beeckman-portfolio.web.app/',
   },
   {
     name: 'La Cantina Artesanal',
@@ -72,6 +76,18 @@ const products = [
     users: 'Bares, tiendas, comercios locales y proyectos gastronómicos.',
     status: 'App publicada',
     value: 'Ordena la operación diaria y permite saber qué se compra, vende y gana.',
+    href: 'https://la-cantina-artesanal-adm-1d70f.web.app/',
+  },
+  {
+    name: 'La Camionera',
+    category: 'Turismo, renta y cotización de viajes',
+    problem: 'Servicios de transporte turístico que necesitaban presentar paquetes, renta de unidades y contacto de forma clara.',
+    solution: 'Webapp para cotizaciones, paquetes, renta de autobuses, comunicación comercial y consulta de líneas.',
+    tech: ['React', 'Firebase', 'Diseño comercial', 'Experiencia responsive'],
+    users: 'Agencias, grupos turísticos, familias, escuelas y personas que organizan viajes.',
+    status: 'Sitio publicado',
+    value: 'Convierte una operación de viajes en una experiencia digital clara, confiable y lista para venta.',
+    href: 'https://la-camionera.nni.ai/',
   },
   {
     name: 'Z-Scooters',
@@ -82,6 +98,7 @@ const products = [
     users: 'Comercio especializado en scooters eléctricos, refacciones y taller.',
     status: 'En proceso',
     value: 'Fortalece confianza, visibilidad y conversión para un negocio de movilidad premium.',
+    href: 'https://www.zescootersmx.com/cart-page',
   },
 ]
 
@@ -121,15 +138,9 @@ export default function Products() {
               ))}
             </div>
             <p className="product-value">{product.value}</p>
-            {product.href ? (
-              <a className="text-link" href={product.href} rel="noreferrer" target="_blank">
-                Ver experiencia <ExternalLink size={16} />
-              </a>
-            ) : (
-              <Link className="text-link" to="/contacto">
-                Solicitar demo
-              </Link>
-            )}
+            <a className="text-link" href={product.href} rel="noreferrer" target="_blank">
+              Ver experiencia <ExternalLink size={16} />
+            </a>
           </article>
         ))}
       </div>
