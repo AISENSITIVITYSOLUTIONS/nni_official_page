@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "nni-official-page",
     "public": "dist",
     "ignore": [
       "firebase.json",
