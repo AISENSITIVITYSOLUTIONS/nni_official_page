@@ -524,10 +524,12 @@ p {
   z-index: 2;
   opacity: 0.72;
   mix-blend-mode: screen;
+  pointer-events: none;
 }
 
 .facer-video-shade {
   z-index: 3;
+  pointer-events: none;
   background:
     linear-gradient(180deg, rgba(2, 8, 23, 0.06), rgba(2, 8, 23, 0.52)),
     radial-gradient(circle at 50% 42%, transparent 0 34%, rgba(2, 8, 23, 0.28) 74%);
@@ -556,6 +558,38 @@ p {
 .facer-panel-copy small {
   color: var(--muted);
   line-height: 1.5;
+}
+
+.sound-toggle {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(148, 242, 255, 0.3);
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: #ecfeff;
+  background: rgba(8, 19, 38, 0.76);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 850;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.sound-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(148, 242, 255, 0.58);
+  background: rgba(10, 31, 56, 0.9);
+}
+
+.sound-toggle:focus-visible {
+  outline: 3px solid rgba(148, 242, 255, 0.35);
+  outline-offset: 3px;
 }
 
 @keyframes panel-drift {
