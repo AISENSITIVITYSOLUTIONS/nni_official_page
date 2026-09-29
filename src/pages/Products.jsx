@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ExternalLink, Volume2, VolumeX } from 'lucide-react'
 import { drawFaceMesh, initFp3d } from '../utils/fp3d'
+import { useLanguage } from '../i18n/language'
 
 const productVisuals = {
   EasyMeet: { slug: 'easymeet', accent: '#38bdf8', glow: 'rgba(56, 189, 248, 0.44)' },
@@ -16,101 +17,122 @@ const productVisuals = {
 const products = [
   {
     name: 'EasyMeet',
-    category: 'Productividad institucional',
-    problem: 'Reuniones, acuerdos y seguimiento dispersos entre mensajes, minutas y recordatorios.',
-    solution: 'Experiencia para organizar reuniones, acuerdos, responsables y trazabilidad de tareas.',
-    tech: ['IA asistida', 'Flujos de trabajo', 'Gestión de acuerdos'],
-    users: 'Equipos directivos, consultorías, coordinación académica y grupos de proyecto.',
-    status: 'Prototipo conceptual',
-    value: 'Reduce pérdida de acuerdos y convierte reuniones en seguimiento accionable.',
+    category: { es: 'Productividad institucional', en: 'Institutional productivity' },
+    problem: {
+      es: 'Reuniones, acuerdos y seguimiento dispersos entre mensajes, minutas y recordatorios.',
+      en: 'Meetings, agreements and follow-up dispersed across messages, minutes and reminders.',
+    },
+    solution: {
+      es: 'Experiencia para organizar reuniones, acuerdos, responsables y trazabilidad de tareas.',
+      en: 'An experience to organize meetings, agreements, owners and task traceability.',
+    },
+    tech: {
+      es: ['IA asistida', 'Flujos de trabajo', 'Gestión de acuerdos'],
+      en: ['AI assistance', 'Workflows', 'Agreement management'],
+    },
+    users: {
+      es: 'Equipos directivos, consultorías, coordinación académica y grupos de proyecto.',
+      en: 'Executive teams, consulting groups, academic coordination and project teams.',
+    },
+    status: { es: 'Prototipo conceptual', en: 'Concept prototype' },
+    value: {
+      es: 'Reduce pérdida de acuerdos y convierte reuniones en seguimiento accionable.',
+      en: 'Reduces lost agreements and turns meetings into actionable follow-up.',
+    },
     href: 'https://easymeet-admin.nni.ai/',
   },
   {
     name: 'Cash-ito',
-    category: 'Finanzas ligeras',
-    problem: 'Pequeños negocios que registran ingresos, egresos y metas sin lectura clara del flujo diario.',
-    solution: 'Herramienta para registrar movimientos, visualizar saldos y estimar metas de operación.',
-    tech: ['Dashboard', 'Registro financiero', 'Automatización'],
-    users: 'Comercios, talleres, proyectos familiares y microempresas.',
-    status: 'Demo funcional',
-    value: 'Hace visible el dinero cotidiano y ayuda a decidir con información simple.',
+    category: { es: 'Finanzas ligeras', en: 'Lightweight finance' },
+    problem: {
+      es: 'Pequeños negocios que registran ingresos, egresos y metas sin lectura clara del flujo diario.',
+      en: 'Small businesses tracking income, expenses and goals without a clear view of daily cash flow.',
+    },
+    solution: {
+      es: 'Herramienta para registrar movimientos, visualizar saldos y estimar metas de operación.',
+      en: 'A tool to record movements, view balances and estimate operating goals.',
+    },
+    tech: { es: ['Dashboard', 'Registro financiero', 'Automatización'], en: ['Dashboard', 'Financial records', 'Automation'] },
+    users: { es: 'Comercios, talleres, proyectos familiares y microempresas.', en: 'Shops, workshops, family projects and microbusinesses.' },
+    status: { es: 'Demo funcional', en: 'Functional demo' },
+    value: { es: 'Hace visible el dinero cotidiano y ayuda a decidir con información simple.', en: 'Makes everyday money visible and supports decisions with simple information.' },
     href: 'https://cashito2.web.app/home',
   },
   {
     name: 'InQilinos',
-    category: 'Gestión inmobiliaria',
-    problem: 'Rentas, pagos, incidencias y comunicación con inquilinos sin registro organizado.',
-    solution: 'Sistema para ordenar inmuebles, contratos, pagos, reportes e incidencias.',
-    tech: ['CRM ligero', 'Base de datos', 'Panel administrativo'],
-    users: 'Propietarios, administradores y pequeños portafolios inmobiliarios.',
-    status: 'Prototipo',
-    value: 'Profesionaliza una operación que suele depender de mensajes informales.',
+    category: { es: 'Gestión inmobiliaria', en: 'Property management' },
+    problem: { es: 'Rentas, pagos, incidencias y comunicación con inquilinos sin registro organizado.', en: 'Rent, payments, incidents and tenant communication without organized records.' },
+    solution: { es: 'Sistema para ordenar inmuebles, contratos, pagos, reportes e incidencias.', en: 'A system to organize properties, contracts, payments, reports and incidents.' },
+    tech: { es: ['CRM ligero', 'Base de datos', 'Panel administrativo'], en: ['Light CRM', 'Database', 'Admin panel'] },
+    users: { es: 'Propietarios, administradores y pequeños portafolios inmobiliarios.', en: 'Owners, administrators and small property portfolios.' },
+    status: { es: 'Prototipo', en: 'Prototype' },
+    value: { es: 'Profesionaliza una operación que suele depender de mensajes informales.', en: 'Professionalizes an operation that often depends on informal messages.' },
     href: 'https://inqilinos.nni.ai/introduccion',
   },
   {
     name: 'FaceR',
-    category: 'Seguridad institucional',
-    problem: 'Control de acceso sin validación suficiente de identidad, QR y trazabilidad.',
-    solution: 'Producto para identidad documental, reconocimiento facial, QR seguro y registro de accesos.',
-    tech: ['Identidad documental', 'Biometría facial', 'QR seguro', 'Trazabilidad'],
-    users: 'Instituciones, edificios, eventos, escuelas y espacios con acceso controlado.',
-    status: 'Landing publicada',
-    value: 'Convierte la entrada institucional en una experiencia inteligente y verificable.',
+    category: { es: 'Seguridad institucional', en: 'Institutional security' },
+    problem: { es: 'Control de acceso sin validación suficiente de identidad, QR y trazabilidad.', en: 'Access control without sufficient identity validation, QR security and traceability.' },
+    solution: { es: 'Producto para identidad documental, reconocimiento facial, QR seguro y registro de accesos.', en: 'A product for document identity, facial recognition, secure QR and access records.' },
+    tech: { es: ['Identidad documental', 'Biometría facial', 'QR seguro', 'Trazabilidad'], en: ['Document identity', 'Facial biometrics', 'Secure QR', 'Traceability'] },
+    users: { es: 'Instituciones, edificios, eventos, escuelas y espacios con acceso controlado.', en: 'Institutions, buildings, events, schools and controlled-access spaces.' },
+    status: { es: 'Landing publicada', en: 'Published landing page' },
+    value: { es: 'Convierte la entrada institucional en una experiencia inteligente y verificable.', en: 'Turns institutional entry into an intelligent and verifiable experience.' },
     href: 'https://facer.nni.ai/',
   },
   {
     name: 'Delitos-SESNSP',
-    category: 'Seguridad pública y datos',
-    problem: 'Bases de incidencia delictiva difíciles de leer para comparación territorial y temporal.',
-    solution: 'Dashboard para explorar delitos, tendencias, entidades y categorías de alto impacto.',
-    tech: ['React', 'Visualización', 'Datos SESNSP', 'Análisis territorial'],
-    users: 'Analistas, gobiernos, periodistas, investigadores y equipos de seguridad.',
-    status: 'Sitio en desarrollo',
-    value: 'Transforma datos públicos en inteligencia visual para seguimiento estratégico.',
+    category: { es: 'Seguridad pública y datos', en: 'Public security and data' },
+    problem: { es: 'Bases de incidencia delictiva difíciles de leer para comparación territorial y temporal.', en: 'Crime incidence datasets that are difficult to read across territory and time.' },
+    solution: { es: 'Dashboard para explorar delitos, tendencias, entidades y categorías de alto impacto.', en: 'A dashboard to explore crimes, trends, states and high-impact categories.' },
+    tech: { es: ['React', 'Visualización', 'Datos SESNSP', 'Análisis territorial'], en: ['React', 'Visualization', 'SESNSP data', 'Territorial analysis'] },
+    users: { es: 'Analistas, gobiernos, periodistas, investigadores y equipos de seguridad.', en: 'Analysts, governments, journalists, researchers and security teams.' },
+    status: { es: 'Sitio en desarrollo', en: 'Site in development' },
+    value: { es: 'Transforma datos públicos en inteligencia visual para seguimiento estratégico.', en: 'Turns public data into visual intelligence for strategic monitoring.' },
     href: 'https://delitos-sesnsp.nni.ai/',
   },
   {
     name: 'Lukas Portfolio',
-    category: 'Reputación artística',
-    problem: 'Obra visual joven que requería una presentación digital fina, curada y memorable.',
-    solution: 'Portafolio web con recorrido visual, jerarquía estética y navegación suave por piezas.',
-    tech: ['React', 'Diseño visual', 'Curaduría digital'],
-    users: 'Artistas, galerías, coleccionistas y proyectos culturales.',
-    status: 'Sitio publicado',
-    value: 'Convierte una trayectoria artística en una experiencia de reputación internacional.',
+    category: { es: 'Reputación artística', en: 'Artistic reputation' },
+    problem: { es: 'Obra visual joven que requería una presentación digital fina, curada y memorable.', en: 'A young visual practice that needed a refined, curated and memorable digital presence.' },
+    solution: { es: 'Portafolio web con recorrido visual, jerarquía estética y navegación suave por piezas.', en: 'A web portfolio with visual flow, aesthetic hierarchy and smooth navigation through pieces.' },
+    tech: { es: ['React', 'Diseño visual', 'Curaduría digital'], en: ['React', 'Visual design', 'Digital curation'] },
+    users: { es: 'Artistas, galerías, coleccionistas y proyectos culturales.', en: 'Artists, galleries, collectors and cultural projects.' },
+    status: { es: 'Sitio publicado', en: 'Published site' },
+    value: { es: 'Convierte una trayectoria artística en una experiencia de reputación internacional.', en: 'Turns an artistic trajectory into an international reputation experience.' },
     href: 'https://lukas-beeckman-portfolio.web.app/',
   },
   {
     name: 'La Cantina Artesanal',
-    category: 'Operación comercial',
-    problem: 'Inventario, compras, ventas y utilidad diaria registrados sin sistema integrado.',
-    solution: 'Aplicación administrativa para productos, precios, stock, compras, ventas y reportes.',
-    tech: ['Firebase', 'Inventario', 'Ventas', 'Panel administrativo'],
-    users: 'Bares, tiendas, comercios locales y proyectos gastronómicos.',
-    status: 'App publicada',
-    value: 'Ordena la operación diaria y permite saber qué se compra, vende y gana.',
+    category: { es: 'Operación comercial', en: 'Commercial operations' },
+    problem: { es: 'Inventario, compras, ventas y utilidad diaria registrados sin sistema integrado.', en: 'Inventory, purchases, sales and daily profit tracked without an integrated system.' },
+    solution: { es: 'Aplicación administrativa para productos, precios, stock, compras, ventas y reportes.', en: 'Administrative app for products, prices, stock, purchases, sales and reports.' },
+    tech: { es: ['Firebase', 'Inventario', 'Ventas', 'Panel administrativo'], en: ['Firebase', 'Inventory', 'Sales', 'Admin panel'] },
+    users: { es: 'Bares, tiendas, comercios locales y proyectos gastronómicos.', en: 'Bars, stores, local shops and food projects.' },
+    status: { es: 'App publicada', en: 'Published app' },
+    value: { es: 'Ordena la operación diaria y permite saber qué se compra, vende y gana.', en: 'Organizes daily operations and clarifies what is bought, sold and earned.' },
     href: 'https://la-cantina-artesanal-adm-1d70f.web.app/',
   },
   {
     name: 'La Camionera',
-    category: 'Turismo, renta y cotización de viajes',
-    problem: 'Servicios de transporte turístico que necesitaban presentar paquetes, renta de unidades y contacto de forma clara.',
-    solution: 'Webapp para cotizaciones, paquetes, renta de autobuses, comunicación comercial y consulta de líneas.',
-    tech: ['React', 'Firebase', 'Diseño comercial', 'Experiencia responsive'],
-    users: 'Agencias, grupos turísticos, familias, escuelas y personas que organizan viajes.',
-    status: 'Sitio publicado',
-    value: 'Convierte una operación de viajes en una experiencia digital clara, confiable y lista para venta.',
+    category: { es: 'Turismo, renta y cotización de viajes', en: 'Tourism, rentals and trip quotes' },
+    problem: { es: 'Servicios de transporte turístico que necesitaban presentar paquetes, renta de unidades y contacto de forma clara.', en: 'Tourism transportation services that needed clear presentation of packages, vehicle rentals and contact.' },
+    solution: { es: 'Webapp para cotizaciones, paquetes, renta de autobuses, comunicación comercial y consulta de líneas.', en: 'Webapp for quotes, packages, bus rentals, commercial communication and route inquiries.' },
+    tech: { es: ['React', 'Firebase', 'Diseño comercial', 'Experiencia responsive'], en: ['React', 'Firebase', 'Commercial design', 'Responsive experience'] },
+    users: { es: 'Agencias, grupos turísticos, familias, escuelas y personas que organizan viajes.', en: 'Agencies, tour groups, families, schools and people organizing trips.' },
+    status: { es: 'Sitio publicado', en: 'Published site' },
+    value: { es: 'Convierte una operación de viajes en una experiencia digital clara, confiable y lista para venta.', en: 'Turns a travel operation into a clear, trustworthy and sales-ready digital experience.' },
     href: 'https://la-camionera.nni.ai/',
   },
   {
     name: 'Z-Scooters',
-    category: 'Ecommerce y reputación digital',
-    problem: 'Sitio comercial con necesidad de diagnóstico SEO, contenidos, catálogo y posicionamiento.',
-    solution: 'Auditoría, plan de mejora, contenidos, estructura comercial y seguimiento de pendientes.',
-    tech: ['SEO', 'Wix ecommerce', 'Catálogo', 'Contenido comercial'],
-    users: 'Comercio especializado en scooters eléctricos, refacciones y taller.',
-    status: 'En proceso',
-    value: 'Fortalece confianza, visibilidad y conversión para un negocio de movilidad premium.',
+    category: { es: 'Ecommerce y reputación digital', en: 'Ecommerce and digital reputation' },
+    problem: { es: 'Sitio comercial con necesidad de diagnóstico SEO, contenidos, catálogo y posicionamiento.', en: 'Commercial site requiring SEO diagnosis, content, catalog structure and positioning.' },
+    solution: { es: 'Auditoría, plan de mejora, contenidos, estructura comercial y seguimiento de pendientes.', en: 'Audit, improvement plan, content, commercial structure and pending-item tracking.' },
+    tech: { es: ['SEO', 'Wix ecommerce', 'Catálogo', 'Contenido comercial'], en: ['SEO', 'Wix ecommerce', 'Catalog', 'Commercial content'] },
+    users: { es: 'Comercio especializado en scooters eléctricos, refacciones y taller.', en: 'Business specialized in electric scooters, parts and workshop services.' },
+    status: { es: 'En proceso', en: 'In progress' },
+    value: { es: 'Fortalece confianza, visibilidad y conversión para un negocio de movilidad premium.', en: 'Strengthens trust, visibility and conversion for a premium mobility business.' },
     href: 'https://www.zescootersmx.com/cart-page',
   },
 ]
@@ -118,7 +140,48 @@ const products = [
 const featuredProduct = products.find((product) => product.name === 'FaceR')
 const productCards = products.filter((product) => product.name !== 'FaceR')
 
+const productCopy = {
+  es: {
+    eyebrow: 'Productos y experiencias',
+    title: 'Proyectos que muestran cómo NNI convierte ideas en sistemas.',
+    lead:
+      'Esta sección reúne productos, prototipos, sitios y experiencias desarrolladas por NNI. No son piezas aisladas: muestran capacidades acumuladas en diseño, IA aplicada, datos, seguridad, comercio, reputación digital y operación.',
+    featuredLabel: 'Producto estrella',
+    featuredText:
+      'FaceR es la experiencia insignia de NNI para seguridad institucional: identidad documental, reconocimiento facial, QR seguro y trazabilidad de accesos en una narrativa visual clara, confiable y lista para demostración.',
+    featuredMetrics: ['Identidad documental', 'Biometría facial', 'QR seguro', 'Trazabilidad'],
+    featuredCta: 'Ver producto estrella',
+    panelTitle: 'Acceso seguro con identidad verificable',
+    panelSmall: 'Video demostrativo integrado en la ficha de producto.',
+    soundOn: 'Sonido activado',
+    soundOff: 'Activar sonido',
+    solution: 'Solución',
+    users: 'Usuarios',
+    cardCta: 'Ver experiencia',
+  },
+  en: {
+    eyebrow: 'Products and experience',
+    title: 'Projects that show how NNI turns ideas into systems.',
+    lead:
+      'This section brings together products, prototypes, sites and experiences developed by NNI. They are not isolated pieces: they show accumulated capabilities in design, applied AI, data, security, commerce, digital reputation and operations.',
+    featuredLabel: 'Featured product',
+    featuredText:
+      'FaceR is NNI’s flagship experience for institutional security: document identity, facial recognition, secure QR and access traceability in a clear, trustworthy and demo-ready visual narrative.',
+    featuredMetrics: ['Document identity', 'Facial biometrics', 'Secure QR', 'Traceability'],
+    featuredCta: 'View featured product',
+    panelTitle: 'Secure access with verifiable identity',
+    panelSmall: 'Demo video integrated into the product card.',
+    soundOn: 'Sound on',
+    soundOff: 'Turn sound on',
+    solution: 'Solution',
+    users: 'Users',
+    cardCta: 'View experience',
+  },
+}
+
 export default function Products() {
+  const { language } = useLanguage()
+  const copy = productCopy[language]
   const featuredPanelRef = useRef(null)
   const faceMeshRef = useRef(null)
   const productCardRefs = useRef([])
@@ -159,36 +222,27 @@ export default function Products() {
   return (
     <section className="page products-page">
       <div className="page-hero">
-        <p className="eyebrow">Productos y experiencias</p>
-        <h1>Proyectos que muestran cómo NNI convierte ideas en sistemas.</h1>
-        <p>
-          Esta sección reúne productos, prototipos, sitios y experiencias desarrolladas
-          por NNI. No son piezas aisladas: muestran capacidades acumuladas en diseño,
-          IA aplicada, datos, seguridad, comercio, reputación digital y operación.
-        </p>
+        <p className="eyebrow">{copy.eyebrow}</p>
+        <h1>{copy.title}</h1>
+        <p>{copy.lead}</p>
       </div>
 
       {featuredProduct && (
         <article className="featured-product-card">
           <div className="featured-product-copy">
             <div className="product-card-top">
-              <span>Producto estrella</span>
-              <strong>{featuredProduct.status}</strong>
+              <span>{copy.featuredLabel}</span>
+              <strong>{featuredProduct.status[language]}</strong>
             </div>
             <h2>{featuredProduct.name}</h2>
-            <p>
-              FaceR es la experiencia insignia de NNI para seguridad institucional:
-              identidad documental, reconocimiento facial, QR seguro y trazabilidad de
-              accesos en una narrativa visual clara, confiable y lista para demostración.
-            </p>
+            <p>{copy.featuredText}</p>
             <div className="featured-product-metrics">
-              <span>Identidad documental</span>
-              <span>Biometría facial</span>
-              <span>QR seguro</span>
-              <span>Trazabilidad</span>
+              {copy.featuredMetrics.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
             </div>
             <a className="primary-button" href={featuredProduct.href} rel="noreferrer" target="_blank">
-              Ver producto estrella <ExternalLink size={17} />
+              {copy.featuredCta} <ExternalLink size={17} />
             </a>
           </div>
           <div className="featured-product-panel facer-motion-card" ref={featuredPanelRef} tabIndex={0}>
@@ -210,11 +264,11 @@ export default function Products() {
               </div>
               <div className="facer-panel-copy">
                 <span>FaceR</span>
-                <strong>Acceso seguro con identidad verificable</strong>
-                <small>Video demostrativo integrado en la ficha de producto.</small>
+                <strong>{copy.panelTitle}</strong>
+                <small>{copy.panelSmall}</small>
                 <button className="sound-toggle" type="button" onClick={toggleSound}>
                   {soundEnabled ? <Volume2 size={16} /> : <VolumeX size={16} />}
-                  {soundEnabled ? 'Sonido activado' : 'Activar sonido'}
+                  {soundEnabled ? copy.soundOn : copy.soundOff}
                 </button>
               </div>
             </div>
@@ -245,27 +299,27 @@ export default function Products() {
             <div className="product-card-shine" aria-hidden="true" />
             <div className="product-depth-lines" aria-hidden="true" />
             <div className="product-card-top">
-              <span>{product.category}</span>
-              <strong>{product.status}</strong>
+              <span>{product.category[language]}</span>
+              <strong>{product.status[language]}</strong>
             </div>
             <h2>{product.name}</h2>
-            <p>{product.problem}</p>
+            <p>{product.problem[language]}</p>
             <div className="product-detail">
-              <b>Solución</b>
-              <span>{product.solution}</span>
+              <b>{copy.solution}</b>
+              <span>{product.solution[language]}</span>
             </div>
             <div className="product-detail">
-              <b>Usuarios</b>
-              <span>{product.users}</span>
+              <b>{copy.users}</b>
+              <span>{product.users[language]}</span>
             </div>
             <div className="tag-list compact">
-              {product.tech.map((item) => (
+              {product.tech[language].map((item) => (
                 <span key={item}>{item}</span>
               ))}
             </div>
-            <p className="product-value">{product.value}</p>
+            <p className="product-value">{product.value[language]}</p>
             <a className="text-link" href={product.href} rel="noreferrer" target="_blank">
-              Ver experiencia <ExternalLink size={16} />
+              {copy.cardCta} <ExternalLink size={16} />
             </a>
           </article>
           )
