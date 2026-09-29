@@ -158,26 +158,26 @@ export default function Products() {
           </div>
           <div className="featured-product-panel facer-motion-card" ref={featuredPanelRef} tabIndex={0}>
             <div className="fp3d-glare" aria-hidden="true" />
-            <div className="facer-video-shell">
-              <video
-                src="/videos/facer-product-demo.mp4"
-                poster="/favicon.svg"
-                muted
-                loop
-                playsInline
-                autoPlay
-                preload="metadata"
-              />
-              <canvas ref={faceMeshRef} aria-hidden="true" />
-              <div className="facer-video-shade" />
-              <div className="facer-video-label">
+            <div className="facer-panel-inner">
+              <div className="facer-video-shell">
+                <video
+                  src="/videos/facer-product-demo.mp4"
+                  poster="/favicon.svg"
+                  muted
+                  loop
+                  playsInline
+                  autoPlay
+                  preload="metadata"
+                />
+                <canvas ref={faceMeshRef} aria-hidden="true" />
+                <div className="facer-video-shade" />
+              </div>
+              <div className="facer-panel-copy">
                 <span>FaceR</span>
-                <strong>Acceso inteligente</strong>
+                <strong>Acceso seguro con identidad verificable</strong>
+                <small>Video demostrativo integrado</small>
               </div>
             </div>
-            <div className="orbital-card one">Documento</div>
-            <div className="orbital-card two">Rostro</div>
-            <div className="orbital-card three">QR</div>
           </div>
         </article>
       )}
