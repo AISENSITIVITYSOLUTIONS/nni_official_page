@@ -1,0 +1,704 @@
+{
+  "version": "1.0.0",
+  "section": "courses",
+  "route": "/cursos",
+  "language": "es",
+  "status": "proposal",
+  "layout": "featured-program-plus-executive-grid",
+  "totalPrograms": 8,
+  "purpose": "Contenido y especificaciones de la propuesta visual de Formación NNI. Este JSON requiere componentes de interfaz para presentar el diseño y ejecutar las interacciones 3D.",
+  "integration": {
+    "scope": "courses-section-only",
+    "publish": false,
+    "preserveSiteHeader": true,
+    "preserveSiteFooter": true,
+    "preserveOtherRoutes": true,
+    "preserveExistingLanguageSwitcher": true,
+    "modifyFaceR": false,
+    "cssScope": "nni-courses",
+    "replaceGlobalStyles": false,
+    "note": "La navegación interna de la propuesta no sustituye la cabecera del sitio. Este archivo contiene únicamente la versión española; no cambia el contenido inglés existente."
+  },
+  "header": {
+    "eyebrow": "Formación NNI",
+    "title": "Pensar con profundidad. Decidir con evidencia.",
+    "titleLines": [
+      "Pensar con profundidad.",
+      "Decidir con evidencia."
+    ],
+    "lead": "Formación para preguntar mejor, investigar con rigor y justificar decisiones.",
+    "brandDescriptor": "Inteligencia aplicada"
+  },
+  "sectionNavigation": [
+    { "label": "Diplomado", "href": "#n-diplomado" },
+    { "label": "Programas", "href": "#n-programas" },
+    { "label": "Método", "href": "#n-metodo" }
+  ],
+  "featuredProgram": {
+    "id": "diplomado-analisis-social-ia",
+    "anchor": "n-diplomado",
+    "type": "diplomado",
+    "label": "Programa destacado",
+    "eyebrow": "Formación NNI · Programa destacado",
+    "title": "Diplomado en Análisis Social Asistido con IA",
+    "titleLines": [
+      "Diplomado en",
+      "Análisis Social",
+      "Asistido con IA"
+    ],
+    "visualPriority": "high",
+    "metadata": {
+      "hours": 120,
+      "hoursLabel": "120 horas",
+      "periodicity": "Semanal",
+      "durationWeeks": null,
+      "nextStart": "Próxima convocatoria",
+      "startDate": null,
+      "startDateStatus": "to-be-confirmed",
+      "modality": "En línea / híbrido",
+      "academicStatus": "pending-validation"
+    },
+    "visibleMetadata": [
+      { "label": "Carga formativa", "value": "120 horas" },
+      { "label": "Periodicidad", "value": "Semanal" },
+      { "label": "Modalidad propuesta", "value": "En línea / híbrido" },
+      { "label": "Próximo inicio", "value": "Próxima convocatoria" }
+    ],
+    "headline": "Pensar con profundidad. Decidir con evidencia.",
+    "description": "Convierte documentos, entrevistas y datos en análisis que puedas explicar, contrastar y defender.",
+    "audience": [
+      "Investigadores",
+      "Docentes",
+      "Consultores",
+      "Equipos institucionales"
+    ],
+    "outcomes": [
+      "Delimitar problemas y formular preguntas analíticas con supuestos explícitos.",
+      "Organizar evidencia documental, cualitativa y cuantitativa con trazabilidad.",
+      "Contrastar hipótesis, explicaciones alternativas y resultados asistidos por IA.",
+      "Reconocer sesgos, límites e incertidumbre en el análisis.",
+      "Integrar un expediente de análisis social y defender una recomendación argumentada."
+    ],
+    "deliverable": {
+      "label": "Entregable propuesto",
+      "title": "Expediente de análisis social",
+      "description": "Fuentes verificadas, hipótesis contrastadas y una recomendación argumentada.",
+      "status": "proposed"
+    },
+    "cta": {
+      "label": "Explorar el diplomado",
+      "href": "#n-plan",
+      "action": "expand-and-navigate",
+      "targetId": "n-plan"
+    },
+    "secondaryCta": {
+      "label": "Ver los 7 programas",
+      "href": "#n-programas",
+      "action": "navigate"
+    },
+    "academicPlan": {
+      "id": "n-plan",
+      "presentation": "accordion",
+      "initiallyOpen": false,
+      "title": "Un método completo, un proyecto propio.",
+      "subtitle": "Plan académico propuesto · 6 módulos de 20 h",
+      "description": "Para investigadores, docentes, consultores y equipos institucionales. La propuesta culmina en un expediente de análisis social con fuentes verificadas, hipótesis contrastadas y una recomendación argumentada.",
+      "status": "pending-validation",
+      "totalHours": 120,
+      "modules": [
+        {
+          "id": "preguntas-que-orientan",
+          "order": 1,
+          "hours": 20,
+          "title": "Preguntas que orientan",
+          "description": "Delimitar un problema, explicitar supuestos y construir una pregunta analítica."
+        },
+        {
+          "id": "evidencia-con-trazabilidad",
+          "order": 2,
+          "hours": 20,
+          "title": "Evidencia con trazabilidad",
+          "description": "Identificar fuentes, registrar procedencia y valorar calidad, límites y privacidad."
+        },
+        {
+          "id": "interpretacion-cualitativa",
+          "order": 3,
+          "hours": 20,
+          "title": "Interpretación cualitativa",
+          "description": "Codificar documentos y entrevistas; contrastar la lectura asistida con revisión humana."
+        },
+        {
+          "id": "lectura-critica-de-datos",
+          "order": 4,
+          "hours": 20,
+          "title": "Lectura crítica de datos",
+          "description": "Examinar indicadores, sesgos y patrones sin confundir correlación con causalidad."
+        },
+        {
+          "id": "hipotesis-y-escenarios",
+          "order": 5,
+          "hours": 20,
+          "title": "Hipótesis y escenarios",
+          "description": "Contrastar explicaciones, explorar alternativas y expresar incertidumbre."
+        },
+        {
+          "id": "argumentar-una-decision",
+          "order": 6,
+          "hours": 20,
+          "title": "Argumentar una decisión",
+          "description": "Integrar un informe, documentar el uso de IA y defender una recomendación."
+        }
+      ],
+      "note": "Fechas, calendario y evaluación sujetos a validación académica."
+    }
+  },
+  "catalog": {
+    "id": "n-programas",
+    "eyebrow": "Siete programas complementarios",
+    "title": "Una capacidad. Un resultado concreto.",
+    "titleLines": [
+      "Una capacidad.",
+      "Un resultado concreto."
+    ],
+    "lead": "Formación para preguntar mejor, investigar con rigor y justificar decisiones.",
+    "deliverableLabel": "Desarrollarás",
+    "detailBehavior": "inline-accordion",
+    "detailInitiallyOpen": false,
+    "showAllProgramsInitially": true
+  },
+  "programs": [
+    {
+      "id": "pensamiento-analitico-ia",
+      "order": 1,
+      "category": "Criterio analítico",
+      "title": "Pensamiento Analítico Aumentado con IA",
+      "metadata": {
+        "hours": 24,
+        "hoursLabel": "24 h",
+        "durationWeeks": 6,
+        "durationLabel": "6 semanas",
+        "sessions": null,
+        "periodicity": "Sesiones por confirmar dentro de 6 semanas.",
+        "nextStart": "Próximo grupo",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "En línea",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Aprende a formular preguntas, detectar supuestos y distinguir una respuesta convincente de una bien sustentada.",
+      "audience": "Profesionales, docentes y analistas que necesitan estructurar problemas.",
+      "outcomes": [
+        "Descomponer una pregunta compleja.",
+        "Comparar respuestas y detectar sesgos.",
+        "Verificar afirmaciones y explicitar límites."
+      ],
+      "deliverable": "Una matriz de preguntas, supuestos y evidencia.",
+      "startLabel": "Próximo grupo · Fecha por confirmar",
+      "cta": {
+        "label": "Explorar programa",
+        "action": "toggle-details",
+        "targetId": "pensamiento-analitico-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Consultar este programa",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "pensamiento-analitico-ia"
+      }
+    },
+    {
+      "id": "decisiones-estrategicas-ia",
+      "order": 2,
+      "category": "Decisión estratégica",
+      "title": "Toma de Decisiones Estratégicas Asistida por IA",
+      "metadata": {
+        "hours": 20,
+        "hoursLabel": "20 h",
+        "durationWeeks": 5,
+        "durationLabel": "5 semanas",
+        "sessions": null,
+        "periodicity": "Sesiones por confirmar dentro de 5 semanas.",
+        "nextStart": "Próximo grupo",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "En línea",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Compara alternativas, anticipa riesgos y sustenta decisiones sin delegar el juicio a un modelo.",
+      "audience": "Responsables de proyectos, directivos y equipos de planeación.",
+      "outcomes": [
+        "Definir criterios antes de comparar alternativas.",
+        "Construir escenarios y analizar sensibilidad.",
+        "Justificar una decisión y sus condiciones de revisión."
+      ],
+      "deliverable": "Un informe de decisión con escenarios y riesgos.",
+      "startLabel": "Próximo grupo · Fecha por confirmar",
+      "cta": {
+        "label": "Explorar programa",
+        "action": "toggle-details",
+        "targetId": "decisiones-estrategicas-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Consultar este programa",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "decisiones-estrategicas-ia"
+      }
+    },
+    {
+      "id": "inteligencia-institucional-problemas-publicos",
+      "order": 3,
+      "category": "Análisis institucional",
+      "title": "Inteligencia Institucional y Análisis de Problemas Públicos",
+      "metadata": {
+        "hours": 30,
+        "hoursLabel": "30 h",
+        "durationWeeks": 8,
+        "durationLabel": "8 semanas",
+        "sessions": null,
+        "periodicity": "Sesiones por confirmar dentro de 8 semanas.",
+        "nextStart": "Próxima convocatoria",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "En línea / híbrido",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Relaciona actores, territorio y capacidades institucionales para comprender problemas públicos complejos.",
+      "audience": "Equipos públicos, organizaciones civiles, consultores y áreas de análisis.",
+      "outcomes": [
+        "Delimitar el problema y sus actores.",
+        "Relacionar narrativas, indicadores y territorio.",
+        "Proponer prioridades con límites y riesgos explícitos."
+      ],
+      "deliverable": "Un diagnóstico con mapa de actores y prioridades.",
+      "startLabel": "Próxima convocatoria · Fecha por confirmar",
+      "cta": {
+        "label": "Explorar programa",
+        "action": "toggle-details",
+        "targetId": "inteligencia-institucional-problemas-publicos-detalles"
+      },
+      "inquiryCta": {
+        "label": "Consultar este programa",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "inteligencia-institucional-problemas-publicos"
+      }
+    },
+    {
+      "id": "investigacion-aplicada-ia",
+      "order": 4,
+      "category": "Investigación aplicada",
+      "title": "IA para Investigación Aplicada y Producción de Conocimiento",
+      "metadata": {
+        "hours": 30,
+        "hoursLabel": "30 h",
+        "durationWeeks": 8,
+        "durationLabel": "8 semanas",
+        "sessions": null,
+        "periodicity": "Sesiones por confirmar dentro de 8 semanas.",
+        "nextStart": "Próximo grupo",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "En línea",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Transforma documentos, entrevistas y datos en un argumento verificable, con fuentes y decisiones de método.",
+      "audience": "Investigadores, docentes, estudiantes de posgrado y consultores.",
+      "outcomes": [
+        "Diseñar un corpus y un protocolo de análisis.",
+        "Auditar síntesis y referencias producidas con IA.",
+        "Documentar el proceso y construir un argumento."
+      ],
+      "deliverable": "Un protocolo de investigación y una síntesis trazable.",
+      "startLabel": "Próximo grupo · Fecha por confirmar",
+      "cta": {
+        "label": "Explorar programa",
+        "action": "toggle-details",
+        "targetId": "investigacion-aplicada-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Consultar este programa",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "investigacion-aplicada-ia"
+      }
+    },
+    {
+      "id": "laboratorio-de-criterio-ia",
+      "order": 5,
+      "category": "Práctica deliberativa",
+      "title": "Laboratorio de Criterio: Reflexión, Evidencia y Decisión con IA",
+      "metadata": {
+        "hours": 16,
+        "hoursLabel": "16 h",
+        "durationWeeks": null,
+        "durationLabel": "4 sesiones",
+        "sessions": 4,
+        "periodicity": "Calendario de las 4 sesiones por confirmar.",
+        "nextStart": "Próximo grupo",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "En línea",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Trabaja un caso, enfrenta evidencia contradictoria y revisa tu postura antes de formular una recomendación.",
+      "audience": "Profesionales y equipos que necesitan contrastar criterios en situaciones ambiguas.",
+      "outcomes": [
+        "Separar hechos, inferencias y preferencias.",
+        "Examinar objeciones a la propia hipótesis.",
+        "Registrar cómo y por qué cambia una conclusión."
+      ],
+      "deliverable": "Una bitácora de deliberación y una recomendación defendida.",
+      "startLabel": "Próximo grupo · Fecha por confirmar",
+      "cta": {
+        "label": "Explorar programa",
+        "action": "toggle-details",
+        "targetId": "laboratorio-de-criterio-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Consultar este programa",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "laboratorio-de-criterio-ia"
+      }
+    },
+    {
+      "id": "comunicacion-politica-ciudadania-ia",
+      "order": 6,
+      "category": "Conversación pública",
+      "title": "IA, Comunicación Política y Ciudadanía",
+      "metadata": {
+        "hours": 24,
+        "hoursLabel": "24 h",
+        "durationWeeks": 6,
+        "durationLabel": "6 semanas",
+        "sessions": null,
+        "periodicity": "Sesiones por confirmar dentro de 6 semanas.",
+        "nextStart": "Próxima convocatoria",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "En línea",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Interpreta narrativas y conversación pública sin confundir visibilidad digital con representatividad social.",
+      "audience": "Equipos de comunicación, investigadores y organizaciones ciudadanas.",
+      "outcomes": [
+        "Diseñar una muestra y definir categorías.",
+        "Contrastar discursos, fuentes y marcos narrativos.",
+        "Evaluar sesgos de plataforma y uso responsable."
+      ],
+      "deliverable": "Un análisis de narrativas con límites metodológicos.",
+      "startLabel": "Próxima convocatoria · Fecha por confirmar",
+      "cta": {
+        "label": "Explorar programa",
+        "action": "toggle-details",
+        "targetId": "comunicacion-politica-ciudadania-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Consultar este programa",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "comunicacion-politica-ciudadania-ia"
+      }
+    },
+    {
+      "id": "ia-equipos-profesionales",
+      "order": 7,
+      "category": "Formación para equipos",
+      "title": "IA Aplicada para Equipos Profesionales",
+      "cardVariant": "full-width",
+      "metadata": {
+        "hours": 18,
+        "hoursLabel": "18 h",
+        "durationWeeks": null,
+        "durationLabel": "3 a 6 sesiones",
+        "sessions": null,
+        "sessionRange": { "min": 3, "max": 6 },
+        "periodicity": "Por acordar con el equipo.",
+        "nextStart": "Bajo demanda",
+        "startDate": null,
+        "startDateStatus": "on-demand",
+        "modality": "En línea / presencial",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Integra IA en un proceso real con responsabilidades claras, revisión humana y criterios de evaluación.",
+      "audience": "Equipos de empresas, universidades, gobiernos y organizaciones.",
+      "outcomes": [
+        "Seleccionar un proceso y medir su situación inicial.",
+        "Definir usos permitidos y puntos de revisión.",
+        "Evaluar resultados y condiciones para escalar."
+      ],
+      "deliverable": "Un piloto de adopción con protocolo e indicadores.",
+      "startLabel": "Bajo demanda · Calendario acordado",
+      "cta": {
+        "label": "Explorar programa",
+        "action": "toggle-details",
+        "targetId": "ia-equipos-profesionales-detalles"
+      },
+      "inquiryCta": {
+        "label": "Consultar este programa",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "ia-equipos-profesionales"
+      }
+    }
+  ],
+  "methodology": {
+    "id": "n-metodo",
+    "eyebrow": "El enfoque formativo",
+    "title": "La IA asiste. El criterio lo construyes tú.",
+    "titleLines": [
+      "La IA asiste.",
+      "El criterio lo construyes tú."
+    ],
+    "description": "Una propuesta centrada en problemas, evidencia y productos de trabajo. Cada respuesta de la IA es un insumo que debe examinarse, no una conclusión que deba aceptarse.",
+    "steps": [
+      "Formular una pregunta y explicitar supuestos.",
+      "Verificar fuentes y contrastar evidencia.",
+      "Examinar alternativas y reconocer incertidumbre.",
+      "Argumentar, documentar y asumir la decisión."
+    ]
+  },
+  "contact": {
+    "id": "n-consulta",
+    "title": "Conversemos sobre tu objetivo de formación.",
+    "description": "Diplomado, programa breve o formación para tu equipo.",
+    "selectedProgramTemplate": "Programa de interés: {programTitle}.",
+    "cta": {
+      "label": "Solicitar información",
+      "href": "https://www.nni.ai/contacto",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "accessibleLabel": "Solicitar información en la página de contacto de NNI; se abre en una pestaña nueva"
+    },
+    "note": "La selección del programa se muestra en la propuesta. No envía datos ni supone que el formulario actual de contacto los reciba automáticamente."
+  },
+  "interactive3d": {
+    "enabled": true,
+    "id": "expediente-analitico",
+    "title": "Expediente analítico tridimensional",
+    "engine": "three.js",
+    "referenceVersion": "0.180.0",
+    "requiresRendererImplementation": true,
+    "placement": "featured-program-unframed-scene",
+    "description": "Tres documentos representan la organización de evidencia, el contraste de hipótesis y una decisión justificada. Cada etapa cambia la posición y el protagonismo de los documentos.",
+    "dataNature": "conceptual-demonstration",
+    "disclaimer": "Demostración conceptual",
+    "accessibleDescription": "Demostración conceptual en tres dimensiones: organizar fuentes, contrastar hipótesis y elaborar una decisión justificada. Los controles ofrecen la misma información en texto.",
+    "initialStageId": "evidencia",
+    "stages": [
+      {
+        "id": "evidencia",
+        "order": 1,
+        "label": "Evidencia",
+        "headline": "De información dispersa a evidencia.",
+        "description": "Organizar no equivale a verificar.",
+        "fallbackText": "Fuentes identificadas y organizadas.",
+        "activeDocumentId": "fuentes"
+      },
+      {
+        "id": "contraste",
+        "order": 2,
+        "label": "Contraste",
+        "headline": "Contrastar también es cuestionar.",
+        "description": "Buscar apoyos, contradicciones y explicaciones alternativas.",
+        "fallbackText": "Hipótesis, apoyos y contradicciones.",
+        "activeDocumentId": "hipotesis"
+      },
+      {
+        "id": "decision",
+        "order": 3,
+        "label": "Decisión",
+        "headline": "Una decisión que puedes justificar.",
+        "description": "Explicitar fuentes, incertidumbre y responsabilidad humana.",
+        "fallbackText": "Alternativas, límites y justificación.",
+        "activeDocumentId": "decision"
+      }
+    ],
+    "documents": [
+      {
+        "id": "fuentes",
+        "tag": "01 / FUENTES",
+        "title": "Organizar la evidencia.",
+        "subtitle": "Expediente de análisis social",
+        "items": ["Documentos", "Entrevistas", "Datos"],
+        "footer": "Procedencia / fecha / límites",
+        "color": "#eff3ef"
+      },
+      {
+        "id": "hipotesis",
+        "tag": "02 / HIPÓTESIS",
+        "title": "Contrastar explicaciones.",
+        "subtitle": "Expediente de análisis social",
+        "items": ["Evidencia a favor", "Evidencia en contra", "Qué falta saber"],
+        "itemDetails": ["Apoyo documentado", "Objeciones y límites", "Incertidumbre explícita"],
+        "footer": "El contraste precede al juicio",
+        "color": "#eff3ef"
+      },
+      {
+        "id": "decision",
+        "tag": "03 / DECISIÓN",
+        "title": "Sustentar una decisión.",
+        "subtitle": "Expediente de análisis social",
+        "highlight": "Juicio humano",
+        "highlightDescription": "Fuentes + contraste + justificación",
+        "items": ["Alternativas", "Incertidumbre", "Recomendación"],
+        "footer": "Revisión y responsabilidad humana",
+        "color": "#b7f0d1"
+      }
+    ],
+    "scene": {
+      "documentDimensions": { "width": 2.04, "height": 2.68, "depth": 0.055 },
+      "textureResolution": { "width": 720, "height": 960 },
+      "frontMaterial": "unlit-texture",
+      "camera": { "type": "perspective", "fovDegrees": 35, "near": 0.1, "far": 100, "desktopPosition": [0, 0, 12] },
+      "poseUnits": { "position": "scene-units", "rotation": "radians" },
+      "poses": {
+        "evidencia": [
+          { "documentId": "fuentes", "position": [-0.45, 0.18, 0.82], "rotation": [-0.1, -0.22, -0.1] },
+          { "documentId": "hipotesis", "position": [0.6, 0.67, -0.25], "rotation": [-0.1, -0.35, 0.16] },
+          { "documentId": "decision", "position": [0.46, -0.55, -0.6], "rotation": [0.08, -0.27, -0.05] }
+        ],
+        "contraste": [
+          { "documentId": "fuentes", "position": [-0.62, 0.53, -0.3], "rotation": [-0.08, -0.3, -0.1] },
+          { "documentId": "hipotesis", "position": [0.09, 0.03, 0.96], "rotation": [-0.03, -0.14, 0.02] },
+          { "documentId": "decision", "position": [0.67, -0.4, -0.6], "rotation": [0.08, -0.25, 0.13] }
+        ],
+        "decision": [
+          { "documentId": "fuentes", "position": [-0.58, 0.4, -0.28], "rotation": [-0.07, -0.31, -0.08] },
+          { "documentId": "hipotesis", "position": [0.53, 0.61, -0.55], "rotation": [0.02, -0.23, 0.08] },
+          { "documentId": "decision", "position": [0.02, -0.05, 1.0], "rotation": [-0.04, -0.16, -0.035] }
+        ]
+      }
+    },
+    "interaction": {
+      "stageSelection": "buttons",
+      "transitionDurationMs": 720,
+      "easing": "smoothstep",
+      "pointerParallax": true,
+      "pointerParallaxMaxRadians": 0.05,
+      "disablePointerParallaxOnTouch": true,
+      "automaticRotation": false,
+      "scrollHijacking": false
+    },
+    "tour": {
+      "label": "Recorrido · 10 s",
+      "durationMs": 10000,
+      "autoplay": false,
+      "loop": false,
+      "audio": false,
+      "pauseLabel": "Pausar recorrido",
+      "resumeLabel": "Reanudar recorrido",
+      "pauseWhenPageHidden": true,
+      "pauseWhenSectionNotVisible": true,
+      "restartOnlyOnUserAction": true,
+      "timeline": [
+        { "stageId": "evidencia", "startMs": 0, "endMs": 3333 },
+        { "stageId": "contraste", "startMs": 3333, "endMs": 6667 },
+        { "stageId": "decision", "startMs": 6667, "endMs": 10000 }
+      ]
+    },
+    "performance": {
+      "canvasCount": 1,
+      "renderMode": "on-demand",
+      "maxDevicePixelRatio": 1.5,
+      "powerPreference": "low-power",
+      "stopRenderingWhenIdle": true,
+      "stopRenderingWhenOffscreen": true,
+      "stopRenderingWhenPageHidden": true,
+      "disposeResourcesOnUnmount": true,
+      "postprocessing": false,
+      "blockContentUntilSceneLoads": false
+    },
+    "reducedMotion": {
+      "respectSystemPreference": true,
+      "transitionDurationMs": 0,
+      "pointerParallax": false,
+      "keepManualStageSelection": true,
+      "keepTextEquivalent": true
+    },
+    "fallback": {
+      "enabled": true,
+      "type": "semantic-text-stages",
+      "triggers": ["module-load-failure", "webgl-unavailable", "webgl-context-lost"],
+      "preserveProgramContent": true,
+      "preserveStageControls": true,
+      "preserveContactLink": true
+    }
+  },
+  "designGuidelines": {
+    "tone": "Institucional, sobrio, contemporáneo y orientado al criterio analítico.",
+    "theme": "dark",
+    "colors": {
+      "background": "#0d1213",
+      "surface": "#151d1e",
+      "text": "#f0f3f1",
+      "mutedText": "#b0bfba",
+      "border": "#34413d",
+      "accent": "#b7f0d1",
+      "contradictionAccent": "#efa79a",
+      "teamSurface": "#18251f",
+      "primaryButtonText": "#0d2019"
+    },
+    "typography": {
+      "bodyFont": "Arial, Helvetica, sans-serif",
+      "accentFont": "Georgia, 'Times New Roman', serif",
+      "accentStyle": "italic",
+      "bodyFontSizePx": 15,
+      "bodyLineHeight": 1.55,
+      "letterSpacingPx": 0,
+      "headingWeight": 500,
+      "minimumSupportingTextSizePx": 11,
+      "heroFontSizePx": { "largeDesktop": 50, "desktop": 44, "mobile": 36, "smallMobile": 31 },
+      "cardTitleFontSizePx": { "desktop": 22, "smallMobile": 21 }
+    },
+    "layout": {
+      "maxContentWidthPx": 1280,
+      "desktopHorizontalPaddingPx": 40,
+      "mobileHorizontalPaddingPx": 24,
+      "smallMobileHorizontalPaddingPx": 18,
+      "cardGapPx": 18,
+      "cardRadiusPx": 6,
+      "buttonRadiusPx": 4,
+      "breakpointsPx": { "smallMobileMax": 420, "mobileMax": 760, "largeDesktopMin": 1240 },
+      "gridColumns": { "mobile": 1, "desktop": 2, "largeDesktop": 3 },
+      "teamProgramSpansFullRow": true,
+      "heroSceneHasDecorativeFrame": false,
+      "mobileFeaturedOrder": ["headline-and-actions", "metadata", "scene", "scene-caption", "stage-controls", "academic-plan"]
+    },
+    "cardVisibleFields": ["category", "title", "description", "hours", "duration", "modality", "nextStart", "deliverable", "cta"],
+    "cardExpandedFields": ["audience", "outcomes", "periodicity", "inquiryCta"],
+    "effects": {
+      "cardHover": "Borde y sombra suaves, sin mover ni inclinar el texto.",
+      "cardTransitionDurationMs": 200,
+      "continuousMarquee": false,
+      "floatingStickers": false,
+      "decorativeOrbs": false,
+      "autoplayVideo": false
+    }
+  },
+  "accessibility": {
+    "singleH1": "featuredProgram.title",
+    "keyboardAccessibleControls": true,
+    "nativeDetailsForProgramExpansion": true,
+    "visibleFocusIndicator": true,
+    "stageButtonsExposePressedState": true,
+    "stageCaptionLiveRegion": "polite",
+    "meaningIndependentOfColor": true,
+    "essentialContentAvailableWithoutHover": true,
+    "canvasHasTextEquivalent": true,
+    "mobileTouchTargetMinPx": 44,
+    "preventHorizontalOverflow": true
+  },
+  "editorialRules": {
+    "institutionAssociatedFieldVisible": false,
+    "certificationClaim": null,
+    "announceOpenEnrollment": false,
+    "announceActivePrograms": false,
+    "distinguishDurationFromPeriodicity": true,
+    "useNullForUnconfirmedDates": true,
+    "useHoursAsNumbers": true,
+    "pendingAcademicApproval": ["Horas", "Modalidades", "Contenidos", "Calendario", "Fechas de inicio", "Evaluación"],
+    "reviewNotice": "Propuesta para revisión. Horas, modalidades y contenidos sujetos a validación académica. Fechas por confirmar. Sin instituciones asociadas ni certificaciones anunciadas."
+  }
+}

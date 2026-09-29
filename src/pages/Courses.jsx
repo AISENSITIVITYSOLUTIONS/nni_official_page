@@ -1,4 +1,7 @@
+import { Component, lazy, Suspense } from 'react'
 import { useLanguage } from '../i18n/language'
+
+const CoursesExperience = lazy(() => import('./courses/CoursesExperience'))
 
 const courses = [
   {
@@ -39,8 +42,7 @@ const courseCopy = {
   },
 }
 
-export default function Courses() {
-  const { language } = useLanguage()
+function ExistingCourses({ language }) {
   const copy = courseCopy[language]
 
   return (
@@ -60,5 +62,32 @@ export default function Courses() {
         ))}
       </div>
     </section>
+  )
+}
+
+class CoursesBoundary extends Component {
+  state = { failed: false }
+
+  static getDerivedStateFromError() {
+    return { failed: true }
+  }
+
+  render() {
+    return this.state.failed ? this.props.fallback : this.props.children
+  }
+}
+
+export default function Courses() {
+  const { language } = useLanguage()
+  const existingCourses = <ExistingCourses language={language} />
+
+  if (language !== 'es') return existingCourses
+
+  return (
+    <CoursesBoundary fallback={existingCourses}>
+      <Suspense fallback={existingCourses}>
+        <CoursesExperience />
+      </Suspense>
+    </CoursesBoundary>
   )
 }
