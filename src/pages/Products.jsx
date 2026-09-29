@@ -1,6 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 import { ExternalLink, Volume2, VolumeX } from 'lucide-react'
-import { drawFaceMesh, initFp3d } from '../utils/fp3d'
+import { drawFaceMesh, drawProductScene, initFp3d } from '../utils/fp3d'
+
+const productVisuals = {
+  EasyMeet: { slug: 'easymeet', accent: '#38bdf8', glow: 'rgba(56, 189, 248, 0.44)' },
+  'Cash-ito': { slug: 'cashito', accent: '#22c55e', glow: 'rgba(34, 197, 94, 0.42)' },
+  InQilinos: { slug: 'inqilinos', accent: '#f59e0b', glow: 'rgba(245, 158, 11, 0.42)' },
+  'Delitos-SESNSP': { slug: 'delitos-sesnsp', accent: '#3b82f6', glow: 'rgba(59, 130, 246, 0.48)' },
+  'Lukas Portfolio': { slug: 'lukas-portfolio', accent: '#a78bfa', glow: 'rgba(167, 139, 250, 0.42)' },
+  'La Cantina Artesanal': { slug: 'la-cantina-artesanal', accent: '#eab308', glow: 'rgba(234, 179, 8, 0.42)' },
+  'La Camionera': { slug: 'la-camionera', accent: '#ef4444', glow: 'rgba(239, 68, 68, 0.42)' },
+  'Z-Scooters': { slug: 'z-scooters', accent: '#06b6d4', glow: 'rgba(6, 182, 212, 0.46)' },
+}
 
 const products = [
   {
@@ -110,16 +121,26 @@ const productCards = products.filter((product) => product.name !== 'FaceR')
 export default function Products() {
   const featuredPanelRef = useRef(null)
   const faceMeshRef = useRef(null)
+  const productCardRefs = useRef([])
+  const productSceneRefs = useRef([])
   const videoRef = useRef(null)
   const [soundEnabled, setSoundEnabled] = useState(false)
 
   useEffect(() => {
     const panel = initFp3d(featuredPanelRef.current, { maxTilt: 7, glareMax: 0.42 })
     const mesh = drawFaceMesh(faceMeshRef.current, { accent: '#94f2ff' })
+    const cards = productCardRefs.current
+      .filter(Boolean)
+      .map((card) => initFp3d(card, { maxTilt: 12, glareMax: 0.36, gyro: false }))
+    const scenes = productSceneRefs.current
+      .filter(Boolean)
+      .map((canvas) => drawProductScene(canvas, canvas.dataset.scene, { accent: canvas.dataset.accent }))
 
     return () => {
       panel.destroy()
       mesh.destroy()
+      cards.forEach((card) => card.destroy())
+      scenes.forEach((scene) => scene.destroy())
     }
   }, [])
 
@@ -207,8 +228,36 @@ export default function Products() {
       )}
 
       <div className="products-grid">
-        {productCards.map((product) => (
-          <article className="product-card" key={product.name}>
+        {productCards.map((product, index) => {
+          const visual = productVisuals[product.name] ?? productVisuals.EasyMeet
+
+          return (
+          <article
+            className="product-card product-card-3d"
+            data-product={visual.slug}
+            key={product.name}
+            ref={(node) => {
+              productCardRefs.current[index] = node
+            }}
+            style={{
+              '--accent': visual.accent,
+              '--accentGlow': visual.glow,
+              '--delay': `${index * 90}ms`,
+            }}
+            tabIndex={0}
+          >
+            <div className="product-card-glow" aria-hidden="true" />
+            <div className="product-card-shine" aria-hidden="true" />
+            <div className="product-depth-lines" aria-hidden="true" />
+            <div className="product-scene" aria-hidden="true">
+              <canvas
+                data-accent={visual.accent}
+                data-scene={visual.slug}
+                ref={(node) => {
+                  productSceneRefs.current[index] = node
+                }}
+              />
+            </div>
             <div className="product-card-top">
               <span>{product.category}</span>
               <strong>{product.status}</strong>
@@ -233,19 +282,9 @@ export default function Products() {
               Ver experiencia <ExternalLink size={16} />
             </a>
           </article>
-        ))}
+          )
+        })}
       </div>
-
-      <section className="product-note">
-        <p className="eyebrow">Integración recomendada</p>
-        <h2>FaceR debe permanecer visible como producto propio de NNI.</h2>
-        <p>
-          La landing externa de FaceR funciona como demostración inicial. La ruta
-          recomendada es integrarla después como <strong>www.nni.ai/productos/facer</strong>
-          o publicarla en <strong>facer.nni.ai</strong>, para conservar la fuerza del
-          producto sin sacar al visitante del ecosistema institucional.
-        </p>
-      </section>
     </section>
   )
 }
