@@ -1,0 +1,8 @@
+.about-page .team-card .team-portrait {
+  display: block;
+  width: min(100%, 118px);
+  height: auto;
+  margin-inline: auto;
+  border: 1px solid rgba(148, 242, 255, 0.22);
+  border-radius: 18px;
+}

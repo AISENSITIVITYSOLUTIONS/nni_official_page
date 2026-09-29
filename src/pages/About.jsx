@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../i18n/language'
+import './About.css'
 
 const areas = {
   es: [
@@ -19,20 +20,24 @@ const areas = {
 }
 
 const teamMembers = [
-  ['Felipe de Alba', { es: 'Ciencia de datos, IA, social listening y análisis institucional', en: 'Data science, AI, social listening and institutional analysis' }],
-  ['Aeelen Miranda', { es: 'Python, inteligencia artificial y Big Data', en: 'Python, artificial intelligence and Big Data' }],
-  ['Winik Ivanovich Morales', { es: 'Python, ciencia de datos e inteligencia artificial', en: 'Python, data science and artificial intelligence' }],
+  ['Felipe de Alba', { es: 'Ciencia de datos, IA, social listening y análisis institucional', en: 'Data science, AI, social listening and institutional analysis' }, '/images/team/felipe-de-alba.jpeg'],
+  ['Aeelen Miranda', { es: 'Python, inteligencia artificial y Big Data', en: 'Python, artificial intelligence and Big Data' }, '/images/team/aeelen-miranda.png'],
+  ['Winik Ivanovich Morales', { es: 'Python, ciencia de datos e inteligencia artificial', en: 'Python, data science and artificial intelligence' }, '/images/team/winik-ivanovich-morales.png'],
   ['Josefina Pérez', { es: 'Movilidades, cooperación internacional y seguridad', en: 'Mobilities, international cooperation and security' }],
-  ['Diana Varela', { es: 'Innovación empresarial e intraemprendimiento', en: 'Business innovation and intrapreneurship' }],
-  ['Bryan Guzmán Álvarez', { es: 'Desarrollo full-stack y sistemas escalables', en: 'Full-stack development and scalable systems' }],
-  ['Raymundo Rodríguez Rosas', { es: 'Back-end, software a la medida y bases de datos', en: 'Back-end, custom software and databases' }],
-  ['Itzel de Alba', { es: 'Contenido multimedia, difusión y comunidad', en: 'Multimedia content, outreach and community' }],
-  ['Senet Ferriz', { es: 'Diseño, gestión de redes y educación estratégica', en: 'Design, social media management and strategic education' }],
+  ['Diana Varela', { es: 'Innovación empresarial e intraemprendimiento', en: 'Business innovation and intrapreneurship' }, '/images/team/diana-varela-londono.png'],
+  ['Bryan Guzmán Álvarez', { es: 'Desarrollo full-stack y sistemas escalables', en: 'Full-stack development and scalable systems' }, '/images/team/bryan-guzman-alvarez.png'],
+  ['Raymundo Rodríguez Rosas', { es: 'Back-end, software a la medida y bases de datos', en: 'Back-end, custom software and databases' }, '/images/team/raymundo-rodriguez-rosas.png'],
+  ['Itzel de Alba', { es: 'Contenido multimedia, difusión y comunidad', en: 'Multimedia content, outreach and community' }, '/images/team/itzel-de-alba.jpeg'],
   ['Emilio Noriega', { es: 'Robótica, STEAM e innovación tecnológica', en: 'Robotics, STEAM and technological innovation' }],
   ['Enrique Durazo', { es: 'Ciencia de datos, Python y visualización creativa', en: 'Data science, Python and creative visualization' }],
   ['Juan Alberto González', { es: 'Mapeo urbano y visualización gráfica', en: 'Urban mapping and graphic visualization' }],
   ['David Salazar Hernández', { es: 'Front-end, aplicaciones móviles y UX/UI', en: 'Front-end, mobile applications and UX/UI' }],
   ['Luis Felipe Marín', { es: 'IA, robótica e interacción humano-robot', en: 'AI, robotics and human-robot interaction' }],
+]
+
+const orderedTeamMembers = [
+  ...teamMembers.filter(([, , photo]) => Boolean(photo)),
+  ...teamMembers.filter(([, , photo]) => !photo),
 ]
 
 const aboutCopy = {
@@ -93,8 +98,19 @@ export default function About() {
       </div>
 
       <div className="team-grid" aria-label={copy.teamAria}>
-        {teamMembers.map(([name, role]) => (
+        {orderedTeamMembers.map(([name, role, photo]) => (
           <article className="team-card" key={name}>
+            {photo && (
+              <img
+                className="team-portrait"
+                src={photo}
+                alt={language === 'es' ? `Retrato de ${name}` : `Portrait of ${name}`}
+                width="1122"
+                height="1402"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
             <h2>{name}</h2>
             <p>{role[language]}</p>
           </article>
