@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react'
 import { ExternalLink } from 'lucide-react'
+import { drawFaceMesh, initFp3d } from '../utils/fp3d'
 
 const products = [
   {
@@ -106,6 +108,19 @@ const featuredProduct = products.find((product) => product.name === 'FaceR')
 const productCards = products.filter((product) => product.name !== 'FaceR')
 
 export default function Products() {
+  const featuredPanelRef = useRef(null)
+  const faceMeshRef = useRef(null)
+
+  useEffect(() => {
+    const panel = initFp3d(featuredPanelRef.current, { maxTilt: 7, glareMax: 0.42 })
+    const mesh = drawFaceMesh(faceMeshRef.current, { accent: '#94f2ff' })
+
+    return () => {
+      panel.destroy()
+      mesh.destroy()
+    }
+  }, [])
+
   return (
     <section className="page products-page">
       <div className="page-hero">
@@ -141,10 +156,24 @@ export default function Products() {
               Ver producto estrella <ExternalLink size={17} />
             </a>
           </div>
-          <div className="featured-product-panel" aria-hidden="true">
-            <div className="orbital-card main">
-              <span>FaceR</span>
-              <strong>Acceso inteligente</strong>
+          <div className="featured-product-panel facer-motion-card" ref={featuredPanelRef} tabIndex={0}>
+            <div className="fp3d-glare" aria-hidden="true" />
+            <div className="facer-video-shell">
+              <video
+                src="/videos/facer-product-demo.mp4"
+                poster="/favicon.svg"
+                muted
+                loop
+                playsInline
+                autoPlay
+                preload="metadata"
+              />
+              <canvas ref={faceMeshRef} aria-hidden="true" />
+              <div className="facer-video-shade" />
+              <div className="facer-video-label">
+                <span>FaceR</span>
+                <strong>Acceso inteligente</strong>
+              </div>
             </div>
             <div className="orbital-card one">Documento</div>
             <div className="orbital-card two">Rostro</div>
