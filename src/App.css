@@ -27,8 +27,8 @@
   top: 18px;
   left: 50%;
   width: min(1320px, calc(100% - 24px));
-  min-height: 76px;
-  padding: 14px 18px;
+  min-height: 92px;
+  padding: 14px 18px 34px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,8 +43,8 @@
 
 .language-switcher {
   position: absolute;
-  top: 10px;
-  right: 12px;
+  right: 18px;
+  bottom: 8px;
   display: inline-flex;
   gap: 4px;
   padding: 3px;
@@ -1166,11 +1166,11 @@ p {
   .site-header {
     top: 10px;
     width: calc(100% - 20px);
-    padding: 42px 12px 12px;
+    padding: 12px 12px 44px;
   }
 
   .language-switcher {
-    top: 9px;
+    bottom: 10px;
     right: 10px;
   }
 
