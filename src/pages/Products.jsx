@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ExternalLink, Volume2, VolumeX } from 'lucide-react'
-import { drawFaceMesh, initFp3d } from '../utils/fp3d'
+import { drawFaceMesh, drawProductScene, initFp3d } from '../utils/fp3d'
 
 const productVisuals = {
   EasyMeet: { slug: 'easymeet', accent: '#38bdf8', glow: 'rgba(56, 189, 248, 0.44)' },
@@ -122,6 +122,7 @@ export default function Products() {
   const featuredPanelRef = useRef(null)
   const faceMeshRef = useRef(null)
   const productCardRefs = useRef([])
+  const productSceneRefs = useRef([])
   const videoRef = useRef(null)
   const [soundEnabled, setSoundEnabled] = useState(false)
 
@@ -131,11 +132,15 @@ export default function Products() {
     const cards = productCardRefs.current
       .filter(Boolean)
       .map((card) => initFp3d(card, { maxTilt: 12, glareMax: 0.36, gyro: false }))
+    const scenes = productSceneRefs.current
+      .filter(Boolean)
+      .map((canvas) => drawProductScene(canvas, canvas.dataset.scene, { accent: canvas.dataset.accent }))
 
     return () => {
       panel.destroy()
       mesh.destroy()
       cards.forEach((card) => card.destroy())
+      scenes.forEach((scene) => scene.destroy())
     }
   }, [])
 
@@ -244,6 +249,15 @@ export default function Products() {
             <div className="product-card-glow" aria-hidden="true" />
             <div className="product-card-shine" aria-hidden="true" />
             <div className="product-depth-lines" aria-hidden="true" />
+            <div className="product-scene" aria-hidden="true">
+              <canvas
+                data-accent={visual.accent}
+                data-scene={visual.slug}
+                ref={(node) => {
+                  productSceneRefs.current[index] = node
+                }}
+              />
+            </div>
             <div className="product-card-top">
               <span>{product.category}</span>
               <strong>{product.status}</strong>
