@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { ExternalLink, Volume2, VolumeX } from 'lucide-react'
+import { ArrowRight, ExternalLink, Volume2, VolumeX } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { drawFaceMesh, initFp3d } from '../utils/fp3d'
 import { useLanguage } from '../i18n/language'
 
@@ -42,6 +43,17 @@ const products = [
     href: 'https://easymeet-admin.nni.ai/',
   },
   {
+    name: 'AllAIs',
+    category: { es: 'IA multimodelo', en: 'Multi-model AI' },
+    problem: { es: 'Equipos que usan varios modelos de IA por separado, sin control de uso ni comparación de resultados.', en: 'Teams using several AI models separately, with no usage control or way to compare results.' },
+    solution: { es: 'Una sola interfaz para trabajar con los principales modelos de IA y comparar sus respuestas, con las claves protegidas en el servidor.', en: 'One interface to work with the leading AI models and compare their answers, with keys protected server-side.' },
+    tech: { es: ['Multimodelo', 'Gateway seguro', 'Consola comparativa'], en: ['Multi-model', 'Secure gateway', 'Comparison console'] },
+    users: { es: 'Investigadores, consultores, docentes y equipos institucionales.', en: 'Researchers, consultants, teachers and institutional teams.' },
+    status: { es: 'Acceso anticipado', en: 'Early access' },
+    interest: { origen: 'allais', es: 'Solicitar acceso', en: 'Request access' },
+    value: { es: 'Reúne la mejor IA disponible en un espacio de trabajo profesional.', en: 'Brings the best available AI into one professional workspace.' },
+  },
+  {
     name: 'Cash-ito',
     category: { es: 'Finanzas ligeras', en: 'Lightweight finance' },
     problem: {
@@ -54,7 +66,9 @@ const products = [
     },
     tech: { es: ['Dashboard', 'Registro financiero', 'Automatización'], en: ['Dashboard', 'Financial records', 'Automation'] },
     users: { es: 'Comercios, talleres, proyectos familiares y microempresas.', en: 'Shops, workshops, family projects and microbusinesses.' },
-    status: { es: 'Demo funcional', en: 'Functional demo' },
+    status: { es: 'Lanzamiento · enero 2027', en: 'Launch · January 2027' },
+    linkLabel: { es: 'Ver demostración', en: 'View demo' },
+    interest: { origen: 'cashito', es: 'Avisarme del lanzamiento', en: 'Notify me at launch' },
     value: { es: 'Hace visible el dinero cotidiano y ayuda a decidir con información simple.', en: 'Makes everyday money visible and supports decisions with simple information.' },
     href: 'https://cashito2.web.app/home',
   },
@@ -318,9 +332,18 @@ export default function Products() {
               ))}
             </div>
             <p className="product-value">{product.value[language]}</p>
-            <a className="text-link" href={product.href} rel="noreferrer" target="_blank">
-              {copy.cardCta} <ExternalLink size={16} />
-            </a>
+            <div className="product-card-actions">
+              {product.interest && (
+                <Link className="primary-button" to={`/interes?origen=${product.interest.origen}`}>
+                  {product.interest[language]} <ArrowRight size={16} />
+                </Link>
+              )}
+              {product.href && (
+                <a className="text-link" href={product.href} rel="noreferrer" target="_blank">
+                  {product.linkLabel?.[language] ?? copy.cardCta} <ExternalLink size={16} />
+                </a>
+              )}
+            </div>
           </article>
           )
         })}
