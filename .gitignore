@@ -17,3 +17,6 @@ pnpm-debug.log*
 # Editor/system files
 .DS_Store
 .vscode/
+
+# Firebase local cache
+.firebase/

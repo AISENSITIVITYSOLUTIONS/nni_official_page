@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Products from './pages/Products'
 import Publications from './pages/Publications'
 import Services from './pages/Services'
+import InterestForm from './components/forms/InterestForm'
 import { LanguageProvider } from './i18n/LanguageContext'
 import './App.css'
 
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="/nosotros" element={<About />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/contacto" element={<Contact />} />
+            <Route path="/interes" element={<InterestForm />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
