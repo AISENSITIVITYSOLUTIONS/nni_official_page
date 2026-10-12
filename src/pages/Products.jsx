@@ -1,11 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, ExternalLink, Volume2, VolumeX } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ExternalLink, Volume2, VolumeX } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { drawFaceMesh, initFp3d } from '../utils/fp3d'
 import { useLanguage } from '../i18n/language'
+import './ProductCards.css'
+
+function statusTone(status) {
+  const t = status.es.toLowerCase()
+  if (t.includes('publicad')) return 'live'
+  if (t.includes('anticipado') || t.includes('demo')) return 'access'
+  if (t.includes('lanzamiento')) return 'launch'
+  return 'build'
+}
 
 const productVisuals = {
   EasyMeet: { slug: 'easymeet', accent: '#38bdf8', glow: 'rgba(56, 189, 248, 0.44)' },
+  AllAIs: { slug: 'allais', accent: '#94f2ff', glow: 'rgba(148, 242, 255, 0.4)' },
   'Cash-ito': { slug: 'cashito', accent: '#22c55e', glow: 'rgba(34, 197, 94, 0.42)' },
   InQilinos: { slug: 'inqilinos', accent: '#f59e0b', glow: 'rgba(245, 158, 11, 0.42)' },
   'Delitos-SESNSP': { slug: 'delitos-sesnsp', accent: '#3b82f6', glow: 'rgba(59, 130, 246, 0.48)' },
@@ -207,7 +217,7 @@ export default function Products() {
     const mesh = drawFaceMesh(faceMeshRef.current, { accent: '#94f2ff' })
     const cards = productCardRefs.current
       .filter(Boolean)
-      .map((card) => initFp3d(card, { maxTilt: 12, glareMax: 0.36, gyro: false }))
+      .map((card) => initFp3d(card, { maxTilt: 4, glareMax: 0.14, gyro: false }))
 
     return () => {
       panel.destroy()
@@ -290,61 +300,62 @@ export default function Products() {
         </article>
       )}
 
-      <div className="products-grid">
+      <div className="pcards">
         {productCards.map((product, index) => {
           const visual = productVisuals[product.name] ?? productVisuals.EasyMeet
+          const tone = statusTone(product.status)
 
           return (
-          <article
-            className="product-card product-card-3d"
-            data-product={visual.slug}
-            key={product.name}
-            ref={(node) => {
-              productCardRefs.current[index] = node
-            }}
-            style={{
-              '--accent': visual.accent,
-              '--accentGlow': visual.glow,
-              '--delay': `${index * 90}ms`,
-            }}
-            tabIndex={0}
-          >
-            <div className="product-card-glow" aria-hidden="true" />
-            <div className="product-card-shine" aria-hidden="true" />
-            <div className="product-depth-lines" aria-hidden="true" />
-            <div className="product-card-top">
-              <span>{product.category[language]}</span>
-              <strong>{product.status[language]}</strong>
-            </div>
-            <h2>{product.name}</h2>
-            <p>{product.problem[language]}</p>
-            <div className="product-detail">
-              <b>{copy.solution}</b>
-              <span>{product.solution[language]}</span>
-            </div>
-            <div className="product-detail">
-              <b>{copy.users}</b>
-              <span>{product.users[language]}</span>
-            </div>
-            <div className="tag-list compact">
-              {product.tech[language].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-            <p className="product-value">{product.value[language]}</p>
-            <div className="product-card-actions">
-              {product.interest && (
-                <Link className="primary-button" to={`/interes?origen=${product.interest.origen}`}>
-                  {product.interest[language]} <ArrowRight size={16} />
-                </Link>
-              )}
-              {product.href && (
-                <a className="text-link" href={product.href} rel="noreferrer" target="_blank">
-                  {product.linkLabel?.[language] ?? copy.cardCta} <ExternalLink size={16} />
-                </a>
-              )}
-            </div>
-          </article>
+            <article
+              className="pcard"
+              data-product={visual.slug}
+              key={product.name}
+              ref={(node) => {
+                productCardRefs.current[index] = node
+              }}
+              style={{ '--accent': visual.accent, '--accentGlow': visual.glow, '--delay': `${index * 70}ms` }}
+            >
+              <div className="pcard-aura" aria-hidden="true" />
+              <header className="pcard-head">
+                <span className="pcard-index">{String(index + 1).padStart(2, '0')}</span>
+                <span className="pcard-category">{product.category[language]}</span>
+                <span className={`pcard-status is-${tone}`}>
+                  <i aria-hidden="true" />
+                  {product.status[language]}
+                </span>
+              </header>
+
+              <h2 className="pcard-name">{product.name}</h2>
+              <p className="pcard-problem">{product.problem[language]}</p>
+
+              <dl className="pcard-facts">
+                <div>
+                  <dt>{copy.solution}</dt>
+                  <dd>{product.solution[language]}</dd>
+                </div>
+                <div>
+                  <dt>{copy.users}</dt>
+                  <dd>{product.users[language]}</dd>
+                </div>
+              </dl>
+
+              <p className="pcard-stack">{product.tech[language].join('  ·  ')}</p>
+
+              <blockquote className="pcard-value">{product.value[language]}</blockquote>
+
+              <footer className="pcard-actions">
+                {product.interest && (
+                  <Link className="pcard-primary" to={`/interes?origen=${product.interest.origen}`}>
+                    {product.interest[language]} <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                )}
+                {product.href && (
+                  <a className="pcard-link" href={product.href} rel="noreferrer" target="_blank">
+                    {product.linkLabel?.[language] ?? copy.cardCta} <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                )}
+              </footer>
+            </article>
           )
         })}
       </div>
