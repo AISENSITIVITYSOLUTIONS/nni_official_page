@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useLanguage } from '../../i18n/language'
+import NniBadge from '../brand/NniBadge'
 
 const navItems = [
   { to: '/', label: { es: 'Inicio', en: 'Home' } },
@@ -33,7 +34,7 @@ export default function Layout({ children }) {
     <div className="site-shell">
       <header className="site-header">
         <NavLink className="brand" to="/" aria-label={copy.homeAria}>
-          <span className="brand-mark">NNI</span>
+          <NniBadge size={54} alt="" />
           <span className="brand-copy">
             <strong>Neural Network Initiative</strong>
             <small>{copy.tagline}</small>

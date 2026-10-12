@@ -1296,3 +1296,31 @@ p {
   color: var(--muted);
   line-height: 1.75;
 }
+
+.hero-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 420px;
+}
+
+.hero-badge .nni-badge {
+  width: min(360px, 78vw);
+  height: min(360px, 78vw);
+}
+
+@media (max-width: 900px) {
+  .hero-badge {
+    min-height: 0;
+    padding-block: 24px 8px;
+  }
+
+  .hero-badge .nni-badge {
+    width: min(260px, 70vw);
+    height: min(260px, 70vw);
+  }
+}
+
+.site-header .brand .nni-badge {
+  margin-right: 2px;
+}
