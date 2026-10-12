@@ -8,7 +8,10 @@ import {
   Workflow,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
 import { useLanguage } from '../i18n/language'
+import NniBadge from '../components/brand/NniBadge'
+import { initFp3d } from '../utils/fp3d'
 
 const homeCopy = {
   es: {
@@ -154,6 +157,14 @@ const homeCopy = {
 export default function Home() {
   const { language } = useLanguage()
   const copy = homeCopy[language]
+  const badgeRef = useRef(null)
+
+  useEffect(() => {
+    const target = badgeRef.current?.querySelector('.nni-badge')
+    if (!target) return undefined
+    const tilt = initFp3d(target, { maxTilt: 14, glareMax: 0, gyro: false })
+    return () => tilt.destroy()
+  }, [])
 
   return (
     <div className="home-page">
@@ -172,17 +183,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hero-panel" aria-label={copy.panelAria}>
-          <span className="panel-status">{copy.panelStatus}</span>
-          <div className="signal-grid">
-            {copy.signals.map(([title, text, Icon]) => (
-              <article key={title}>
-                <Icon />
-                <strong>{title}</strong>
-                <span>{text}</span>
-              </article>
-            ))}
-          </div>
+        <div className="hero-badge" ref={badgeRef} aria-hidden="true">
+          <NniBadge size={360} large alt="" />
         </div>
       </section>
 
