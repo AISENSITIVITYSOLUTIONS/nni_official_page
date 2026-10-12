@@ -1,7 +1,6 @@
-const engineUrl = '/courses/vendor/three-0.180.0/three.module.min.js'
 
 export async function createEvidenceScene({ host, canvas, config, initialStageId, onFailure }) {
-  const THREE = await import(/* @vite-ignore */ engineUrl)
+  const THREE = await import('three')
   if (!host.isConnected) throw new Error('Courses scene was removed before loading')
   const fontFamily = window.getComputedStyle(host).fontFamily
 
