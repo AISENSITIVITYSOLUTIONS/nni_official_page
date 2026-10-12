@@ -1,0 +1,176 @@
+.interest {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 160px 0 96px;
+}
+
+.interest-card {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  border: 1px solid rgba(148, 242, 255, 0.14);
+  border-radius: 14px;
+  box-shadow: 0 60px 120px rgba(0, 0, 0, 0.55);
+}
+
+.interest-aside {
+  flex: 1 1 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px 40px;
+  background: linear-gradient(165deg, #12285a 0%, #0a1834 55%, #061024 100%);
+}
+
+.interest-kicker,
+.interest legend,
+.interest-facts dt {
+  color: #94f2ff;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.interest-aside h1 {
+  margin: 0;
+  color: #fff;
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-size: clamp(2rem, 3.4vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.interest-aside p {
+  margin: 0;
+  color: #c5d2e3;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.interest-facts {
+  margin: auto 0 0;
+  border-top: 1px solid rgba(232, 238, 246, 0.14);
+}
+
+.interest-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(232, 238, 246, 0.14);
+  font-size: 0.9rem;
+}
+
+.interest-facts dt { color: #8fa3bd; font-family: inherit; letter-spacing: 0; text-transform: none; font-size: inherit; }
+.interest-facts dd { margin: 0; color: #fff; text-align: right; }
+
+.interest-body {
+  flex: 999 1 460px;
+  min-width: 0;
+  padding: 48px 44px;
+  background: #0b1729;
+}
+
+.interest form { display: flex; flex-direction: column; gap: 24px; }
+.interest fieldset { margin: 0; padding: 0; border: 0; }
+.interest legend { margin-bottom: 12px; color: #8fa3bd; }
+
+.interest-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.interest-option {
+  min-height: 64px;
+  padding: 10px 12px;
+  border: 1px solid rgba(232, 238, 246, 0.14);
+  border-radius: 8px;
+  color: #c5d2e3;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.interest-option strong { display: block; font-size: 0.95rem; font-weight: 600; }
+.interest-option span { display: block; margin-top: 4px; font-size: 0.75rem; opacity: 0.75; }
+.interest-option:hover { border-color: rgba(148, 242, 255, 0.4); }
+.interest-option.is-on { border-color: #94f2ff; color: #fff; background: rgba(148, 242, 255, 0.1); }
+
+.interest-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+
+.interest label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #c5d2e3;
+  font-size: 0.82rem;
+}
+
+.interest input:not([type='checkbox']) {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid rgba(232, 238, 246, 0.16);
+  border-radius: 6px;
+  color: #fff;
+  background: #06101f;
+  font-size: 1rem;
+}
+
+.interest input:focus,
+.interest button:focus-visible {
+  outline: none;
+  border-color: #94f2ff;
+  box-shadow: 0 0 0 3px rgba(148, 242, 255, 0.22);
+}
+
+.interest-muted { color: #8fa3bd; }
+.interest-trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+.interest .interest-consent { flex-direction: row; align-items: flex-start; gap: 12px; color: #8fa3bd; line-height: 1.5; }
+.interest-consent input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: #94f2ff; }
+.interest-consent a { color: #94f2ff; }
+
+.interest-error { margin: 0; padding: 12px 14px; border-radius: 6px; color: #ffd9cc; background: rgba(180, 64, 15, 0.22); font-size: 0.9rem; }
+
+.interest-submit {
+  min-height: 54px;
+  border: 0;
+  border-radius: 999px;
+  color: #04101d;
+  background: #94f2ff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 18px 40px rgba(148, 242, 255, 0.18);
+}
+
+.interest-submit:disabled { opacity: 0.6; cursor: progress; }
+
+.interest-done { display: flex; flex-direction: column; gap: 18px; padding: 40px 0; }
+.interest-done svg { fill: none; stroke: #94f2ff; stroke-width: 1.5; }
+.interest-done h2 { margin: 0; color: #fff; font-family: 'IBM Plex Serif', Georgia, serif; font-size: 2rem; font-weight: 400; }
+.interest-done p { margin: 0; color: #c5d2e3; font-size: 1.05rem; line-height: 1.6; }
+
+.interest-ghost {
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid rgba(148, 242, 255, 0.4);
+  border-radius: 999px;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .interest { padding-top: 120px; }
+  .interest-aside, .interest-body { padding: 32px 22px; }
+  .interest-options, .interest-row { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interest-option { transition: none; }
+}

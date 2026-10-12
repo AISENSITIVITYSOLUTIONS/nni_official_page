@@ -92,8 +92,8 @@
       "targetId": "n-plan"
     },
     "secondaryCta": {
-      "label": "Ver los 7 programas",
-      "href": "#n-programas",
+      "label": "Cupo completo · Unirme a la lista de espera (28 de noviembre)",
+      "href": "/interes?origen=cursos",
       "action": "navigate"
     },
     "academicPlan": {
