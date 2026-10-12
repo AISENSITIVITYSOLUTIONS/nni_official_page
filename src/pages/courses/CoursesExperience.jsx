@@ -1,6 +1,11 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { ArrowDown, ArrowRight, ArrowUpRight, Pause, Play } from 'lucide-react'
-import config from './courses.config.json'
+import configEs from './courses.config.json'
+import configEn from './courses.config.en.json'
+import { useLanguage } from '../../i18n/language'
+
+const ConfigContext = createContext(configEs)
+const useConfig = () => useContext(ConfigContext)
 import './CoursesExperience.css'
 
 function useHeaderOffset(rootRef) {
@@ -23,7 +28,7 @@ function useHeaderOffset(rootRef) {
   }, [rootRef])
 }
 
-function useEvidenceTour(sectionRef) {
+function useEvidenceTour(sectionRef, config) {
   const tour = config.interactive3d.tour
   const [stageId, setStageId] = useState(config.interactive3d.initialStageId)
   const [playback, setPlayback] = useState('idle')
@@ -97,6 +102,7 @@ function useEvidenceTour(sectionRef) {
 }
 
 function EvidenceScene({ stageId }) {
+  const config = useConfig()
   const hostRef = useRef(null)
   const canvasRef = useRef(null)
   const viewerRef = useRef(null)
@@ -153,6 +159,8 @@ function EvidenceScene({ stageId }) {
       viewerRef.current?.dispose()
       viewerRef.current = null
     }
+    // La escena se crea una vez; al cambiar de idioma el componente se vuelve a montar (key={language}).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -171,6 +179,8 @@ function EvidenceScene({ stageId }) {
 }
 
 function ProgramCard({ program, onInquiry }) {
+  const config = useConfig()
+  const total = String(config.programs.length).padStart(2, '0')
   const metadata = program.metadata
   const isTeam = program.cardVariant === 'full-width'
   const description = (
@@ -181,7 +191,7 @@ function ProgramCard({ program, onInquiry }) {
   )
   const details = (
     <>
-      <div className="nc-course-meta" aria-label="Duración y modalidad">
+      <div className="nc-course-meta" aria-label={config.ui.metaAria}>
         <span>{metadata.hoursLabel}</span>
         <span>{metadata.durationLabel}</span>
         <span>{metadata.modality}</span>
@@ -191,9 +201,9 @@ function ProgramCard({ program, onInquiry }) {
       <details id={program.cta.targetId}>
         <summary>{program.cta.label}</summary>
         <div className="nc-course-detail">
-          <p><strong>Para:</strong> {program.audience}</p>
+          <p><strong>{config.ui.audienceLabel}</strong> {program.audience}</p>
           <ul>{program.outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}</ul>
-          <p><strong>Periodicidad:</strong> {metadata.periodicity}</p>
+          <p><strong>{config.ui.periodicityLabel}</strong> {metadata.periodicity}</p>
           <a className="nc-link" href={program.inquiryCta.href} onClick={() => onInquiry(program.title)}>
             {program.inquiryCta.label}<ArrowRight aria-hidden="true" />
           </a>
@@ -205,7 +215,7 @@ function ProgramCard({ program, onInquiry }) {
     <article className={`nc-course${isTeam ? ' nc-team' : ''}`} data-program-id={program.id}>
       <div className="nc-course-top">
         <span className="nc-course-type">{program.category}</span>
-        <span className="nc-course-index">{String(program.order).padStart(2, '0')} / 07</span>
+        <span className="nc-course-index">{String(program.order).padStart(2, '0')} / {total}</span>
       </div>
       {isTeam ? <><div>{description}</div><div>{details}</div></> : <>{description}{details}</>}
     </article>
@@ -213,11 +223,13 @@ function ProgramCard({ program, onInquiry }) {
 }
 
 export default function CoursesExperience() {
+  const { language } = useLanguage()
+  const config = language === 'en' ? configEn : configEs
   const rootRef = useRef(null)
   const featuredRef = useRef(null)
   const planRef = useRef(null)
   const [selectedProgram, setSelectedProgram] = useState('')
-  const { stageId, playback, select, toggle } = useEvidenceTour(featuredRef)
+  const { stageId, playback, select, toggle } = useEvidenceTour(featuredRef, config)
   useHeaderOffset(rootRef)
   const featured = config.featuredProgram
   const stage = config.interactive3d.stages.find((item) => item.id === stageId)
@@ -235,9 +247,10 @@ export default function CoursesExperience() {
   }
 
   return (
+    <ConfigContext.Provider value={config}>
     <section id="nni-courses" ref={rootRef} aria-labelledby="nc-feature-title" onClick={handleSectionLink}>
       <div className="nc-wrap">
-        <nav className="nc-section-nav" aria-label="Contenido de Cursos">
+        <nav className="nc-section-nav" aria-label={config.ui.sectionNavAria}>
           {config.sectionNavigation.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}
         </nav>
         <section id={featured.anchor} ref={featuredRef} aria-labelledby="nc-feature-title">
@@ -263,7 +276,7 @@ export default function CoursesExperience() {
             {featured.visibleMetadata.map((item) => <div key={item.label}><dt>{item.label}</dt><dd>{item.value}</dd></div>)}
           </dl>
           <div className="nc-stages">
-            <div className="nc-segments" role="group" aria-label="Etapas del análisis">
+            <div className="nc-segments" role="group" aria-label={config.ui.stagesAria}>
               {config.interactive3d.stages.map((item) => (
                 <button key={item.id} type="button" aria-pressed={item.id === stageId} onClick={() => select(item.id)}>
                   <span>{String(item.order).padStart(2, '0')}</span>{item.label}
@@ -283,7 +296,7 @@ export default function CoursesExperience() {
             <div className="nc-modules">
               {featured.academicPlan.modules.map((module) => (
                 <div className="nc-module" key={module.id}>
-                  <small>{String(module.order).padStart(2, '0')} · {module.hours} HORAS</small>
+                  <small>{String(module.order).padStart(2, '0')} · {module.hours} {config.ui.hoursUnit}</small>
                   <h3>{module.title}</h3><p>{module.description}</p>
                 </div>
               ))}
@@ -311,5 +324,6 @@ export default function CoursesExperience() {
         <p className="nc-note">{config.editorialRules.reviewNotice}</p>
       </div>
     </section>
+    </ConfigContext.Provider>
   )
 }

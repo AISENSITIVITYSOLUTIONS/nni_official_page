@@ -30,9 +30,18 @@
     "brandDescriptor": "Inteligencia aplicada"
   },
   "sectionNavigation": [
-    { "label": "Diplomado", "href": "#n-diplomado" },
-    { "label": "Programas", "href": "#n-programas" },
-    { "label": "Método", "href": "#n-metodo" }
+    {
+      "label": "Diplomado",
+      "href": "#n-diplomado"
+    },
+    {
+      "label": "Programas",
+      "href": "#n-programas"
+    },
+    {
+      "label": "Método",
+      "href": "#n-metodo"
+    }
   ],
   "featuredProgram": {
     "id": "diplomado-analisis-social-ia",
@@ -59,10 +68,22 @@
       "academicStatus": "pending-validation"
     },
     "visibleMetadata": [
-      { "label": "Carga formativa", "value": "120 horas" },
-      { "label": "Periodicidad", "value": "Semanal" },
-      { "label": "Modalidad propuesta", "value": "En línea / híbrido" },
-      { "label": "Próximo inicio", "value": "Próxima convocatoria" }
+      {
+        "label": "Carga formativa",
+        "value": "120 horas"
+      },
+      {
+        "label": "Periodicidad",
+        "value": "Semanal"
+      },
+      {
+        "label": "Modalidad propuesta",
+        "value": "En línea / híbrido"
+      },
+      {
+        "label": "Próximo inicio",
+        "value": "Próxima convocatoria"
+      }
     ],
     "headline": "Pensar con profundidad. Decidir con evidencia.",
     "description": "Convierte documentos, entrevistas y datos en análisis que puedas explicar, contrastar y defender.",
@@ -413,7 +434,10 @@
         "durationWeeks": null,
         "durationLabel": "3 a 6 sesiones",
         "sessions": null,
-        "sessionRange": { "min": 3, "max": 6 },
+        "sessionRange": {
+          "min": 3,
+          "max": 6
+        },
         "periodicity": "Por acordar con el equipo.",
         "nextStart": "Bajo demanda",
         "startDate": null,
@@ -521,7 +545,11 @@
         "tag": "01 / FUENTES",
         "title": "Organizar la evidencia.",
         "subtitle": "Expediente de análisis social",
-        "items": ["Documentos", "Entrevistas", "Datos"],
+        "items": [
+          "Documentos",
+          "Entrevistas",
+          "Datos"
+        ],
         "footer": "Procedencia / fecha / límites",
         "color": "#eff3ef"
       },
@@ -530,8 +558,16 @@
         "tag": "02 / HIPÓTESIS",
         "title": "Contrastar explicaciones.",
         "subtitle": "Expediente de análisis social",
-        "items": ["Evidencia a favor", "Evidencia en contra", "Qué falta saber"],
-        "itemDetails": ["Apoyo documentado", "Objeciones y límites", "Incertidumbre explícita"],
+        "items": [
+          "Evidencia a favor",
+          "Evidencia en contra",
+          "Qué falta saber"
+        ],
+        "itemDetails": [
+          "Apoyo documentado",
+          "Objeciones y límites",
+          "Incertidumbre explícita"
+        ],
         "footer": "El contraste precede al juicio",
         "color": "#eff3ef"
       },
@@ -542,32 +578,164 @@
         "subtitle": "Expediente de análisis social",
         "highlight": "Juicio humano",
         "highlightDescription": "Fuentes + contraste + justificación",
-        "items": ["Alternativas", "Incertidumbre", "Recomendación"],
+        "items": [
+          "Alternativas",
+          "Incertidumbre",
+          "Recomendación"
+        ],
         "footer": "Revisión y responsabilidad humana",
         "color": "#b7f0d1"
       }
     ],
     "scene": {
-      "documentDimensions": { "width": 2.04, "height": 2.68, "depth": 0.055 },
-      "textureResolution": { "width": 720, "height": 960 },
+      "documentDimensions": {
+        "width": 2.04,
+        "height": 2.68,
+        "depth": 0.055
+      },
+      "textureResolution": {
+        "width": 720,
+        "height": 960
+      },
       "frontMaterial": "unlit-texture",
-      "camera": { "type": "perspective", "fovDegrees": 35, "near": 0.1, "far": 100, "desktopPosition": [0, 0, 12] },
-      "poseUnits": { "position": "scene-units", "rotation": "radians" },
+      "camera": {
+        "type": "perspective",
+        "fovDegrees": 35,
+        "near": 0.1,
+        "far": 100,
+        "desktopPosition": [
+          0,
+          0,
+          12
+        ]
+      },
+      "poseUnits": {
+        "position": "scene-units",
+        "rotation": "radians"
+      },
       "poses": {
         "evidencia": [
-          { "documentId": "fuentes", "position": [-0.45, 0.18, 0.82], "rotation": [-0.1, -0.22, -0.1] },
-          { "documentId": "hipotesis", "position": [0.6, 0.67, -0.25], "rotation": [-0.1, -0.35, 0.16] },
-          { "documentId": "decision", "position": [0.46, -0.55, -0.6], "rotation": [0.08, -0.27, -0.05] }
+          {
+            "documentId": "fuentes",
+            "position": [
+              -0.45,
+              0.18,
+              0.82
+            ],
+            "rotation": [
+              -0.1,
+              -0.22,
+              -0.1
+            ]
+          },
+          {
+            "documentId": "hipotesis",
+            "position": [
+              0.6,
+              0.67,
+              -0.25
+            ],
+            "rotation": [
+              -0.1,
+              -0.35,
+              0.16
+            ]
+          },
+          {
+            "documentId": "decision",
+            "position": [
+              0.46,
+              -0.55,
+              -0.6
+            ],
+            "rotation": [
+              0.08,
+              -0.27,
+              -0.05
+            ]
+          }
         ],
         "contraste": [
-          { "documentId": "fuentes", "position": [-0.62, 0.53, -0.3], "rotation": [-0.08, -0.3, -0.1] },
-          { "documentId": "hipotesis", "position": [0.09, 0.03, 0.96], "rotation": [-0.03, -0.14, 0.02] },
-          { "documentId": "decision", "position": [0.67, -0.4, -0.6], "rotation": [0.08, -0.25, 0.13] }
+          {
+            "documentId": "fuentes",
+            "position": [
+              -0.62,
+              0.53,
+              -0.3
+            ],
+            "rotation": [
+              -0.08,
+              -0.3,
+              -0.1
+            ]
+          },
+          {
+            "documentId": "hipotesis",
+            "position": [
+              0.09,
+              0.03,
+              0.96
+            ],
+            "rotation": [
+              -0.03,
+              -0.14,
+              0.02
+            ]
+          },
+          {
+            "documentId": "decision",
+            "position": [
+              0.67,
+              -0.4,
+              -0.6
+            ],
+            "rotation": [
+              0.08,
+              -0.25,
+              0.13
+            ]
+          }
         ],
         "decision": [
-          { "documentId": "fuentes", "position": [-0.58, 0.4, -0.28], "rotation": [-0.07, -0.31, -0.08] },
-          { "documentId": "hipotesis", "position": [0.53, 0.61, -0.55], "rotation": [0.02, -0.23, 0.08] },
-          { "documentId": "decision", "position": [0.02, -0.05, 1.0], "rotation": [-0.04, -0.16, -0.035] }
+          {
+            "documentId": "fuentes",
+            "position": [
+              -0.58,
+              0.4,
+              -0.28
+            ],
+            "rotation": [
+              -0.07,
+              -0.31,
+              -0.08
+            ]
+          },
+          {
+            "documentId": "hipotesis",
+            "position": [
+              0.53,
+              0.61,
+              -0.55
+            ],
+            "rotation": [
+              0.02,
+              -0.23,
+              0.08
+            ]
+          },
+          {
+            "documentId": "decision",
+            "position": [
+              0.02,
+              -0.05,
+              1.0
+            ],
+            "rotation": [
+              -0.04,
+              -0.16,
+              -0.035
+            ]
+          }
         ]
       }
     },
@@ -593,9 +761,21 @@
       "pauseWhenSectionNotVisible": true,
       "restartOnlyOnUserAction": true,
       "timeline": [
-        { "stageId": "evidencia", "startMs": 0, "endMs": 3333 },
-        { "stageId": "contraste", "startMs": 3333, "endMs": 6667 },
-        { "stageId": "decision", "startMs": 6667, "endMs": 10000 }
+        {
+          "stageId": "evidencia",
+          "startMs": 0,
+          "endMs": 3333
+        },
+        {
+          "stageId": "contraste",
+          "startMs": 3333,
+          "endMs": 6667
+        },
+        {
+          "stageId": "decision",
+          "startMs": 6667,
+          "endMs": 10000
+        }
       ]
     },
     "performance": {
@@ -620,7 +800,11 @@
     "fallback": {
       "enabled": true,
       "type": "semantic-text-stages",
-      "triggers": ["module-load-failure", "webgl-unavailable", "webgl-context-lost"],
+      "triggers": [
+        "module-load-failure",
+        "webgl-unavailable",
+        "webgl-context-lost"
+      ],
       "preserveProgramContent": true,
       "preserveStageControls": true,
       "preserveContactLink": true
@@ -649,8 +833,16 @@
       "letterSpacingPx": 0,
       "headingWeight": 500,
       "minimumSupportingTextSizePx": 11,
-      "heroFontSizePx": { "largeDesktop": 50, "desktop": 44, "mobile": 36, "smallMobile": 31 },
-      "cardTitleFontSizePx": { "desktop": 22, "smallMobile": 21 }
+      "heroFontSizePx": {
+        "largeDesktop": 50,
+        "desktop": 44,
+        "mobile": 36,
+        "smallMobile": 31
+      },
+      "cardTitleFontSizePx": {
+        "desktop": 22,
+        "smallMobile": 21
+      }
     },
     "layout": {
       "maxContentWidthPx": 1280,
@@ -660,14 +852,44 @@
       "cardGapPx": 18,
       "cardRadiusPx": 6,
       "buttonRadiusPx": 4,
-      "breakpointsPx": { "smallMobileMax": 420, "mobileMax": 760, "largeDesktopMin": 1240 },
-      "gridColumns": { "mobile": 1, "desktop": 2, "largeDesktop": 3 },
+      "breakpointsPx": {
+        "smallMobileMax": 420,
+        "mobileMax": 760,
+        "largeDesktopMin": 1240
+      },
+      "gridColumns": {
+        "mobile": 1,
+        "desktop": 2,
+        "largeDesktop": 3
+      },
       "teamProgramSpansFullRow": true,
       "heroSceneHasDecorativeFrame": false,
-      "mobileFeaturedOrder": ["headline-and-actions", "metadata", "scene", "scene-caption", "stage-controls", "academic-plan"]
+      "mobileFeaturedOrder": [
+        "headline-and-actions",
+        "metadata",
+        "scene",
+        "scene-caption",
+        "stage-controls",
+        "academic-plan"
+      ]
     },
-    "cardVisibleFields": ["category", "title", "description", "hours", "duration", "modality", "nextStart", "deliverable", "cta"],
-    "cardExpandedFields": ["audience", "outcomes", "periodicity", "inquiryCta"],
+    "cardVisibleFields": [
+      "category",
+      "title",
+      "description",
+      "hours",
+      "duration",
+      "modality",
+      "nextStart",
+      "deliverable",
+      "cta"
+    ],
+    "cardExpandedFields": [
+      "audience",
+      "outcomes",
+      "periodicity",
+      "inquiryCta"
+    ],
     "effects": {
       "cardHover": "Borde y sombra suaves, sin mover ni inclinar el texto.",
       "cardTransitionDurationMs": 200,
@@ -698,7 +920,22 @@
     "distinguishDurationFromPeriodicity": true,
     "useNullForUnconfirmedDates": true,
     "useHoursAsNumbers": true,
-    "pendingAcademicApproval": ["Horas", "Modalidades", "Contenidos", "Calendario", "Fechas de inicio", "Evaluación"],
+    "pendingAcademicApproval": [
+      "Horas",
+      "Modalidades",
+      "Contenidos",
+      "Calendario",
+      "Fechas de inicio",
+      "Evaluación"
+    ],
     "reviewNotice": "Propuesta para revisión. Horas, modalidades y contenidos sujetos a validación académica. Fechas por confirmar. Sin instituciones asociadas ni certificaciones anunciadas."
+  },
+  "ui": {
+    "sectionNavAria": "Contenido de Cursos",
+    "metaAria": "Duración y modalidad",
+    "stagesAria": "Etapas del análisis",
+    "audienceLabel": "Para:",
+    "periodicityLabel": "Periodicidad:",
+    "hoursUnit": "HORAS"
   }
 }
