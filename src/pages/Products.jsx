@@ -1,11 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, ExternalLink, Volume2, VolumeX } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, ExternalLink, Volume2, VolumeX } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { drawFaceMesh, initFp3d } from '../utils/fp3d'
 import { useLanguage } from '../i18n/language'
+import './ProductCards.css'
+
+function statusTone(status) {
+  const t = status.es.toLowerCase()
+  if (t.includes('publicad')) return 'live'
+  if (t.includes('anticipado') || t.includes('demo')) return 'access'
+  if (t.includes('lanzamiento')) return 'launch'
+  return 'build'
+}
 
 const productVisuals = {
   EasyMeet: { slug: 'easymeet', accent: '#38bdf8', glow: 'rgba(56, 189, 248, 0.44)' },
+  AllAIs: { slug: 'allais', accent: '#94f2ff', glow: 'rgba(148, 242, 255, 0.4)' },
   'Cash-ito': { slug: 'cashito', accent: '#22c55e', glow: 'rgba(34, 197, 94, 0.42)' },
   InQilinos: { slug: 'inqilinos', accent: '#f59e0b', glow: 'rgba(245, 158, 11, 0.42)' },
   'Delitos-SESNSP': { slug: 'delitos-sesnsp', accent: '#3b82f6', glow: 'rgba(59, 130, 246, 0.48)' },
@@ -16,6 +26,28 @@ const productVisuals = {
 }
 
 const products = [
+  {
+    name: 'AllAIs',
+    category: { es: 'IA multimodelo', en: 'Multi-model AI' },
+    problem: { es: 'Equipos que usan varios modelos de IA por separado, sin control de uso ni comparación de resultados.', en: 'Teams using several AI models separately, with no usage control or way to compare results.' },
+    solution: { es: 'Una sola interfaz para trabajar con los principales modelos de IA y comparar sus respuestas, con las claves protegidas en el servidor.', en: 'One interface to work with the leading AI models and compare their answers, with keys protected server-side.' },
+    tech: { es: ['Multimodelo', 'Gateway seguro', 'Consola comparativa'], en: ['Multi-model', 'Secure gateway', 'Comparison console'] },
+    users: { es: 'Investigadores, consultores, docentes y equipos institucionales.', en: 'Researchers, consultants, teachers and institutional teams.' },
+    status: { es: 'Acceso anticipado', en: 'Early access' },
+    interest: { origen: 'allais', es: 'Solicitar acceso', en: 'Request access' },
+    value: { es: 'Reúne la mejor IA disponible en un espacio de trabajo profesional.', en: 'Brings the best available AI into one professional workspace.' },
+  },
+  {
+    name: 'Delitos-SESNSP',
+    category: { es: 'Seguridad pública y datos', en: 'Public security and data' },
+    problem: { es: 'Bases de incidencia delictiva difíciles de leer para comparación territorial y temporal.', en: 'Crime incidence datasets that are difficult to read across territory and time.' },
+    solution: { es: 'Dashboard para explorar delitos, tendencias, entidades y categorías de alto impacto.', en: 'A dashboard to explore crimes, trends, states and high-impact categories.' },
+    tech: { es: ['React', 'Visualización', 'Datos SESNSP', 'Análisis territorial'], en: ['React', 'Visualization', 'SESNSP data', 'Territorial analysis'] },
+    users: { es: 'Analistas, gobiernos, periodistas, investigadores y equipos de seguridad.', en: 'Analysts, governments, journalists, researchers and security teams.' },
+    status: { es: 'Sitio en desarrollo', en: 'Site in development' },
+    value: { es: 'Transforma datos públicos en inteligencia visual para seguimiento estratégico.', en: 'Turns public data into visual intelligence for strategic monitoring.' },
+    href: 'https://delitos-sesnsp.nni.ai/',
+  },
   {
     name: 'EasyMeet',
     category: { es: 'Productividad institucional', en: 'Institutional productivity' },
@@ -41,17 +73,6 @@ const products = [
       en: 'Reduces lost agreements and turns meetings into actionable follow-up.',
     },
     href: 'https://easymeet-admin.nni.ai/',
-  },
-  {
-    name: 'AllAIs',
-    category: { es: 'IA multimodelo', en: 'Multi-model AI' },
-    problem: { es: 'Equipos que usan varios modelos de IA por separado, sin control de uso ni comparación de resultados.', en: 'Teams using several AI models separately, with no usage control or way to compare results.' },
-    solution: { es: 'Una sola interfaz para trabajar con los principales modelos de IA y comparar sus respuestas, con las claves protegidas en el servidor.', en: 'One interface to work with the leading AI models and compare their answers, with keys protected server-side.' },
-    tech: { es: ['Multimodelo', 'Gateway seguro', 'Consola comparativa'], en: ['Multi-model', 'Secure gateway', 'Comparison console'] },
-    users: { es: 'Investigadores, consultores, docentes y equipos institucionales.', en: 'Researchers, consultants, teachers and institutional teams.' },
-    status: { es: 'Acceso anticipado', en: 'Early access' },
-    interest: { origen: 'allais', es: 'Solicitar acceso', en: 'Request access' },
-    value: { es: 'Reúne la mejor IA disponible en un espacio de trabajo profesional.', en: 'Brings the best available AI into one professional workspace.' },
   },
   {
     name: 'Cash-ito',
@@ -95,28 +116,6 @@ const products = [
     href: 'https://facer.nni.ai/',
   },
   {
-    name: 'Delitos-SESNSP',
-    category: { es: 'Seguridad pública y datos', en: 'Public security and data' },
-    problem: { es: 'Bases de incidencia delictiva difíciles de leer para comparación territorial y temporal.', en: 'Crime incidence datasets that are difficult to read across territory and time.' },
-    solution: { es: 'Dashboard para explorar delitos, tendencias, entidades y categorías de alto impacto.', en: 'A dashboard to explore crimes, trends, states and high-impact categories.' },
-    tech: { es: ['React', 'Visualización', 'Datos SESNSP', 'Análisis territorial'], en: ['React', 'Visualization', 'SESNSP data', 'Territorial analysis'] },
-    users: { es: 'Analistas, gobiernos, periodistas, investigadores y equipos de seguridad.', en: 'Analysts, governments, journalists, researchers and security teams.' },
-    status: { es: 'Sitio en desarrollo', en: 'Site in development' },
-    value: { es: 'Transforma datos públicos en inteligencia visual para seguimiento estratégico.', en: 'Turns public data into visual intelligence for strategic monitoring.' },
-    href: 'https://delitos-sesnsp.nni.ai/',
-  },
-  {
-    name: 'Lukas Portfolio',
-    category: { es: 'Reputación artística', en: 'Artistic reputation' },
-    problem: { es: 'Obra visual joven que requería una presentación digital fina, curada y memorable.', en: 'A young visual practice that needed a refined, curated and memorable digital presence.' },
-    solution: { es: 'Portafolio web con recorrido visual, jerarquía estética y navegación suave por piezas.', en: 'A web portfolio with visual flow, aesthetic hierarchy and smooth navigation through pieces.' },
-    tech: { es: ['React', 'Diseño visual', 'Curaduría digital'], en: ['React', 'Visual design', 'Digital curation'] },
-    users: { es: 'Artistas, galerías, coleccionistas y proyectos culturales.', en: 'Artists, galleries, collectors and cultural projects.' },
-    status: { es: 'Sitio publicado', en: 'Published site' },
-    value: { es: 'Convierte una trayectoria artística en una experiencia de reputación internacional.', en: 'Turns an artistic trajectory into an international reputation experience.' },
-    href: 'https://lukas-beeckman-portfolio.web.app/',
-  },
-  {
     name: 'La Cantina Artesanal',
     category: { es: 'Operación comercial', en: 'Commercial operations' },
     problem: { es: 'Inventario, compras, ventas y utilidad diaria registrados sin sistema integrado.', en: 'Inventory, purchases, sales and daily profit tracked without an integrated system.' },
@@ -145,9 +144,20 @@ const products = [
     solution: { es: 'Auditoría, plan de mejora, contenidos, estructura comercial y seguimiento de pendientes.', en: 'Audit, improvement plan, content, commercial structure and pending-item tracking.' },
     tech: { es: ['SEO', 'Wix ecommerce', 'Catálogo', 'Contenido comercial'], en: ['SEO', 'Wix ecommerce', 'Catalog', 'Commercial content'] },
     users: { es: 'Comercio especializado en scooters eléctricos, refacciones y taller.', en: 'Business specialized in electric scooters, parts and workshop services.' },
-    status: { es: 'En proceso', en: 'In progress' },
+    status: { es: 'En construcción', en: 'Under construction' },
     value: { es: 'Fortalece confianza, visibilidad y conversión para un negocio de movilidad premium.', en: 'Strengthens trust, visibility and conversion for a premium mobility business.' },
-    href: 'https://www.zescootersmx.com/cart-page',
+    href: 'https://www.zescootersmx.com/',
+  },
+  {
+    name: 'Lukas Portfolio',
+    category: { es: 'Reputación artística', en: 'Artistic reputation' },
+    problem: { es: 'Obra visual joven que requería una presentación digital fina, curada y memorable.', en: 'A young visual practice that needed a refined, curated and memorable digital presence.' },
+    solution: { es: 'Portafolio web con recorrido visual, jerarquía estética y navegación suave por piezas.', en: 'A web portfolio with visual flow, aesthetic hierarchy and smooth navigation through pieces.' },
+    tech: { es: ['React', 'Diseño visual', 'Curaduría digital'], en: ['React', 'Visual design', 'Digital curation'] },
+    users: { es: 'Artistas, galerías, coleccionistas y proyectos culturales.', en: 'Artists, galleries, collectors and cultural projects.' },
+    status: { es: 'Sitio publicado', en: 'Published site' },
+    value: { es: 'Convierte una trayectoria artística en una experiencia de reputación internacional.', en: 'Turns an artistic trajectory into an international reputation experience.' },
+    href: 'https://lukas-beeckman-portfolio.web.app/',
   },
 ]
 
@@ -207,7 +217,7 @@ export default function Products() {
     const mesh = drawFaceMesh(faceMeshRef.current, { accent: '#94f2ff' })
     const cards = productCardRefs.current
       .filter(Boolean)
-      .map((card) => initFp3d(card, { maxTilt: 12, glareMax: 0.36, gyro: false }))
+      .map((card) => initFp3d(card, { maxTilt: 4, glareMax: 0.14, gyro: false }))
 
     return () => {
       panel.destroy()
@@ -290,61 +300,62 @@ export default function Products() {
         </article>
       )}
 
-      <div className="products-grid">
+      <div className="pcards">
         {productCards.map((product, index) => {
           const visual = productVisuals[product.name] ?? productVisuals.EasyMeet
+          const tone = statusTone(product.status)
 
           return (
-          <article
-            className="product-card product-card-3d"
-            data-product={visual.slug}
-            key={product.name}
-            ref={(node) => {
-              productCardRefs.current[index] = node
-            }}
-            style={{
-              '--accent': visual.accent,
-              '--accentGlow': visual.glow,
-              '--delay': `${index * 90}ms`,
-            }}
-            tabIndex={0}
-          >
-            <div className="product-card-glow" aria-hidden="true" />
-            <div className="product-card-shine" aria-hidden="true" />
-            <div className="product-depth-lines" aria-hidden="true" />
-            <div className="product-card-top">
-              <span>{product.category[language]}</span>
-              <strong>{product.status[language]}</strong>
-            </div>
-            <h2>{product.name}</h2>
-            <p>{product.problem[language]}</p>
-            <div className="product-detail">
-              <b>{copy.solution}</b>
-              <span>{product.solution[language]}</span>
-            </div>
-            <div className="product-detail">
-              <b>{copy.users}</b>
-              <span>{product.users[language]}</span>
-            </div>
-            <div className="tag-list compact">
-              {product.tech[language].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-            <p className="product-value">{product.value[language]}</p>
-            <div className="product-card-actions">
-              {product.interest && (
-                <Link className="primary-button" to={`/interes?origen=${product.interest.origen}`}>
-                  {product.interest[language]} <ArrowRight size={16} />
-                </Link>
-              )}
-              {product.href && (
-                <a className="text-link" href={product.href} rel="noreferrer" target="_blank">
-                  {product.linkLabel?.[language] ?? copy.cardCta} <ExternalLink size={16} />
-                </a>
-              )}
-            </div>
-          </article>
+            <article
+              className="pcard"
+              data-product={visual.slug}
+              key={product.name}
+              ref={(node) => {
+                productCardRefs.current[index] = node
+              }}
+              style={{ '--accent': visual.accent, '--accentGlow': visual.glow, '--delay': `${index * 70}ms` }}
+            >
+              <div className="pcard-aura" aria-hidden="true" />
+              <header className="pcard-head">
+                <span className="pcard-index">{String(index + 1).padStart(2, '0')}</span>
+                <span className="pcard-category">{product.category[language]}</span>
+                <span className={`pcard-status is-${tone}`}>
+                  <i aria-hidden="true" />
+                  {product.status[language]}
+                </span>
+              </header>
+
+              <h2 className="pcard-name">{product.name}</h2>
+              <p className="pcard-problem">{product.problem[language]}</p>
+
+              <dl className="pcard-facts">
+                <div>
+                  <dt>{copy.solution}</dt>
+                  <dd>{product.solution[language]}</dd>
+                </div>
+                <div>
+                  <dt>{copy.users}</dt>
+                  <dd>{product.users[language]}</dd>
+                </div>
+              </dl>
+
+              <p className="pcard-stack">{product.tech[language].join('  ·  ')}</p>
+
+              <blockquote className="pcard-value">{product.value[language]}</blockquote>
+
+              <footer className="pcard-actions">
+                {product.interest && (
+                  <Link className="pcard-primary" to={`/interes?origen=${product.interest.origen}`}>
+                    {product.interest[language]} <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                )}
+                {product.href && (
+                  <a className="pcard-link" href={product.href} rel="noreferrer" target="_blank">
+                    {product.linkLabel?.[language] ?? copy.cardCta} <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                )}
+              </footer>
+            </article>
           )
         })}
       </div>
