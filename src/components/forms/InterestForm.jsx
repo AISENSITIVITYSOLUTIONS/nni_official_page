@@ -3,7 +3,10 @@ import { useSearchParams } from 'react-router-dom'
 import { useLanguage } from '../../i18n/language'
 import './InterestForm.css'
 
-const ENDPOINT = import.meta.env.VITE_INTEREST_FORM_ENDPOINT
+// La URL es pública (viaja en el JS del sitio); .env permite sustituirla sin tocar código.
+const ENDPOINT =
+  import.meta.env.VITE_INTEREST_FORM_ENDPOINT ||
+  'https://script.google.com/macros/s/AKfycbwFg1Xej6YAS6kenoyBDt6j6Du6nKEaspXp1XpOM5ZVClhpAQbAWvuf3sV2_soiwr4p/exec'
 
 const COPY = {
   es: {
