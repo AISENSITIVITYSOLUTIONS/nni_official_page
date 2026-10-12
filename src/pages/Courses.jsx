@@ -81,12 +81,10 @@ export default function Courses() {
   const { language } = useLanguage()
   const existingCourses = <ExistingCourses language={language} />
 
-  if (language !== 'es') return existingCourses
-
   return (
     <CoursesBoundary fallback={existingCourses}>
       <Suspense fallback={existingCourses}>
-        <CoursesExperience />
+        <CoursesExperience key={language} />
       </Suspense>
     </CoursesBoundary>
   )

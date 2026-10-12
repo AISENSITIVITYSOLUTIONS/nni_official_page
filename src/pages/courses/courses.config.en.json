@@ -1,0 +1,941 @@
+{
+  "version": "1.0.0",
+  "section": "courses",
+  "route": "/cursos",
+  "language": "en",
+  "status": "proposal",
+  "layout": "featured-program-plus-executive-grid",
+  "totalPrograms": 8,
+  "purpose": "Contenido y especificaciones de la propuesta visual de Formación NNI. Este JSON requiere componentes de interfaz para presentar el diseño y ejecutar las interacciones 3D.",
+  "integration": {
+    "scope": "courses-section-only",
+    "publish": false,
+    "preserveSiteHeader": true,
+    "preserveSiteFooter": true,
+    "preserveOtherRoutes": true,
+    "preserveExistingLanguageSwitcher": true,
+    "modifyFaceR": false,
+    "cssScope": "nni-courses",
+    "replaceGlobalStyles": false,
+    "note": "La navegación interna de la propuesta no sustituye la cabecera del sitio. Este archivo contiene únicamente la versión española; no cambia el contenido inglés existente."
+  },
+  "header": {
+    "eyebrow": "NNI Training",
+    "title": "Think in depth. Decide with evidence.",
+    "titleLines": [
+      "Think in depth.",
+      "Decide with evidence."
+    ],
+    "lead": "Training to ask better questions, research rigorously and justify decisions.",
+    "brandDescriptor": "Applied intelligence"
+  },
+  "sectionNavigation": [
+    {
+      "label": "Diploma",
+      "href": "#n-diplomado"
+    },
+    {
+      "label": "Programs",
+      "href": "#n-programas"
+    },
+    {
+      "label": "Method",
+      "href": "#n-metodo"
+    }
+  ],
+  "featuredProgram": {
+    "id": "diplomado-analisis-social-ia",
+    "anchor": "n-diplomado",
+    "type": "diplomado",
+    "label": "Featured program",
+    "eyebrow": "NNI Training · Featured program",
+    "title": "Diploma in AI-Assisted Social Analysis",
+    "titleLines": [
+      "Diploma in",
+      "AI-Assisted",
+      "Social Analysis"
+    ],
+    "visualPriority": "high",
+    "metadata": {
+      "hours": 120,
+      "hoursLabel": "120 hours",
+      "periodicity": "Weekly",
+      "durationWeeks": null,
+      "nextStart": "Next intake",
+      "startDate": null,
+      "startDateStatus": "to-be-confirmed",
+      "modality": "Online / hybrid",
+      "academicStatus": "pending-validation"
+    },
+    "visibleMetadata": [
+      {
+        "label": "Course load",
+        "value": "120 hours"
+      },
+      {
+        "label": "Frequency",
+        "value": "Weekly"
+      },
+      {
+        "label": "Proposed format",
+        "value": "Online / hybrid"
+      },
+      {
+        "label": "Next start",
+        "value": "Next intake"
+      }
+    ],
+    "headline": "Think in depth. Decide with evidence.",
+    "description": "Turn documents, interviews and data into analysis you can explain, test and defend.",
+    "audience": [
+      "Researchers",
+      "Educators",
+      "Consultants",
+      "Institutional teams"
+    ],
+    "outcomes": [
+      "Frame problems and pose analytical questions with explicit assumptions.",
+      "Organize documentary, qualitative and quantitative evidence with traceability.",
+      "Test hypotheses, alternative explanations and AI-assisted results.",
+      "Recognize bias, limits and uncertainty in analysis.",
+      "Assemble a social analysis dossier and defend a reasoned recommendation."
+    ],
+    "deliverable": {
+      "label": "Proposed deliverable",
+      "title": "Social analysis dossier",
+      "description": "Verified sources, tested hypotheses and a reasoned recommendation.",
+      "status": "proposed"
+    },
+    "cta": {
+      "label": "Explore the diploma",
+      "href": "#n-plan",
+      "action": "expand-and-navigate",
+      "targetId": "n-plan"
+    },
+    "secondaryCta": {
+      "label": "Cohort full · Join the waitlist (November 28)",
+      "href": "/interes?origen=cursos",
+      "action": "navigate"
+    },
+    "academicPlan": {
+      "id": "n-plan",
+      "presentation": "accordion",
+      "initiallyOpen": false,
+      "title": "A complete method, a project of your own.",
+      "subtitle": "Proposed curriculum · 6 modules of 20 h",
+      "description": "For researchers, educators, consultants and institutional teams. The program culminates in a social analysis dossier with verified sources, tested hypotheses and a reasoned recommendation.",
+      "status": "pending-validation",
+      "totalHours": 120,
+      "modules": [
+        {
+          "id": "preguntas-que-orientan",
+          "order": 1,
+          "hours": 20,
+          "title": "Questions that guide",
+          "description": "Frame a problem, make assumptions explicit and build an analytical question."
+        },
+        {
+          "id": "evidencia-con-trazabilidad",
+          "order": 2,
+          "hours": 20,
+          "title": "Traceable evidence",
+          "description": "Identify sources, record provenance and assess quality, limits and privacy."
+        },
+        {
+          "id": "interpretacion-cualitativa",
+          "order": 3,
+          "hours": 20,
+          "title": "Qualitative interpretation",
+          "description": "Code documents and interviews; check AI-assisted reading against human review."
+        },
+        {
+          "id": "lectura-critica-de-datos",
+          "order": 4,
+          "hours": 20,
+          "title": "Critical data reading",
+          "description": "Examine indicators, bias and patterns without confusing correlation with causation."
+        },
+        {
+          "id": "hipotesis-y-escenarios",
+          "order": 5,
+          "hours": 20,
+          "title": "Hypotheses and scenarios",
+          "description": "Test explanations, explore alternatives and express uncertainty."
+        },
+        {
+          "id": "argumentar-una-decision",
+          "order": 6,
+          "hours": 20,
+          "title": "Arguing a decision",
+          "description": "Assemble a report, document AI use and defend a recommendation."
+        }
+      ],
+      "note": "Fechas, calendario y evaluación sujetos a validación académica."
+    }
+  },
+  "catalog": {
+    "id": "n-programas",
+    "eyebrow": "Seven complementary programs",
+    "title": "One capability. One concrete result.",
+    "titleLines": [
+      "One capability.",
+      "One concrete result."
+    ],
+    "lead": "Training to ask better questions, research rigorously and justify decisions.",
+    "deliverableLabel": "You will produce",
+    "detailBehavior": "inline-accordion",
+    "detailInitiallyOpen": false,
+    "showAllProgramsInitially": true
+  },
+  "programs": [
+    {
+      "id": "pensamiento-analitico-ia",
+      "order": 1,
+      "category": "Analytical judgment",
+      "title": "AI-Augmented Analytical Thinking",
+      "metadata": {
+        "hours": 24,
+        "hoursLabel": "24 h",
+        "durationWeeks": 6,
+        "durationLabel": "6 weeks",
+        "sessions": null,
+        "periodicity": "Sessions to be confirmed within 6 weeks.",
+        "nextStart": "Next cohort",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "Online",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Learn to pose questions, detect assumptions and tell a convincing answer from a well-supported one.",
+      "audience": "Professionals, educators and analysts who need to structure problems.",
+      "outcomes": [
+        "Break down a complex question.",
+        "Compare answers and detect bias.",
+        "Verify claims and state limits."
+      ],
+      "deliverable": "A matrix of questions, assumptions and evidence.",
+      "startLabel": "Next cohort · Date to be confirmed",
+      "cta": {
+        "label": "Explore program",
+        "action": "toggle-details",
+        "targetId": "pensamiento-analitico-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Ask about this program",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "pensamiento-analitico-ia"
+      }
+    },
+    {
+      "id": "decisiones-estrategicas-ia",
+      "order": 2,
+      "category": "Strategic decision",
+      "title": "AI-Assisted Strategic Decision-Making",
+      "metadata": {
+        "hours": 20,
+        "hoursLabel": "20 h",
+        "durationWeeks": 5,
+        "durationLabel": "5 weeks",
+        "sessions": null,
+        "periodicity": "Sessions to be confirmed within 5 weeks.",
+        "nextStart": "Next cohort",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "Online",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Compare alternatives, anticipate risks and support decisions without delegating judgment to a model.",
+      "audience": "Project leads, executives and planning teams.",
+      "outcomes": [
+        "Define criteria before comparing alternatives.",
+        "Build scenarios and run sensitivity analysis.",
+        "Justify a decision and its review conditions."
+      ],
+      "deliverable": "A decision report with scenarios and risks.",
+      "startLabel": "Next cohort · Date to be confirmed",
+      "cta": {
+        "label": "Explore program",
+        "action": "toggle-details",
+        "targetId": "decisiones-estrategicas-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Ask about this program",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "decisiones-estrategicas-ia"
+      }
+    },
+    {
+      "id": "inteligencia-institucional-problemas-publicos",
+      "order": 3,
+      "category": "Institutional analysis",
+      "title": "Institutional Intelligence and Public Problem Analysis",
+      "metadata": {
+        "hours": 30,
+        "hoursLabel": "30 h",
+        "durationWeeks": 8,
+        "durationLabel": "8 weeks",
+        "sessions": null,
+        "periodicity": "Sessions to be confirmed within 8 weeks.",
+        "nextStart": "Next intake",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "Online / hybrid",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Connect actors, territory and institutional capacities to understand complex public problems.",
+      "audience": "Public teams, civil society organizations, consultants and analysis units.",
+      "outcomes": [
+        "Frame the problem and its actors.",
+        "Link narratives, indicators and territory.",
+        "Propose priorities with explicit limits and risks."
+      ],
+      "deliverable": "A diagnosis with an actor map and priorities.",
+      "startLabel": "Next intake · Date to be confirmed",
+      "cta": {
+        "label": "Explore program",
+        "action": "toggle-details",
+        "targetId": "inteligencia-institucional-problemas-publicos-detalles"
+      },
+      "inquiryCta": {
+        "label": "Ask about this program",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "inteligencia-institucional-problemas-publicos"
+      }
+    },
+    {
+      "id": "investigacion-aplicada-ia",
+      "order": 4,
+      "category": "Applied research",
+      "title": "AI for Applied Research and Knowledge Production",
+      "metadata": {
+        "hours": 30,
+        "hoursLabel": "30 h",
+        "durationWeeks": 8,
+        "durationLabel": "8 weeks",
+        "sessions": null,
+        "periodicity": "Sessions to be confirmed within 8 weeks.",
+        "nextStart": "Next cohort",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "Online",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Turn documents, interviews and data into a verifiable argument, with sources and method decisions.",
+      "audience": "Researchers, educators, graduate students and consultants.",
+      "outcomes": [
+        "Design a corpus and an analysis protocol.",
+        "Audit AI-produced syntheses and references.",
+        "Document the process and build an argument."
+      ],
+      "deliverable": "A research protocol and a traceable synthesis.",
+      "startLabel": "Next cohort · Date to be confirmed",
+      "cta": {
+        "label": "Explore program",
+        "action": "toggle-details",
+        "targetId": "investigacion-aplicada-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Ask about this program",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "investigacion-aplicada-ia"
+      }
+    },
+    {
+      "id": "laboratorio-de-criterio-ia",
+      "order": 5,
+      "category": "Deliberative practice",
+      "title": "Judgment Lab: Reflection, Evidence and Decision with AI",
+      "metadata": {
+        "hours": 16,
+        "hoursLabel": "16 h",
+        "durationWeeks": null,
+        "durationLabel": "4 sessions",
+        "sessions": 4,
+        "periodicity": "Schedule of the 4 sessions to be confirmed.",
+        "nextStart": "Next cohort",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "Online",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Work through a case, face contradictory evidence and revise your position before making a recommendation.",
+      "audience": "Professionals and teams who need to weigh criteria in ambiguous situations.",
+      "outcomes": [
+        "Separate facts, inferences and preferences.",
+        "Examine objections to your own hypothesis.",
+        "Record how and why a conclusion changes."
+      ],
+      "deliverable": "A deliberation log and a defended recommendation.",
+      "startLabel": "Next cohort · Date to be confirmed",
+      "cta": {
+        "label": "Explore program",
+        "action": "toggle-details",
+        "targetId": "laboratorio-de-criterio-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Ask about this program",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "laboratorio-de-criterio-ia"
+      }
+    },
+    {
+      "id": "comunicacion-politica-ciudadania-ia",
+      "order": 6,
+      "category": "Public conversation",
+      "title": "AI, Political Communication and Citizenship",
+      "metadata": {
+        "hours": 24,
+        "hoursLabel": "24 h",
+        "durationWeeks": 6,
+        "durationLabel": "6 weeks",
+        "sessions": null,
+        "periodicity": "Sessions to be confirmed within 6 weeks.",
+        "nextStart": "Next intake",
+        "startDate": null,
+        "startDateStatus": "to-be-confirmed",
+        "modality": "Online",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Interpret narratives and public conversation without confusing digital visibility with social representativeness.",
+      "audience": "Communication teams, researchers and citizen organizations.",
+      "outcomes": [
+        "Design a sample and define categories.",
+        "Compare discourses, sources and narrative frames.",
+        "Assess platform bias and responsible use."
+      ],
+      "deliverable": "A narrative analysis with methodological limits.",
+      "startLabel": "Next intake · Date to be confirmed",
+      "cta": {
+        "label": "Explore program",
+        "action": "toggle-details",
+        "targetId": "comunicacion-politica-ciudadania-ia-detalles"
+      },
+      "inquiryCta": {
+        "label": "Ask about this program",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "comunicacion-politica-ciudadania-ia"
+      }
+    },
+    {
+      "id": "ia-equipos-profesionales",
+      "order": 7,
+      "category": "Team training",
+      "title": "Applied AI for Professional Teams",
+      "cardVariant": "full-width",
+      "metadata": {
+        "hours": 18,
+        "hoursLabel": "18 h",
+        "durationWeeks": null,
+        "durationLabel": "3 to 6 sessions",
+        "sessions": null,
+        "sessionRange": {
+          "min": 3,
+          "max": 6
+        },
+        "periodicity": "To be agreed with the team.",
+        "nextStart": "On demand",
+        "startDate": null,
+        "startDateStatus": "on-demand",
+        "modality": "Online / in person",
+        "academicStatus": "pending-validation"
+      },
+      "description": "Integrate AI into a real process with clear responsibilities, human review and evaluation criteria.",
+      "audience": "Teams from companies, universities, governments and organizations.",
+      "outcomes": [
+        "Select a process and measure its baseline.",
+        "Define permitted uses and review points.",
+        "Evaluate results and conditions to scale."
+      ],
+      "deliverable": "An adoption pilot with protocol and indicators.",
+      "startLabel": "On demand · Agreed schedule",
+      "cta": {
+        "label": "Explore program",
+        "action": "toggle-details",
+        "targetId": "ia-equipos-profesionales-detalles"
+      },
+      "inquiryCta": {
+        "label": "Ask about this program",
+        "href": "#n-consulta",
+        "action": "select-program-and-navigate",
+        "programId": "ia-equipos-profesionales"
+      }
+    }
+  ],
+  "methodology": {
+    "id": "n-metodo",
+    "eyebrow": "Our approach",
+    "title": "AI assists. You build the judgment.",
+    "titleLines": [
+      "AI assists.",
+      "You build the judgment."
+    ],
+    "description": "An approach centered on problems, evidence and work products. Every AI answer is an input to be examined, not a conclusion to be accepted.",
+    "steps": [
+      "Pose a question and make assumptions explicit.",
+      "Verify sources and weigh evidence.",
+      "Examine alternatives and acknowledge uncertainty.",
+      "Argue, document and own the decision."
+    ]
+  },
+  "contact": {
+    "id": "n-consulta",
+    "title": "Let’s talk about your training goals.",
+    "description": "Diploma, short program or training for your team.",
+    "selectedProgramTemplate": "Program of interest: {programTitle}.",
+    "cta": {
+      "label": "Request information",
+      "href": "https://www.nni.ai/contacto",
+      "target": "_blank",
+      "rel": "noopener noreferrer",
+      "accessibleLabel": "Request information on NNI’s contact page; opens in a new tab"
+    },
+    "note": "La selección del programa se muestra en la propuesta. No envía datos ni supone que el formulario actual de contacto los reciba automáticamente."
+  },
+  "interactive3d": {
+    "enabled": true,
+    "id": "expediente-analitico",
+    "title": "Three-dimensional analytical dossier",
+    "engine": "three.js",
+    "referenceVersion": "0.180.0",
+    "requiresRendererImplementation": true,
+    "placement": "featured-program-unframed-scene",
+    "description": "Three documents represent organizing evidence, testing hypotheses and reaching a justified decision. Each stage changes the position and prominence of the documents.",
+    "dataNature": "conceptual-demonstration",
+    "disclaimer": "Conceptual demonstration",
+    "accessibleDescription": "Three-dimensional conceptual demonstration: organize sources, test hypotheses and reach a justified decision. The controls provide the same information as text.",
+    "initialStageId": "evidencia",
+    "stages": [
+      {
+        "id": "evidencia",
+        "order": 1,
+        "label": "Evidence",
+        "headline": "From scattered information to evidence.",
+        "description": "Organizing is not verifying.",
+        "fallbackText": "Sources identified and organized.",
+        "activeDocumentId": "fuentes"
+      },
+      {
+        "id": "contraste",
+        "order": 2,
+        "label": "Contrast",
+        "headline": "Testing also means questioning.",
+        "description": "Look for support, contradictions and alternative explanations.",
+        "fallbackText": "Hypotheses, support and contradictions.",
+        "activeDocumentId": "hipotesis"
+      },
+      {
+        "id": "decision",
+        "order": 3,
+        "label": "Decision",
+        "headline": "A decision you can justify.",
+        "description": "Make sources, uncertainty and human responsibility explicit.",
+        "fallbackText": "Alternatives, limits and justification.",
+        "activeDocumentId": "decision"
+      }
+    ],
+    "documents": [
+      {
+        "id": "fuentes",
+        "tag": "01 / SOURCES",
+        "title": "Organize the evidence.",
+        "subtitle": "Social analysis dossier",
+        "items": [
+          "Documents",
+          "Interviews",
+          "Data"
+        ],
+        "footer": "Provenance / date / limits",
+        "color": "#eff3ef"
+      },
+      {
+        "id": "hipotesis",
+        "tag": "02 / HYPOTHESES",
+        "title": "Test explanations.",
+        "subtitle": "Social analysis dossier",
+        "items": [
+          "Evidence for",
+          "Evidence against",
+          "What we still don’t know"
+        ],
+        "itemDetails": [
+          "Documented support",
+          "Objections and limits",
+          "Explicit uncertainty"
+        ],
+        "footer": "Testing comes before judgment",
+        "color": "#eff3ef"
+      },
+      {
+        "id": "decision",
+        "tag": "03 / DECISION",
+        "title": "Support a decision.",
+        "subtitle": "Social analysis dossier",
+        "highlight": "Human judgment",
+        "highlightDescription": "Sources + testing + justification",
+        "items": [
+          "Alternatives",
+          "Uncertainty",
+          "Recommendation"
+        ],
+        "footer": "Human review and responsibility",
+        "color": "#b7f0d1"
+      }
+    ],
+    "scene": {
+      "documentDimensions": {
+        "width": 2.04,
+        "height": 2.68,
+        "depth": 0.055
+      },
+      "textureResolution": {
+        "width": 720,
+        "height": 960
+      },
+      "frontMaterial": "unlit-texture",
+      "camera": {
+        "type": "perspective",
+        "fovDegrees": 35,
+        "near": 0.1,
+        "far": 100,
+        "desktopPosition": [
+          0,
+          0,
+          12
+        ]
+      },
+      "poseUnits": {
+        "position": "scene-units",
+        "rotation": "radians"
+      },
+      "poses": {
+        "evidencia": [
+          {
+            "documentId": "fuentes",
+            "position": [
+              -0.45,
+              0.18,
+              0.82
+            ],
+            "rotation": [
+              -0.1,
+              -0.22,
+              -0.1
+            ]
+          },
+          {
+            "documentId": "hipotesis",
+            "position": [
+              0.6,
+              0.67,
+              -0.25
+            ],
+            "rotation": [
+              -0.1,
+              -0.35,
+              0.16
+            ]
+          },
+          {
+            "documentId": "decision",
+            "position": [
+              0.46,
+              -0.55,
+              -0.6
+            ],
+            "rotation": [
+              0.08,
+              -0.27,
+              -0.05
+            ]
+          }
+        ],
+        "contraste": [
+          {
+            "documentId": "fuentes",
+            "position": [
+              -0.62,
+              0.53,
+              -0.3
+            ],
+            "rotation": [
+              -0.08,
+              -0.3,
+              -0.1
+            ]
+          },
+          {
+            "documentId": "hipotesis",
+            "position": [
+              0.09,
+              0.03,
+              0.96
+            ],
+            "rotation": [
+              -0.03,
+              -0.14,
+              0.02
+            ]
+          },
+          {
+            "documentId": "decision",
+            "position": [
+              0.67,
+              -0.4,
+              -0.6
+            ],
+            "rotation": [
+              0.08,
+              -0.25,
+              0.13
+            ]
+          }
+        ],
+        "decision": [
+          {
+            "documentId": "fuentes",
+            "position": [
+              -0.58,
+              0.4,
+              -0.28
+            ],
+            "rotation": [
+              -0.07,
+              -0.31,
+              -0.08
+            ]
+          },
+          {
+            "documentId": "hipotesis",
+            "position": [
+              0.53,
+              0.61,
+              -0.55
+            ],
+            "rotation": [
+              0.02,
+              -0.23,
+              0.08
+            ]
+          },
+          {
+            "documentId": "decision",
+            "position": [
+              0.02,
+              -0.05,
+              1.0
+            ],
+            "rotation": [
+              -0.04,
+              -0.16,
+              -0.035
+            ]
+          }
+        ]
+      }
+    },
+    "interaction": {
+      "stageSelection": "buttons",
+      "transitionDurationMs": 720,
+      "easing": "smoothstep",
+      "pointerParallax": true,
+      "pointerParallaxMaxRadians": 0.05,
+      "disablePointerParallaxOnTouch": true,
+      "automaticRotation": false,
+      "scrollHijacking": false
+    },
+    "tour": {
+      "label": "Tour · 10 s",
+      "durationMs": 10000,
+      "autoplay": false,
+      "loop": false,
+      "audio": false,
+      "pauseLabel": "Pause tour",
+      "resumeLabel": "Resume tour",
+      "pauseWhenPageHidden": true,
+      "pauseWhenSectionNotVisible": true,
+      "restartOnlyOnUserAction": true,
+      "timeline": [
+        {
+          "stageId": "evidencia",
+          "startMs": 0,
+          "endMs": 3333
+        },
+        {
+          "stageId": "contraste",
+          "startMs": 3333,
+          "endMs": 6667
+        },
+        {
+          "stageId": "decision",
+          "startMs": 6667,
+          "endMs": 10000
+        }
+      ]
+    },
+    "performance": {
+      "canvasCount": 1,
+      "renderMode": "on-demand",
+      "maxDevicePixelRatio": 1.5,
+      "powerPreference": "low-power",
+      "stopRenderingWhenIdle": true,
+      "stopRenderingWhenOffscreen": true,
+      "stopRenderingWhenPageHidden": true,
+      "disposeResourcesOnUnmount": true,
+      "postprocessing": false,
+      "blockContentUntilSceneLoads": false
+    },
+    "reducedMotion": {
+      "respectSystemPreference": true,
+      "transitionDurationMs": 0,
+      "pointerParallax": false,
+      "keepManualStageSelection": true,
+      "keepTextEquivalent": true
+    },
+    "fallback": {
+      "enabled": true,
+      "type": "semantic-text-stages",
+      "triggers": [
+        "module-load-failure",
+        "webgl-unavailable",
+        "webgl-context-lost"
+      ],
+      "preserveProgramContent": true,
+      "preserveStageControls": true,
+      "preserveContactLink": true
+    }
+  },
+  "designGuidelines": {
+    "tone": "Institucional, sobrio, contemporáneo y orientado al criterio analítico.",
+    "theme": "dark",
+    "colors": {
+      "background": "#0d1213",
+      "surface": "#151d1e",
+      "text": "#f0f3f1",
+      "mutedText": "#b0bfba",
+      "border": "#34413d",
+      "accent": "#b7f0d1",
+      "contradictionAccent": "#efa79a",
+      "teamSurface": "#18251f",
+      "primaryButtonText": "#0d2019"
+    },
+    "typography": {
+      "bodyFont": "Arial, Helvetica, sans-serif",
+      "accentFont": "Georgia, 'Times New Roman', serif",
+      "accentStyle": "italic",
+      "bodyFontSizePx": 15,
+      "bodyLineHeight": 1.55,
+      "letterSpacingPx": 0,
+      "headingWeight": 500,
+      "minimumSupportingTextSizePx": 11,
+      "heroFontSizePx": {
+        "largeDesktop": 50,
+        "desktop": 44,
+        "mobile": 36,
+        "smallMobile": 31
+      },
+      "cardTitleFontSizePx": {
+        "desktop": 22,
+        "smallMobile": 21
+      }
+    },
+    "layout": {
+      "maxContentWidthPx": 1280,
+      "desktopHorizontalPaddingPx": 40,
+      "mobileHorizontalPaddingPx": 24,
+      "smallMobileHorizontalPaddingPx": 18,
+      "cardGapPx": 18,
+      "cardRadiusPx": 6,
+      "buttonRadiusPx": 4,
+      "breakpointsPx": {
+        "smallMobileMax": 420,
+        "mobileMax": 760,
+        "largeDesktopMin": 1240
+      },
+      "gridColumns": {
+        "mobile": 1,
+        "desktop": 2,
+        "largeDesktop": 3
+      },
+      "teamProgramSpansFullRow": true,
+      "heroSceneHasDecorativeFrame": false,
+      "mobileFeaturedOrder": [
+        "headline-and-actions",
+        "metadata",
+        "scene",
+        "scene-caption",
+        "stage-controls",
+        "academic-plan"
+      ]
+    },
+    "cardVisibleFields": [
+      "category",
+      "title",
+      "description",
+      "hours",
+      "duration",
+      "modality",
+      "nextStart",
+      "deliverable",
+      "cta"
+    ],
+    "cardExpandedFields": [
+      "audience",
+      "outcomes",
+      "periodicity",
+      "inquiryCta"
+    ],
+    "effects": {
+      "cardHover": "Borde y sombra suaves, sin mover ni inclinar el texto.",
+      "cardTransitionDurationMs": 200,
+      "continuousMarquee": false,
+      "floatingStickers": false,
+      "decorativeOrbs": false,
+      "autoplayVideo": false
+    }
+  },
+  "accessibility": {
+    "singleH1": "featuredProgram.title",
+    "keyboardAccessibleControls": true,
+    "nativeDetailsForProgramExpansion": true,
+    "visibleFocusIndicator": true,
+    "stageButtonsExposePressedState": true,
+    "stageCaptionLiveRegion": "polite",
+    "meaningIndependentOfColor": true,
+    "essentialContentAvailableWithoutHover": true,
+    "canvasHasTextEquivalent": true,
+    "mobileTouchTargetMinPx": 44,
+    "preventHorizontalOverflow": true
+  },
+  "editorialRules": {
+    "institutionAssociatedFieldVisible": false,
+    "certificationClaim": null,
+    "announceOpenEnrollment": false,
+    "announceActivePrograms": false,
+    "distinguishDurationFromPeriodicity": true,
+    "useNullForUnconfirmedDates": true,
+    "useHoursAsNumbers": true,
+    "pendingAcademicApproval": [
+      "Horas",
+      "Modalidades",
+      "Contenidos",
+      "Calendario",
+      "Fechas de inicio",
+      "Evaluación"
+    ],
+    "reviewNotice": "Propuesta para revisión. Horas, modalidades y contenidos sujetos a validación académica. Fechas por confirmar. Sin instituciones asociadas ni certificaciones anunciadas."
+  },
+  "ui": {
+    "sectionNavAria": "Training contents",
+    "metaAria": "Duration and format",
+    "stagesAria": "Analysis stages",
+    "audienceLabel": "For:",
+    "periodicityLabel": "Frequency:",
+    "hoursUnit": "HOURS"
+  }
+}

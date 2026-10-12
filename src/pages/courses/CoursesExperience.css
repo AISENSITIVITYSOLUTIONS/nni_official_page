@@ -173,3 +173,110 @@
     @media(prefers-reduced-motion:reduce) {
       #nni-courses *,#nni-courses *::before,#nni-courses *::after {transition:none!important; animation:none!important; scroll-behavior:auto!important}
     }
+
+/* ───────── Capa editorial premium (oct 2026) ───────── */
+#nni-courses {
+  --nc-serif: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+  --nc-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --nc-hair: rgba(232, 238, 246, 0.09);
+  font-size: 16px;
+  line-height: 1.6;
+}
+#nni-courses .nc-wrap {max-width: 1240px}
+#nni-courses .nc-section-nav {font-family: var(--nc-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; border-color: var(--nc-hair)}
+
+/* Etiquetas */
+#nni-courses .nc-eyebrow {font-family: var(--nc-mono); font-weight: 400; font-size: 12px; letter-spacing: .12em; margin-bottom: 24px}
+#nni-courses .nc-eyebrow::before {height: 1px; width: 32px}
+#nni-courses .nc-serif {font-family: var(--nc-serif); font-style: italic; font-weight: 400; color: var(--nc-mint)}
+
+/* Hero */
+#nni-courses .nc-hero {min-height: 600px}
+#nni-courses .nc-hero-copy {padding-block: 72px 56px}
+#nni-courses .nc-hero h1 {font-family: var(--nc-serif); font-weight: 400; font-size: clamp(40px, 5vw, 68px); line-height: 1.02; letter-spacing: -.015em; max-width: 640px}
+#nni-courses .nc-promise {font-family: var(--nc-serif); font-size: 22px; line-height: 1.35; margin-top: 32px; color: #dbe5f1}
+#nni-courses .nc-hero-desc {font-size: 17px; line-height: 1.65; max-width: 46ch; margin-top: 16px}
+#nni-courses .nc-actions {margin-top: 36px; gap: 14px 28px}
+#nni-courses .nc-action {border-radius: 999px; padding: 14px 24px; min-height: 52px; font-weight: 600; font-size: 15px; gap: 12px; box-shadow: 0 18px 40px rgba(148,242,255,.16); transition: background .2s, gap .2s}
+#nni-courses .nc-action:hover {gap: 16px; background: #fff}
+#nni-courses .nc-link {font-size: 15px; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,.25); padding-block: 6px; min-height: 0}
+#nni-courses .nc-link:hover {border-color: var(--nc-mint)}
+#nni-courses .nc-scene-caption {border-color: var(--nc-hair); padding-top: 18px}
+#nni-courses .nc-scene-caption strong {font-family: var(--nc-serif); font-weight: 400; font-size: 21px}
+#nni-courses .nc-scene-caption span {font-size: 13px}
+
+/* Ficha técnica del diplomado */
+#nni-courses .nc-specs {padding-block: 28px; border-color: var(--nc-hair)}
+#nni-courses .nc-specs div {padding-inline: 28px; border-color: var(--nc-hair)}
+#nni-courses .nc-specs dt {font-family: var(--nc-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px}
+#nni-courses .nc-specs dd {font-family: var(--nc-serif); font-size: 22px; line-height: 1.2; color: #fff}
+
+/* Etapas */
+#nni-courses .nc-segments button {border-radius: 999px; padding: 10px 18px; font-size: 13px; border-color: var(--nc-hair)}
+#nni-courses .nc-segments button span {font-family: var(--nc-mono)}
+#nni-courses .nc-stage-side {font-family: var(--nc-mono); font-size: 11px; letter-spacing: .06em}
+
+/* Plan académico */
+#nni-courses .nc-detail {border-color: var(--nc-hair)}
+#nni-courses .nc-detail>summary {padding: 30px 0; font-family: var(--nc-serif); font-size: 24px}
+#nni-courses .nc-detail>summary small {font-family: var(--nc-mono); font-size: 12px; letter-spacing: .06em; margin-left: 16px}
+#nni-courses .nc-detail>summary::after {font-family: var(--nc-mono); font-size: 28px}
+#nni-courses .nc-plan-intro {font-size: 17px; line-height: 1.7; margin-bottom: 36px}
+#nni-courses .nc-modules {gap: 40px 32px; padding-bottom: 36px}
+#nni-courses .nc-module {border-color: var(--nc-hair); padding-top: 20px}
+#nni-courses .nc-module small {font-family: var(--nc-mono); font-size: 11px; letter-spacing: .1em; margin-bottom: 12px}
+#nni-courses .nc-module h3 {font-family: var(--nc-serif); font-weight: 400; font-size: 22px; margin-bottom: 10px}
+#nni-courses .nc-module p {font-size: 15px; line-height: 1.6}
+#nni-courses .nc-academic-foot {border-color: var(--nc-hair); font-size: 14px}
+
+/* Catálogo */
+#nni-courses .nc-catalog {padding-block: 120px 80px}
+#nni-courses .nc-section-head {margin-bottom: 48px; gap: 40px}
+#nni-courses .nc-section-head h2 {font-family: var(--nc-serif); font-weight: 400; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.08; letter-spacing: -.01em}
+#nni-courses .nc-section-head p {font-size: 16px; max-width: 38ch}
+#nni-courses .nc-course-grid {gap: 24px; align-items: stretch}
+#nni-courses .nc-course {position: relative; padding: 36px 32px 28px; border-color: var(--nc-hair); border-radius: 6px; background: linear-gradient(180deg, #0d1a2e 0%, #091424 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 30px 60px -34px rgba(0,0,0,.75); overflow: hidden; transition: transform .45s cubic-bezier(.2,.8,.2,1), border-color .3s, box-shadow .4s}
+#nni-courses .nc-course::before {content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: linear-gradient(90deg, var(--nc-mint), transparent 70%); opacity: .55; transition: opacity .3s}
+#nni-courses .nc-course:hover {transform: translateY(-4px); border-color: rgba(232,238,246,.18); box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 50px 90px -40px rgba(0,0,0,.9)}
+#nni-courses .nc-course:hover::before {opacity: 1}
+#nni-courses .nc-course-top {margin-bottom: 24px; font-family: var(--nc-mono)}
+#nni-courses .nc-course-type {font-size: 11px; letter-spacing: .12em}
+#nni-courses .nc-course-index {font-size: 12px}
+#nni-courses .nc-course h3 {font-family: var(--nc-serif); font-weight: 400; font-size: 26px; line-height: 1.15; letter-spacing: -.005em; margin-bottom: 16px; color: #fff}
+#nni-courses .nc-course .nc-course-description {font-size: 15.5px; line-height: 1.65; margin-bottom: 28px}
+#nni-courses .nc-course-meta {gap: 8px; font-family: var(--nc-mono); font-size: 12px; margin-bottom: 10px}
+#nni-courses .nc-course-meta span {padding: 5px 10px; border: 1px solid var(--nc-hair); border-radius: 999px; color: #dbe5f1}
+#nni-courses .nc-course-start {font-family: var(--nc-mono); font-size: 11.5px; letter-spacing: .04em; margin-bottom: 24px}
+#nni-courses .nc-output {font-family: var(--nc-serif); font-style: italic; font-size: 17px; line-height: 1.45; color: #fff; padding-top: 20px; margin-bottom: 18px; border-color: var(--nc-hair)}
+#nni-courses .nc-output span {font-family: var(--nc-mono); font-style: normal; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px}
+#nni-courses .nc-course details {border-color: var(--nc-hair); padding-top: 4px}
+#nni-courses .nc-course summary {font-size: 14px; font-weight: 500}
+#nni-courses .nc-course summary:hover {color: var(--nc-mint)}
+#nni-courses .nc-course-detail {font-size: 14.5px; line-height: 1.6}
+#nni-courses .nc-team {background: radial-gradient(600px circle at 90% 0%, rgba(148,242,255,.08), transparent 50%), linear-gradient(180deg, #102039 0%, #0a1628 100%); gap: 12px 64px; padding: 44px 44px 36px}
+#nni-courses .nc-team h3 {font-size: 34px}
+
+/* Método */
+#nni-courses .nc-method {padding-block: 96px; gap: 64px; border-color: var(--nc-hair)}
+#nni-courses .nc-method h2 {font-family: var(--nc-serif); font-weight: 400; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.08; margin-bottom: 24px}
+#nni-courses .nc-method p {font-size: 17px; line-height: 1.7}
+#nni-courses .nc-method li {padding: 22px 0; gap: 28px; font-size: 18px; align-items: baseline; border-color: var(--nc-hair)}
+#nni-courses .nc-method li::before {font-family: var(--nc-mono); font-size: 13px}
+
+/* Cierre */
+#nni-courses .nc-close {padding: 56px 48px; margin-block: 24px 32px; border: 1px solid var(--nc-hair); border-radius: 8px; background: radial-gradient(700px circle at 100% 100%, rgba(148,242,255,.1), transparent 55%), linear-gradient(180deg, #0f1f37, #0a1628)}
+#nni-courses .nc-close h2 {font-family: var(--nc-serif); font-weight: 400; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; margin-bottom: 12px}
+#nni-courses .nc-close p {font-size: 16px}
+#nni-courses .nc-note {font-family: var(--nc-mono); font-size: 11px; letter-spacing: .03em; border-color: var(--nc-hair)}
+
+@media (max-width: 760px) {
+  #nni-courses .nc-hero-copy {padding-block: 40px 28px}
+  #nni-courses .nc-specs div {padding-inline: 16px}
+  #nni-courses .nc-specs dd {font-size: 18px}
+  #nni-courses .nc-catalog {padding-block: 72px 48px}
+  #nni-courses .nc-course {padding: 28px 22px 22px}
+  #nni-courses .nc-team {padding: 28px 22px}
+  #nni-courses .nc-method {padding-block: 64px; gap: 32px}
+  #nni-courses .nc-close {padding: 32px 24px}
+  #nni-courses .nc-detail>summary {font-size: 20px}
+}
