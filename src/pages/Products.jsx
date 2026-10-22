@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, ArrowUpRight, ExternalLink, Volume2, VolumeX } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { ExternalLink, Volume2, VolumeX } from 'lucide-react'
 import { drawFaceMesh, initFp3d } from '../utils/fp3d'
 import { useLanguage } from '../i18n/language'
+import ProductFlipCard from '../components/products/ProductFlipCard'
 import './ProductCards.css'
 
 function statusTone(status) {
@@ -182,6 +182,10 @@ const productCopy = {
     solution: 'Solución',
     users: 'Usuarios',
     cardCta: 'Ver experiencia',
+    stack: 'Tecnologías',
+    backLabel: 'Ficha técnica',
+    flipFront: 'Girar ficha',
+    flipBack: 'Volver al anverso',
   },
   en: {
     eyebrow: 'Products and experience',
@@ -200,6 +204,10 @@ const productCopy = {
     solution: 'Solution',
     users: 'Users',
     cardCta: 'View experience',
+    stack: 'Technologies',
+    backLabel: 'Technical sheet',
+    flipFront: 'Flip card',
+    flipBack: 'Back to front',
   },
 }
 
@@ -208,21 +216,15 @@ export default function Products() {
   const copy = productCopy[language]
   const featuredPanelRef = useRef(null)
   const faceMeshRef = useRef(null)
-  const productCardRefs = useRef([])
   const videoRef = useRef(null)
   const [soundEnabled, setSoundEnabled] = useState(false)
 
   useEffect(() => {
     const panel = initFp3d(featuredPanelRef.current, { maxTilt: 7, glareMax: 0.42 })
     const mesh = drawFaceMesh(faceMeshRef.current, { accent: '#94f2ff' })
-    const cards = productCardRefs.current
-      .filter(Boolean)
-      .map((card) => initFp3d(card, { maxTilt: 4, glareMax: 0.14, gyro: false }))
-
     return () => {
       panel.destroy()
       mesh.destroy()
-      cards.forEach((card) => card.destroy())
     }
   }, [])
 
@@ -301,63 +303,17 @@ export default function Products() {
       )}
 
       <div className="pcards">
-        {productCards.map((product, index) => {
-          const visual = productVisuals[product.name] ?? productVisuals.EasyMeet
-          const tone = statusTone(product.status)
-
-          return (
-            <article
-              className="pcard"
-              data-product={visual.slug}
-              key={product.name}
-              ref={(node) => {
-                productCardRefs.current[index] = node
-              }}
-              style={{ '--accent': visual.accent, '--accentGlow': visual.glow, '--delay': `${index * 70}ms` }}
-            >
-              <div className="pcard-aura" aria-hidden="true" />
-              <header className="pcard-head">
-                <span className="pcard-index">{String(index + 1).padStart(2, '0')}</span>
-                <span className="pcard-category">{product.category[language]}</span>
-                <span className={`pcard-status is-${tone}`}>
-                  <i aria-hidden="true" />
-                  {product.status[language]}
-                </span>
-              </header>
-
-              <h2 className="pcard-name">{product.name}</h2>
-              <p className="pcard-problem">{product.problem[language]}</p>
-
-              <dl className="pcard-facts">
-                <div>
-                  <dt>{copy.solution}</dt>
-                  <dd>{product.solution[language]}</dd>
-                </div>
-                <div>
-                  <dt>{copy.users}</dt>
-                  <dd>{product.users[language]}</dd>
-                </div>
-              </dl>
-
-              <p className="pcard-stack">{product.tech[language].join('  ·  ')}</p>
-
-              <blockquote className="pcard-value">{product.value[language]}</blockquote>
-
-              <footer className="pcard-actions">
-                {product.interest && (
-                  <Link className="pcard-primary" to={`/interes?origen=${product.interest.origen}`}>
-                    {product.interest[language]} <ArrowRight size={16} aria-hidden="true" />
-                  </Link>
-                )}
-                {product.href && (
-                  <a className="pcard-link" href={product.href} rel="noreferrer" target="_blank">
-                    {product.linkLabel?.[language] ?? copy.cardCta} <ArrowUpRight size={16} aria-hidden="true" />
-                  </a>
-                )}
-              </footer>
-            </article>
-          )
-        })}
+        {productCards.map((product, index) => (
+          <ProductFlipCard
+            key={product.name}
+            product={product}
+            visual={productVisuals[product.name] ?? productVisuals.EasyMeet}
+            index={index}
+            tone={statusTone(product.status)}
+            language={language}
+            copy={copy}
+          />
+        ))}
       </div>
     </section>
   )
