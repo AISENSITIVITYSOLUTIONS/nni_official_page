@@ -1,0 +1,754 @@
+/* Portafolio NNI · láminas 16:9 escaladas con unidades de contenedor (1cqw ≈ 16 px a 1600 px). */
+
+.pf-page {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 18px 0 64px;
+  display: grid;
+  gap: 28px;
+}
+
+.pf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.pf-toolbar-hint {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.pf-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgba(13, 26, 43, 0.6);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pf-tool.is-primary {
+  color: #03111d;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--cyan), var(--cyan-strong));
+  font-weight: 700;
+}
+
+/* ---------- Lámina ---------- */
+
+.pf-sheet {
+  container-type: inline-size;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--ink);
+  background: #050d1a;
+  box-shadow:
+    0 40px 80px -30px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  display: flex;
+  flex-direction: column;
+  padding: 2.2cqw 3cqw 1.6cqw;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.pf-sheet-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60cqw 40cqw at 88% -10%, rgba(148, 242, 255, 0.13), transparent 60%),
+    radial-gradient(50cqw 36cqw at -8% 110%, rgba(59, 130, 246, 0.12), transparent 60%),
+    linear-gradient(160deg, #071427 0%, #040a16 55%, #06182a 100%);
+}
+
+.pf-sheet-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(148, 242, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 242, 255, 0.045) 1px, transparent 1px);
+  background-size: 3cqw 3cqw;
+  mask-image: radial-gradient(ellipse at 70% 30%, #000 10%, transparent 70%);
+}
+
+.pf-sheet > *:not(.pf-sheet-bg) {
+  position: relative;
+}
+
+.pf-sheet-head,
+.pf-sheet-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72cqw;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pf-sheet-foot {
+  padding-top: 1cqw;
+  border-top: 1px solid rgba(148, 242, 255, 0.12);
+  opacity: 0.75;
+}
+
+.pf-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6cqw;
+}
+
+.pf-brand img {
+  width: 1.9cqw;
+  height: 1.9cqw;
+  border-radius: 50%;
+}
+
+.pf-brand strong {
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.pf-sheet-body {
+  flex: 1;
+  min-height: 0;
+  padding: 1.6cqw 0 1.2cqw;
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-eyebrow {
+  margin: 0 0 0.6cqw;
+  color: var(--cyan);
+  font-size: 0.75cqw;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.pf-section-head h2 {
+  margin: 0 0 1.4cqw;
+  max-width: 82cqw;
+  font-size: 2.15cqw;
+  line-height: 1.12;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Lámina 1 ---------- */
+
+.pf-cover .pf-sheet-body {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 4cqw;
+  align-items: center;
+}
+
+.pf-cover h1 {
+  margin: 0 0 1.4cqw;
+  font-size: 3.7cqw;
+  line-height: 1.04;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  background: linear-gradient(180deg, #ffffff 30%, #b9eefa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pf-lead {
+  margin: 0 0 2.4cqw;
+  max-width: 44cqw;
+  color: var(--muted);
+  font-size: 1.08cqw;
+  line-height: 1.6;
+}
+
+.pf-metrics {
+  display: flex;
+  gap: 2.6cqw;
+}
+
+.pf-metrics div {
+  display: grid;
+  gap: 0.2cqw;
+  padding-left: 1cqw;
+  border-left: 2px solid var(--cyan);
+}
+
+.pf-metrics strong {
+  font-size: 2.8cqw;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.pf-metrics span {
+  color: var(--muted);
+  font-size: 0.78cqw;
+}
+
+.pf-cover-side {
+  position: relative;
+  display: grid;
+  gap: 1.1cqw;
+}
+
+/* ZIA destacado en portada */
+.pf-spotlight {
+  position: relative;
+  padding: 1.2cqw 1.4cqw;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  border-radius: 1cqw;
+  background:
+    radial-gradient(26cqw 14cqw at 100% 0%, var(--glow), transparent 70%),
+    linear-gradient(165deg, rgba(14, 40, 40, 0.95), rgba(6, 14, 27, 0.95));
+  box-shadow:
+    0 2cqw 4cqw -2cqw rgba(0, 0, 0, 0.85),
+    0 0 3cqw -1cqw rgba(37, 211, 102, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: perspective(80cqw) rotateY(-6deg);
+  transform-origin: left center;
+}
+
+.pf-spotlight-body {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 1.2cqw;
+  align-items: center;
+}
+
+.pf-spotlight h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5cqw;
+  margin: 0.5cqw 0 0.2cqw;
+  font-size: 2.1cqw;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.pf-spotlight-icon {
+  width: 1.9cqw;
+  height: 1.9cqw;
+  color: var(--accent);
+  filter: drop-shadow(0 0 0.6cqw rgba(37, 211, 102, 0.6));
+}
+
+.pf-spotlight .pf-card-value {
+  margin-bottom: 0.4cqw;
+  font-size: 0.86cqw;
+}
+
+.pf-spotlight-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72cqw;
+  line-height: 1.45;
+}
+
+.pf-spotlight .pf-tags {
+  margin-top: 0.6cqw;
+}
+
+.pf-spotlight-deploy {
+  display: block;
+  margin-top: 0.6cqw;
+  color: var(--accent);
+  font-size: 0.66cqw;
+  font-weight: 600;
+}
+
+.pf-chat {
+  display: grid;
+  gap: 0.5cqw;
+  padding: 0.9cqw;
+  border-radius: 0.8cqw;
+  background: rgba(3, 10, 20, 0.7);
+  border: 1px solid rgba(37, 211, 102, 0.18);
+  transform: translateZ(0) rotateY(8deg);
+  box-shadow: 0 1.2cqw 2cqw -1cqw rgba(0, 0, 0, 0.9);
+}
+
+.pf-bubble {
+  max-width: 92%;
+  padding: 0.45cqw 0.65cqw;
+  border-radius: 0.6cqw;
+  font-size: 0.66cqw;
+  line-height: 1.35;
+}
+
+.pf-bubble.is-in {
+  justify-self: start;
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom-left-radius: 0.15cqw;
+}
+
+.pf-bubble.is-out {
+  justify-self: end;
+  color: #04170c;
+  background: linear-gradient(135deg, #4ade80, #25d366);
+  border-bottom-right-radius: 0.15cqw;
+}
+
+.pf-typing {
+  display: inline-flex;
+  gap: 0.25cqw;
+  padding: 0.4cqw 0.6cqw;
+  border-radius: 0.6cqw;
+  background: rgba(255, 255, 255, 0.08);
+  justify-self: start;
+}
+
+.pf-typing i {
+  width: 0.35cqw;
+  height: 0.35cqw;
+  border-radius: 50%;
+  background: #cbd5e1;
+  opacity: 0.6;
+}
+
+.pf-capabilities {
+  padding: 1cqw 1.6cqw 0.6cqw;
+  border: 1px solid var(--line);
+  border-radius: 1cqw;
+  background: linear-gradient(160deg, rgba(18, 34, 55, 0.85), rgba(8, 18, 33, 0.7));
+  box-shadow: 0 2cqw 4cqw -2cqw rgba(0, 0, 0, 0.7);
+  transform: perspective(80cqw) rotateY(-6deg);
+  transform-origin: left center;
+}
+
+.pf-cap {
+  display: flex;
+  gap: 1cqw;
+  padding: 0.45cqw 0;
+  border-top: 1px solid rgba(148, 242, 255, 0.1);
+}
+
+.pf-cap:first-of-type {
+  border-top: 0;
+}
+
+.pf-cap-index {
+  color: var(--cyan);
+  font-size: 0.75cqw;
+  font-weight: 700;
+  padding-top: 0.15cqw;
+}
+
+.pf-cap strong {
+  display: block;
+  font-size: 0.98cqw;
+  font-weight: 600;
+}
+
+.pf-cap small {
+  display: block;
+  margin-top: 0.15cqw;
+  color: var(--muted);
+  font-size: 0.8cqw;
+  line-height: 1.45;
+}
+
+/* ---------- Tarjetas comunes ---------- */
+
+.pf-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8cqw;
+  font-size: 0.68cqw;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, var(--cyan));
+}
+
+.pf-status {
+  padding: 0.22cqw 0.6cqw;
+  border-radius: 99px;
+  font-size: 0.64cqw;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  white-space: nowrap;
+  border: 1px solid currentColor;
+}
+
+.pf-status.is-live { color: #4ade80; background: rgba(74, 222, 128, 0.08); }
+.pf-status.is-access { color: #94f2ff; background: rgba(148, 242, 255, 0.08); }
+.pf-status.is-launch { color: #facc15; background: rgba(250, 204, 21, 0.08); }
+.pf-status.is-build { color: #cbd5e1; background: rgba(203, 213, 225, 0.06); }
+
+.pf-hero-card,
+.pf-side-card,
+.pf-mini,
+.pf-closing {
+  position: relative;
+  border: 1px solid rgba(148, 242, 255, 0.14);
+  border-radius: 1cqw;
+  background:
+    radial-gradient(28cqw 14cqw at 100% 0%, var(--glow, rgba(148, 242, 255, 0.2)), transparent 70%),
+    linear-gradient(165deg, rgba(18, 34, 55, 0.92), rgba(6, 14, 27, 0.92));
+  box-shadow:
+    0 1.6cqw 3cqw -1.6cqw rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.pf-hero-card::before,
+.pf-side-card::before,
+.pf-mini::before {
+  content: '';
+  position: absolute;
+  left: 1.6cqw;
+  right: 1.6cqw;
+  top: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.pf-hero-card h3,
+.pf-side-card h3,
+.pf-mini h3 {
+  margin: 0.5cqw 0 0.3cqw;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.pf-card-value {
+  margin: 0 0 0.9cqw;
+  color: #e2ecf7;
+  line-height: 1.45;
+}
+
+.pf-facts {
+  margin: 0;
+  display: grid;
+  gap: 0.7cqw;
+}
+
+.pf-facts dt {
+  color: var(--accent);
+  font-size: 0.62cqw;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pf-facts dd {
+  margin: 0.15cqw 0 0;
+  color: var(--muted);
+  font-size: 0.82cqw;
+  line-height: 1.45;
+}
+
+.pf-facts.is-compact {
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2cqw;
+}
+
+.pf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35cqw;
+  margin-top: auto;
+  padding-top: 0.9cqw;
+  color: var(--accent);
+  font-size: 0.78cqw;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---------- Lámina 2 ---------- */
+
+.pf-flagship-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 1.4cqw;
+}
+
+.pf-hero-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6cqw 1.8cqw;
+}
+
+.pf-hero-card h3 {
+  font-size: 2.6cqw;
+}
+
+.pf-hero-card .pf-card-value {
+  font-size: 1.12cqw;
+  margin-bottom: 1.4cqw;
+}
+
+.pf-hero-card .pf-facts {
+  gap: 1cqw;
+}
+
+.pf-hero-card .pf-facts dd {
+  font-size: 0.92cqw;
+}
+
+.pf-hero-card .pf-tags {
+  margin-top: 1.3cqw;
+}
+
+.pf-layers {
+  display: flex;
+  gap: 0.6cqw;
+  margin: 0 0 1.8cqw;
+  perspective: 60cqw;
+}
+
+.pf-layers .pf-layer {
+  flex: 1;
+  display: grid;
+  gap: 0.3cqw;
+  padding: 1.1cqw 1cqw;
+  border: 1px solid rgba(148, 242, 255, calc(0.18 + var(--i) * 0.12));
+  border-radius: 0.7cqw;
+  background: linear-gradient(160deg, rgba(148, 242, 255, calc(0.05 + var(--i) * 0.05)), rgba(148, 242, 255, 0.01));
+  font-size: 0.9cqw;
+  font-weight: 600;
+  transform: rotateY(-14deg) translateZ(calc(var(--i) * 1.2cqw));
+  box-shadow: 0 1cqw 1.8cqw -1cqw rgba(0, 0, 0, 0.8);
+}
+
+.pf-layer-icon {
+  width: 1.8cqw;
+  height: 1.8cqw;
+  margin-bottom: 0.3cqw;
+  color: var(--cyan);
+  filter: drop-shadow(0 0 0.6cqw rgba(148, 242, 255, 0.5));
+}
+
+.pf-layer em {
+  color: var(--cyan);
+  font-size: 0.62cqw;
+  font-style: normal;
+  letter-spacing: 0.14em;
+}
+
+.pf-side-stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.4cqw;
+  min-height: 0;
+}
+
+.pf-side-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2cqw 1.6cqw;
+}
+
+.pf-side-card h3 {
+  font-size: 1.7cqw;
+}
+
+.pf-side-card .pf-card-value {
+  font-size: 0.86cqw;
+  margin-bottom: 0.7cqw;
+}
+
+.pf-side-card .pf-facts dd {
+  font-size: 0.74cqw;
+}
+
+.pf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4cqw;
+  margin-top: 0.8cqw;
+}
+
+.pf-tags span {
+  padding: 0.18cqw 0.55cqw;
+  border-radius: 0.4cqw;
+  background: rgba(148, 242, 255, 0.07);
+  color: #d6e6f5;
+  font-size: 0.64cqw;
+}
+
+.pf-side-card .pf-link {
+  padding-top: 0.6cqw;
+}
+
+/* ---------- Lámina 3 ---------- */
+
+.pf-catalog-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 1.1cqw;
+}
+
+.pf-mini {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2cqw 1.3cqw;
+}
+
+.pf-mini h3 {
+  font-size: 1.35cqw;
+}
+
+.pf-mini p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8cqw;
+  line-height: 1.5;
+}
+
+.pf-mini .pf-mini-users {
+  margin-top: 0.7cqw;
+  font-size: 0.72cqw;
+}
+
+.pf-mini-users b {
+  display: block;
+  color: var(--accent);
+  font-size: 0.6cqw;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pf-mini .pf-tags span {
+  font-size: 0.6cqw;
+}
+
+.pf-mini-foot {
+  margin-top: auto;
+  padding-top: 0.8cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45cqw;
+}
+
+.pf-mini-foot a {
+  color: var(--accent);
+  font-size: 0.7cqw;
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.pf-closing {
+  display: flex;
+  flex-direction: column;
+  padding: 1.3cqw 1.4cqw;
+  border-color: rgba(148, 242, 255, 0.4);
+  background:
+    radial-gradient(20cqw 14cqw at 0% 100%, rgba(148, 242, 255, 0.22), transparent 70%),
+    linear-gradient(165deg, rgba(20, 52, 74, 0.95), rgba(6, 18, 32, 0.95));
+}
+
+.pf-closing img {
+  width: 2.6cqw;
+  height: 2.6cqw;
+  border-radius: 50%;
+  margin-bottom: 0.6cqw;
+}
+
+.pf-closing h3 {
+  margin: 0 0 0.4cqw;
+  font-size: 1.25cqw;
+  line-height: 1.2;
+}
+
+.pf-closing p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78cqw;
+  line-height: 1.45;
+}
+
+.pf-closing ul {
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.25cqw;
+  font-size: 0.78cqw;
+}
+
+.pf-closing a {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---------- Pantallas estrechas: la lámina conserva 16:9 y se desplaza ---------- */
+
+@media (max-width: 760px) {
+  .pf-page {
+    overflow-x: auto;
+  }
+
+  .pf-sheet {
+    min-width: 720px;
+  }
+
+  .pf-toolbar-hint {
+    display: none;
+  }
+}
+
+/* ---------- Impresión / PDF: una lámina por página ---------- */
+
+@media print {
+  html,
+  body,
+  .site-shell {
+    background: #050d1a !important;
+  }
+
+  .site-header,
+  .pf-toolbar {
+    display: none !important;
+  }
+
+  .page-content,
+  .pf-page {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    display: block !important;
+  }
+
+  .pf-sheet {
+    width: 16in;
+    height: 9in;
+    aspect-ratio: auto;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .pf-sheet:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}
