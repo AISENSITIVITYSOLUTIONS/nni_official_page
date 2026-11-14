@@ -5,6 +5,7 @@ import Contact from './pages/Contact'
 import Courses from './pages/Courses'
 import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
+import Portfolio from './pages/Portfolio'
 import Products from './pages/Products'
 import Publications from './pages/Publications'
 import Services from './pages/Services'
@@ -24,6 +25,8 @@ export default function App() {
             <Route path="/cursos" element={<Courses />} />
             <Route path="/productos" element={<Products />} />
             <Route path="/products" element={<Navigate to="/productos" replace />} />
+            <Route path="/portafolio" element={<Portfolio />} />
+            <Route path="/portfolio" element={<Navigate to="/portafolio" replace />} />
             <Route path="/publicaciones" element={<Publications />} />
             <Route path="/nosotros" element={<About />} />
             <Route path="/dashboard" element={<Dashboard />} />
