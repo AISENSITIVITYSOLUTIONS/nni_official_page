@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, Download, ExternalLink, FileCheck2, QrCode, ScanFace } from 'lucide-react'
+import { ArrowLeft, Download, ExternalLink, FileCheck2, MessageCircle, QrCode, ScanFace } from 'lucide-react'
 import { useLanguage } from '../i18n/language'
 import { productVisuals, products, statusTone } from '../data/products'
 import badge from '../assets/nni-badge.webp'
@@ -8,6 +8,7 @@ import './Portfolio.css'
 
 // Portafolio de presentación en tres láminas 16:9, listas para pantalla y para PDF (Ctrl + P).
 
+const spotlightName = 'ZIA'
 const flagshipNames = ['FaceR', 'AllAIs', 'Cash-ito']
 const flagshipVisuals = {
   FaceR: { accent: '#94f2ff', glow: 'rgba(148, 242, 255, 0.42)' },
@@ -36,6 +37,8 @@ const portfolioCopy = {
       ['Dashboards estratégicos', 'Datos e indicadores para leer riesgos, desempeño y oportunidades.'],
       ['Seguridad y trazabilidad', 'Acceso e identidad con validación documental, biométrica y operativa.'],
     ],
+    spotlightLabel: 'Nuevo producto',
+    spotlightChat: ['¿Tienen el modelo en existencia?', 'Sí, hay 3 piezas en tienda. ¿Le comparto precio y opciones de pago?'],
     metrics: { total: 'productos y experiencias', live: 'publicados en línea', capabilities: 'áreas de capacidad' },
     flagshipEyebrow: 'Productos insignia',
     flagshipTitle: 'Tres plataformas que muestran el núcleo tecnológico de NNI.',
@@ -69,6 +72,8 @@ const portfolioCopy = {
       ['Strategic dashboards', 'Data and indicators to read risk, performance and opportunity.'],
       ['Security and traceability', 'Access and identity with document, biometric and operational checks.'],
     ],
+    spotlightLabel: 'New product',
+    spotlightChat: ['Is this model in stock?', 'Yes, 3 units in store. Shall I share the price and payment options?'],
     metrics: { total: 'products and experiences', live: 'published online', capabilities: 'capability areas' },
     flagshipEyebrow: 'Flagship products',
     flagshipTitle: 'Three platforms that show the technological core of NNI.',
@@ -133,7 +138,8 @@ export default function Portfolio() {
   }, [copy.sheetLabel])
 
   const flagships = flagshipNames.map(byName).filter(Boolean)
-  const catalog = products.filter((product) => !flagshipNames.includes(product.name))
+  const spotlight = byName(spotlightName)
+  const catalog = products.filter((product) => !flagshipNames.includes(product.name) && product.name !== spotlightName)
   const liveCount = products.filter((product) => statusTone(product.status) === 'live').length
   const [facer, ...secondary] = flagships
 
@@ -171,12 +177,41 @@ export default function Portfolio() {
           </div>
         </div>
         <div className="pf-cover-side">
-          <div className="pf-orb" aria-hidden="true">
-            <img src={badge} alt="" />
-            <span className="pf-ring r1" />
-            <span className="pf-ring r2" />
-            <span className="pf-ring r3" />
-          </div>
+          {spotlight && (
+            <article className="pf-spotlight" style={{ '--accent': productVisuals.ZIA.accent, '--glow': productVisuals.ZIA.glow }}>
+              <div className="pf-card-top">
+                <span>
+                  {copy.spotlightLabel} · {spotlight.category[language]}
+                </span>
+                <StatusPill product={spotlight} language={language} />
+              </div>
+              <div className="pf-spotlight-body">
+                <div>
+                  <h3>
+                    <MessageCircle className="pf-spotlight-icon" strokeWidth={1.8} />
+                    {spotlight.name}
+                  </h3>
+                  <p className="pf-card-value">{spotlight.value[language]}</p>
+                  <p className="pf-spotlight-text">{spotlight.solution[language]}</p>
+                  <div className="pf-tags">
+                    {spotlight.tech[language].map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                  <small className="pf-spotlight-deploy">{spotlight.deployment[language]}</small>
+                </div>
+                <div className="pf-chat" aria-hidden="true">
+                  <span className="pf-bubble is-in">{copy.spotlightChat[0]}</span>
+                  <span className="pf-bubble is-out">{copy.spotlightChat[1]}</span>
+                  <span className="pf-typing">
+                    <i />
+                    <i />
+                    <i />
+                  </span>
+                </div>
+              </div>
+            </article>
+          )}
           <div className="pf-capabilities">
             <p className="pf-eyebrow">{copy.capabilitiesTitle}</p>
             {copy.capabilities.map(([title, text], i) => (

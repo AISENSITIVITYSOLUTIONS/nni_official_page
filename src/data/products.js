@@ -1,7 +1,7 @@
 // Catálogo único de productos NNI: lo consumen /productos y /portafolio.
 export function statusTone(status) {
   const t = status.es.toLowerCase()
-  if (t.includes('publicad')) return 'live'
+  if (t.includes('publicad') || t.includes('producción')) return 'live'
   if (t.includes('anticipado') || t.includes('demo')) return 'access'
   if (t.includes('lanzamiento')) return 'launch'
   return 'build'
@@ -9,6 +9,7 @@ export function statusTone(status) {
 
 export const productVisuals = {
   EasyMeet: { slug: 'easymeet', accent: '#38bdf8', glow: 'rgba(56, 189, 248, 0.44)' },
+  ZIA: { slug: 'zia', accent: '#25d366', glow: 'rgba(37, 211, 102, 0.42)' },
   AllAIs: { slug: 'allais', accent: '#94f2ff', glow: 'rgba(148, 242, 255, 0.4)' },
   'Cash-ito': { slug: 'cashito', accent: '#22c55e', glow: 'rgba(34, 197, 94, 0.42)' },
   InQilinos: { slug: 'inqilinos', accent: '#f59e0b', glow: 'rgba(245, 158, 11, 0.42)' },
@@ -20,6 +21,19 @@ export const productVisuals = {
 }
 
 export const products = [
+  {
+    name: 'ZIA',
+    category: { es: 'Chatbot con IA para empresas', en: 'AI chatbot for businesses' },
+    problem: { es: 'Empresas que atienden ventas y dudas por WhatsApp a mano, con respuestas lentas y sin cobertura fuera de horario.', en: 'Businesses handling sales and questions on WhatsApp by hand, with slow replies and no after-hours coverage.' },
+    solution: { es: 'Asistente de IA en WhatsApp Business que responde las 24 horas con el catálogo, inventario, promociones y políticas del negocio, y escala a un asesor humano cuando hace falta.', en: 'An AI assistant on WhatsApp Business that answers 24/7 with the business’s catalog, inventory, promotions and policies, and hands off to a human advisor when needed.' },
+    tech: { es: ['WhatsApp Cloud API', 'IA generativa', 'Base de conocimiento', 'Escalamiento a asesor'], en: ['WhatsApp Cloud API', 'Generative AI', 'Knowledge base', 'Advisor handoff'] },
+    users: { es: 'Comercios, distribuidores y empresas de servicio que venden y atienden por WhatsApp.', en: 'Shops, distributors and service companies that sell and support customers on WhatsApp.' },
+    status: { es: 'En producción', en: 'In production' },
+    value: { es: 'Atiende a cada cliente al instante, a cualquier hora, con la información real del negocio.', en: 'Serves every customer instantly, at any hour, with the business’s real information.' },
+    deployment: { es: 'Primera implementación: Z e-Scooters México', en: 'First deployment: Z e-Scooters México' },
+    linkLabel: { es: 'Solicitar demostración', en: 'Request a demo' },
+    href: 'https://www.nni.ai/contacto',
+  },
   {
     name: 'AllAIs',
     category: { es: 'IA multimodelo', en: 'Multi-model AI' },
